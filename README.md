@@ -1,6 +1,6 @@
 # MyClinicAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+My clinic is the easiest way of booking the best clinics. using Angular 
 
 ## Development server
 
