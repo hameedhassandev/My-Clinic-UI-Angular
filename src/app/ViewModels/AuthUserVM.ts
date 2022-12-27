@@ -6,9 +6,9 @@ export class AuthUserVM{
     public roles : string[];
     public token : string;
     public expiresOn : Date;
-    public refreshTokenExpiration : Date;
+
     constructor(_massage:string, _email:string,_userName:string,_isAuth:boolean 
-        ,_roles: Array<string>, _token:string,_expiresOn : Date,_refreshTokenExpiration : Date)
+        ,_roles: Array<string>, _token:string,_expiresOn : Date)
     {
         this.massage = _massage;
         this.email = _email;
@@ -16,9 +16,7 @@ export class AuthUserVM{
         this.isAuth = _isAuth;
         this.roles = _roles;
         this.token = _token;
-        this.expiresOn = new Date(_expiresOn) ;
-        this.refreshTokenExpiration = new Date(_refreshTokenExpiration) ;
-
+        this.expiresOn = new Date(_expiresOn);
 
     }
 
