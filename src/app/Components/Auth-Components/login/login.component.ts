@@ -14,11 +14,12 @@ export class LoginComponent implements OnInit {
 public loginVm: LoginVM;
 public errorMessage: string;
 public serverError: boolean;
-
+emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"; 
 constructor(private _authSrevice: AuthSerciceService, private _router: Router) { 
   this.loginVm =  new LoginVM();
   this.errorMessage = "";
   this.serverError = false;
+
 }
 ngOnInit(): void {
 
@@ -41,7 +42,7 @@ Login(){
           this._router.navigate(['/doctor']);
 
         else
-          this._router.navigate(['/Home']);
+          this._router.navigate(['/doctor']);
       },
 
       error: err => {

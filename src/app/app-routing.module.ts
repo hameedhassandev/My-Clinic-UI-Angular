@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './Components/login/login.component';
+import { LoginComponent } from './Components/Auth-Components/login/login.component';
+import { DoctorLayoutComponentComponent } from './Components/Doctor-Components/doctor-layout-component/doctor-layout-component.component';
+import { AdminLayoutComponentComponent } from './Components/Admin-Components/admin-layout-component/admin-layout-component.component';
 
 const routes: Routes = [
-  {path:'Login', component:LoginComponent},
+  {path:'login', component:LoginComponent},
+  {path:'doctor', component:DoctorLayoutComponentComponent},
+  {path:'admin', component:AdminLayoutComponentComponent},
 
 ];
 

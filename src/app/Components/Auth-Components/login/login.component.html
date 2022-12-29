@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+    <h1>Login</h1>
+    <form #loginForm="ngForm" (ngSubmit)="Login()">
+        <div class="alert alert-danger" *ngIf="serverError">
+          <small>{{errorMessage}}</small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input #emailIput="ngModel" type="email" class="form-control" id="email" name="account" [class.is-invalid]="emailIput.invalid && emailIput.touched" [pattern]="emailPattern" [(ngModel)]="loginVm.Email" email="true" placeholder="Enter email" required>
+         <div *ngIf="emailIput.errors && emailIput.invalid|| emailIput.touched">
+          <small class="text-danger" *ngIf="emailIput.errors?.['required'] && emailIput.touched">Email is required.</small>
+          <small class="text-danger"  *ngIf="emailIput.errors?.['pattern']">Invalid email.</small>
+         </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="pass">Password</label>
+          <input #passwordInp="ngModel" type="password" class="form-control" id="pass" name="pass" [class.is-invalid]="passwordInp.invalid && passwordInp.touched" [(ngModel)]="loginVm.Password" placeholder="Enter password" required >
+          <small class="text-danger" [class.d-none]="passwordInp.valid ||passwordInp.untouched">Pasword is required.</small>
+        </div>
+
+
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Sign In</button>
+      </form>   
+      <div class="">
+        <a routerLink="" class="nav-link" class="">Or Create An Account</a>
+      </div>
+      <div>
+        <a routerLink="" class="nav-link" class="">Forget Password</a>
+      </div>
+        </div>
+    </div>
+</div>
