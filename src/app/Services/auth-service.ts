@@ -12,7 +12,7 @@ import { AuthUserVM } from '../ViewModels/AuthUserVM';
 })
 export class AuthSerciceService {
 
-  private seviceApi: string = environment.APIURL + "/Auth";
+  private serviceApi: string = environment.APIURL + "/Auth";
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ export class AuthSerciceService {
 
   Login(logingUser: LoginVM) : Observable<AuthUserVM>
   {
-    return this._httpClient.post<AuthUserVM>(this.seviceApi + "/Login", JSON.stringify(logingUser), this.httpOptions);
+    return this._httpClient.post<AuthUserVM>(this.serviceApi + "/Login", JSON.stringify(logingUser), this.httpOptions);
   }
 
   isLogged() : Boolean

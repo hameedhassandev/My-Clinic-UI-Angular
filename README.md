@@ -1,7 +1,7 @@
 # MyClinicAngular
 
-My clinic is the easiest way of booking the best clinics. using Angular 
-
+- My clinic is the easiest way of booking the best clinics. using Angular linked with ,NET core API project
+- API Server Repo: https://github.com/hameedhassandev/My-Clinic-API
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

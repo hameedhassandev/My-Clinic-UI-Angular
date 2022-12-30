@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DoctorLayoutComponentComponent } from './Components/Doctor-Components/doctor-layout-component/doctor-layout-component.component';
 import { AdminLayoutComponentComponent } from './Components/Admin-Components/admin-layout-component/admin-layout-component.component';
+import { DepartmentComponent } from './Components/Admin-Components/department/department.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DoctorLayoutComponentComponent,
-    AdminLayoutComponentComponent
+    AdminLayoutComponentComponent,
+    DepartmentComponent
   ],
   imports: [
     FormsModule,
