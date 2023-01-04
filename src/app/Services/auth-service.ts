@@ -70,7 +70,7 @@ export class AuthSerciceService {
   Logout()
   {
     localStorage.removeItem("User");
-    this._router.navigate(['/Login']);
+    this._router.navigate(['/login']);
   }
 
 }

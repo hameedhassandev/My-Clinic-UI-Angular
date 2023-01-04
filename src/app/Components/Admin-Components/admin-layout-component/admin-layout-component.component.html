@@ -1,1 +1,10 @@
-<p>admin-layout-component works!</p>
+
+ <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-side-nav></app-side-nav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
