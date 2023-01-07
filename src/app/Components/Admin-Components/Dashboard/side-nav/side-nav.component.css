@@ -4,16 +4,16 @@
   margin-right: 0.1rem;
 }
 .mat-list-item{
-  color: #4f7ebc !important;
-  font-size: 0.8rem;
+  color: #ffffff !important;
+  font-size: 12px;
   height: 44px !important;
   margin-bottom: 4px;
   border-radius: 5px;
   margin: 0 8px;
 }
-.list-item
+
 .list-item-active{
-  color: #f2f5f7 !important;
+  color: #50a4dc !important;
   background-color: #f2f5f7;
 }
 .mat-subheader{

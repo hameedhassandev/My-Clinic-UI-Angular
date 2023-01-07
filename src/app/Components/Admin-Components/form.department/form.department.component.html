@@ -1,0 +1,23 @@
+<div class="container">
+<h1 mat-dialog-title>{{buttonName}} Department Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="departmentForm">  
+            <div class="mb-3">
+              <label for="name" class="form-label">Department Name</label>
+              <input class="form-control" name="name" placeholder="Name" required formControlName="name">
+              <small class="text-danger" *ngIf="!departmentForm.controls['name'].valid && 
+              departmentForm.controls['name']?.touched">Name is required</small>
+            </div>  
+            <div class="mb-3">
+                <label for="description" class="form-label">Department Description</label>
+                <textarea type="text" class="form-control" name="description" placeholder="Description" required formControlName="description"></textarea>
+                <small class="text-danger" *ngIf="!departmentForm.controls['description'].valid && 
+                departmentForm.controls['description']?.touched">Description is required</small>            </div>      
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button mat-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="addDepartment()" [disabled]="!departmentForm.valid">{{buttonName}}</button>
+
+</div>
+</div>

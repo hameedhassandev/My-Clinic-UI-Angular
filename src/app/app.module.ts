@@ -29,6 +29,7 @@ import { HeaderComponent } from './Components/Admin-Components/Dashboard/header/
 import { SideNavComponent } from './Components/Admin-Components/Dashboard/side-nav/side-nav.component';
 import { AdminHomeComponent } from './Components/Admin-Components/Dashboard/admin-home/admin-home.component';
 import { AdminDashboardComponent } from './Components/Admin-Components/Dashboard/admin-dashboard/admin-dashboard.component';
+import { FormDepartmentComponent } from './Components/Admin-Components/form.department/form.department.component';
 
   
 @NgModule({
@@ -43,6 +44,7 @@ import { AdminDashboardComponent } from './Components/Admin-Components/Dashboard
     SideNavComponent,
     AdminHomeComponent,
     AdminDashboardComponent,
+    FormDepartmentComponent,
     
   ],
   imports: [

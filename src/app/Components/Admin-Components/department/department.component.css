@@ -17,10 +17,7 @@ background-color: white;
 color: black;
 font-size: 1rem;
 }
-.test{
-  width: 150px;
-  margin-left: 1050px;
-}
+
 table {
   width: 100%;
 }
@@ -30,6 +27,11 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 15%;
+
+.mat-column-id{
+  width: 5%;
+}
+
+.mat-column-action{
+  width: 20%;
 }

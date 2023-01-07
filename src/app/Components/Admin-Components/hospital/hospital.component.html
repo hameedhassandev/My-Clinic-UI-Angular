@@ -1,14 +1,54 @@
-<p>hospital works!</p>
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
-<form>
-    <mat-form-field appearance="outline">
-        <mat-label>Enter Hospital Name</mat-label>
-        <input  type="text" matInput/>
-    </mat-form-field>
+<div class="container-fluid page">
+    <!-- <div class="page__box p-3 mt-2">Departments
+      
+    </div> -->
+    <h2 style="color: black;">Hosptals</h2>
+        <div class="page__content shadow p-3">
+            <button  mat-raised-button mat-button color="primary" ><mat-icon>add</mat-icon>Add New Hospital</button>
+            <div>
+                <mat-form-field >
+                  <mat-label>Filter</mat-label>
+                  <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+                </mat-form-field> 
+                 
+                <div class="mat-elevation-z8">
+                  <table mat-table [dataSource]="dataSource" matSort>
+                
+                
+                    <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>  ID </th>
+                      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                    </ng-container>
+                
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Name </th>
+                      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                    </ng-container>
 
-    <mat-form-field appearance="outline">
-        <mat-label>Enter Hospital Address</mat-label>
-        <textarea matInput></textarea>
-    </mat-form-field>
-</form>
+                    <ng-container matColumnDef="address">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Address </th>
+                        <td mat-cell *matCellDef="let row"> {{row.address}} </td>
+                      </ng-container>
 
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button color="primary" (click)="editHospital(row)"><mat-icon>edit</mat-icon></button>
+                            <button mat-icon-button color="warn" (click)="  deleteHospital(row.id)"><mat-icon>delete</mat-icon></button>     
+                        </td>
+                      </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+                   
+                    <tr class="mat-row" *matNoDataRow>
+                      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                  </table>
+                
+                  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+                </div>
+            </div>
+       </div>  
+</div>

@@ -5,7 +5,7 @@ import {MatSort} from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { IDepartment } from 'src/app/Models/IDepartment';
 import { DepartmentServiceService } from 'src/app/Services/department-service.service';
-import { LoginComponent } from '../../Auth-Components/login/login.component';
+import { FormDepartmentComponent } from '../form.department/form.department.component';
 
 
 @Component({
@@ -22,8 +22,8 @@ export class DepartmentComponent implements OnInit {
   departmentList : IDepartment[] = [];
   errMassage:any;
 
-  constructor(public dialog: MatDialog ,private departmentService : DepartmentServiceService) {
-   this.departmentService.getAllDepartments().subscribe(
+  constructor(public _dialog: MatDialog ,private _departmentService : DepartmentServiceService) {
+   this._departmentService.getAllDepartments().subscribe(
     data=>{
      this.departmentList = data;
     },
@@ -37,39 +37,39 @@ export class DepartmentComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(LoginComponent, {
-      width:'30%'
+    this._dialog.open(FormDepartmentComponent, {
+      width:'40%',
+      height:'55%'
     }).afterClosed().subscribe(val => {
-      if(val=='Save'){
+      if(val=='Add'){
         this.getAllDepartment();
       }
     })
   }
 
   getAllDepartment(){
-    this.departmentService.getAllDepartments().subscribe(departments =>{
+    this._departmentService.getAllDepartments().subscribe(departments =>{
       this.dataSource = new MatTableDataSource(departments);
       this.dataSource.paginator=this.paginator;
       this.dataSource.sort=this.sort;
-      // this.prdList=products;
     })
   }
 
   deleteDepartment(depId:number){
-    this.departmentService.deleteDepartment(depId).subscribe(departments =>{
+    this._departmentService.deleteDepartment(depId).subscribe(departments =>{
       alert("Department Deleted");
-      this.departmentService.getAllDepartments().subscribe(departments =>{
+      this._departmentService.getAllDepartments().subscribe(departments =>{
         this.dataSource = new MatTableDataSource(departments);
         this.dataSource.paginator=this.paginator;
         this.dataSource.sort=this.sort;
-        // this.prdList=products;
       })
     })
   }
 
 editDepartment(row:any){
-  this.dialog.open(LoginComponent,{
-    width:'30%',
+  this._dialog.open(FormDepartmentComponent,{
+    width:'40%',
+    height:'55%',
     data:row
   }).afterClosed().subscribe(val => {
     if(val=='Update'){
