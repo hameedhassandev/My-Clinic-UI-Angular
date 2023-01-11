@@ -24,12 +24,21 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { NgSelectModule } from "@ng-select/ng-select";
 import { HospitalComponent } from './Components/Admin-Components/hospital/hospital.component';
 import { HeaderComponent } from './Components/Admin-Components/Dashboard/header/header.component';
 import { SideNavComponent } from './Components/Admin-Components/Dashboard/side-nav/side-nav.component';
 import { AdminHomeComponent } from './Components/Admin-Components/Dashboard/admin-home/admin-home.component';
 import { AdminDashboardComponent } from './Components/Admin-Components/Dashboard/admin-dashboard/admin-dashboard.component';
-import { FormDepartmentComponent } from './Components/Admin-Components/form.department/form.department.component';
+import { FormDepartmentComponent } from './Components/Admin-Components/forms-components/form.department/form.department.component';
+import { FormHospitalComponent } from './Components/Admin-Components/forms-components/form.hospital/form.hospital.component';
+import { RegisterAsDoctorComponent } from './Components/Auth-Components/register-as-doctor/register-as-doctor.component';
+import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
+import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
+import { ForgetPasswordComponent } from './Components/Auth-Components/forget-password/forget-password.component';
+import { SpecialistComponent } from './Components/Admin-Components/specialist/specialist.component';
+import { FormSpecialistComponent } from './Components/Admin-Components/forms-components/form.specialist/form.specialist.component';
+import { DoctorFiltersComponent } from './Components/Visitor-Component/doctor-filters/doctor-filters.component';
 
   
 @NgModule({
@@ -45,6 +54,14 @@ import { FormDepartmentComponent } from './Components/Admin-Components/form.depa
     AdminHomeComponent,
     AdminDashboardComponent,
     FormDepartmentComponent,
+    FormHospitalComponent,
+    RegisterAsDoctorComponent,
+    RegisterAsVisitorComponent,
+    ConfirmationMailComponent,
+    ForgetPasswordComponent,
+    SpecialistComponent,
+    FormSpecialistComponent,
+    DoctorFiltersComponent,
     
   ],
   imports: [
@@ -68,6 +85,7 @@ import { FormDepartmentComponent } from './Components/Admin-Components/form.depa
     MatPaginatorModule,
     MatSortModule,
     MatSlideToggleModule,
+    NgSelectModule
 
   ],
   providers: [],

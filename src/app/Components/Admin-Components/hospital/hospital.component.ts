@@ -3,8 +3,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { IHospital } from 'src/app/Models/IHospital';
+import { Hospital } from 'src/app/Models/Hospital';
 import { HospitalServiceService } from 'src/app/Services/hospital-service.service';
+import { FormHospitalComponent } from '../forms-components/form.hospital/form.hospital.component';
+import { Cities } from 'src/app/Models/Cities';
 
 @Component({
   selector: 'app-hospital',
@@ -16,22 +18,28 @@ export class HospitalComponent implements OnInit{
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  hospitalList : IHospital[] = [];
+  hospitalList : Hospital[] = [];
+  citiesList :any;
   errMassage:any;
-  constructor(public dialog: MatDialog ,private _hospitalService: HospitalServiceService) {
-    this._hospitalService.getAllHospitals().subscribe(
-      data=>{
-        this.hospitalList = data
-      },
-      error=>{
-        this.errMassage = error;
-       }
-    )
+  constructor(public _dialog: MatDialog ,private _hospitalService: HospitalServiceService) {
+
   }
   ngOnInit(): void {
     this.getAllHospitals()
+    this.getAlCities()
   }
+  getAlCities(){
+    this._hospitalService.getAllCities().subscribe(Cities=>{
+      this.citiesList = Cities;
 
+      const mapped = Object.entries(this.citiesList).map(([id, name]) => ({id, name}));
+       this.citiesList = mapped;
+      console.log(Cities);
+      console.log(this.citiesList);
+      console.log(mapped);
+
+    })
+  }
   getAllHospitals(){
 
     this._hospitalService.getAllHospitals().subscribe(hospitals =>{
@@ -41,21 +49,36 @@ export class HospitalComponent implements OnInit{
     })
   }
 
-  // openDialog() {
-  //   this._dialog.open(, {
-  //     width:'40%',
-  //     height:'55%'
-  //   }).afterClosed().subscribe(val => {
-  //     if(val=='Add'){
-  //       this.getAllHospitals();
-  //     }
-  //   })
-  // }
+  openDialog() {
+    this._dialog.open( FormHospitalComponent, {
+      width:'40%',
+      height:'55%'
+    }).afterClosed().subscribe(val => {
+      if(val=='Add'){
+        this.getAllHospitals();
+      }
+    })
+  }
   editHospital(row:any){
-
+    this._dialog.open(FormHospitalComponent,{
+      width:'40%',
+      height:'55%',
+      data:row
+    }).afterClosed().subscribe(val=>{
+      if(val == 'Update'){
+        this.getAllHospitals();
+      }
+    })
   }
   deleteHospital(id:number){
-    
+    this._hospitalService.deleteDepartment(id).subscribe(hospitals =>{
+      alert("Hospital Deleted");
+      this._hospitalService.getAllHospitals().subscribe(hospitals =>{
+        this.dataSource = new MatTableDataSource(hospitals);
+        this.dataSource.paginator=this.paginator;
+        this.dataSource.sort=this.sort;
+      })
+    })
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

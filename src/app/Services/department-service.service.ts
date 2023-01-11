@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthSerciceService } from './auth-service';
 import { Observable } from 'rxjs';
-import { IDepartment } from '../Models/IDepartment';
+import { Department } from '../Models/Department';
 
 @Injectable({
   providedIn: 'root'
@@ -21,25 +21,25 @@ export class DepartmentServiceService {
     };
   }
 
-  getAllDepartments(): Observable<IDepartment[]>{
-    return this._httpClient.get<IDepartment[]>(`${this.depServiceApi}/GetAll`)
+  getAllDepartments(): Observable<Department[]>{
+    return this._httpClient.get<Department[]>(`${this.depServiceApi}/GetAll`)
   }
 
-  getDepartmentById(depId:number): Observable<IDepartment[]>{
-    return this._httpClient.get<IDepartment[]>(`${this.depServiceApi}/GetDepartmentById/${depId}`)
+  getDepartmentById(depId:number): Observable<Department>{
+    return this._httpClient.get<Department>(`${this.depServiceApi}/GetDepartmentById/${depId}`)
   }
 
   addDepartment(dep:any){
     console.log(dep);
-    return this._httpClient.post<IDepartment>(`${this.depServiceApi}/AddDepartment`,dep,this.httpOptions)
+    return this._httpClient.post<Department>(`${this.depServiceApi}/AddDepartment`,dep)
   }
 
   updateDepartment(depId : number, UpdatedDep:any){
-    return this._httpClient.put<any>(`${this.depServiceApi}/UpadteDepartment/${depId}`,UpdatedDep,this.httpOptions)
+    return this._httpClient.put<any>(`${this.depServiceApi}/UpadteDepartment/${depId}`,UpdatedDep)
   }
 
-  deleteDepartment(depId: number):Observable<IDepartment> {
-    return this._httpClient.delete<IDepartment>(`${this.depServiceApi}/DeleteDepartment/${depId}`)
+  deleteDepartment(depId: number):Observable<Department> {
+    return this._httpClient.delete<Department>(`${this.depServiceApi}/DeleteDepartment/${depId}`)
 
   }
 

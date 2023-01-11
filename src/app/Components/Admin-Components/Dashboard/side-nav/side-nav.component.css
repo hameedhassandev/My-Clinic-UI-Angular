@@ -2,6 +2,10 @@
 .mat-icon{
   vertical-align: center;
   margin-right: 0.1rem;
+  font-size: 16px;
+}
+.mat-list-item .a{
+  font-size: 16px;
 }
 .mat-list-item{
   color: #ffffff !important;

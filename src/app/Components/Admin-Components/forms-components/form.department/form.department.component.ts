@@ -11,7 +11,7 @@ import { DepartmentServiceService } from 'src/app/Services/department-service.se
 export class FormDepartmentComponent implements OnInit{
 
   departmentForm!: FormGroup 
-  buttonName : string ="Add";
+  actionName : string ="Add";
 
   /**
    *
@@ -26,14 +26,14 @@ export class FormDepartmentComponent implements OnInit{
       })
       if(this.editeData){
         console.log(this.editeData);
-        this.buttonName="Update";
+        this.actionName="Update";
         this.departmentForm.get('name')?.setValue(this.editeData.name);
         this.departmentForm.get('description')?.setValue(this.editeData.description);
     }
   }
 
   addDepartment(){
-    const fData  = new FormData();
+    var fData  = new FormData();
     fData.append("name", this.departmentForm.get('name')?.value);
     fData.append("description", this.departmentForm.get('description')?.value);
     if(!this.editeData){
@@ -65,8 +65,10 @@ export class FormDepartmentComponent implements OnInit{
       this.departmentForm.reset();
       this._dialog.close('Update');
     },
-    error:()=>{
+    error:(err)=>{
        alert("Somthing error while updating, try again!")
+       console.log(err);
+      
     }
   })
   }

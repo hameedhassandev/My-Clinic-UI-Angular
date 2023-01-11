@@ -1,0 +1,29 @@
+<div class="container">
+<h1 mat-dialog-title>{{actionName}} Specialist</h1>
+<div mat-dialog-content>
+<form [formGroup]="specialistForm">
+    <div class="mb-3">
+        <label class="form-label">Specialist Name</label>
+        <input type="text"  class="form-control" name="SpecialistName" placeholder="Specialist Name" formControlName="SpecialistName" required>
+        <small class="text-danger" *ngIf="!specialistForm.controls['SpecialistName'].valid && specialistForm.controls['SpecialistName'].touched">
+            Specialist name is required.
+        </small>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Department Name</label>
+        <select class="form-select" (change)="validateDepartment(specialistForm.controls['departmentId'].value)"  name="dep" id="departId"  class="form-control" formControlName="departmentId">
+            <option value="" >Select Department...</option>
+            <option *ngFor="let department of departmentList" [value]="department.id">{{department.name}}</option>
+          </select>
+          <small *ngIf="departmentError && specialistForm.controls['departmentId'].touched" class="text-danger">Department name is required.</small>
+      </div>
+</form>
+
+</div>
+<div mat-dialog-action [align]="'end'">
+  <button mat-raised-button mat-button color="warn" mat-dialog-close>Close</button>
+  <button style="margin-left:10px ;" mat-raised-button color="primary" (click)="addSpecialist()" [disabled]="!specialistForm.valid" >{{actionName}}</button>
+
+</div>
+</div>

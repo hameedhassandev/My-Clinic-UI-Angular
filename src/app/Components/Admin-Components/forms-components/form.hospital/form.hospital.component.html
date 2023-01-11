@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 mat-dialog-title>{{actionName}} Hospital</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="hospitalForm">  
+                <div class="mb-3">
+                  <label for="name" class="form-label">Hospital Name</label>
+                  <input class="form-control" name="name" placeholder="Name" required formControlName="name">
+                  <small class="text-danger" *ngIf="!hospitalForm.controls['name'].valid && 
+                  hospitalForm.controls['name']?.touched">Name is required</small>
+                </div>  
+                <div class="mb-3">
+                    <label for="address" class="form-label">Hospital Address</label>
+                    <textarea type="text" class="form-control" name="address" placeholder="Address" required formControlName="address"></textarea>
+                    <small class="text-danger" *ngIf="!hospitalForm.controls['address'].valid && 
+                    hospitalForm.controls['address']?.touched">Address is required</small>            </div>      
+        </form>
+    </div>
+    <div mat-dialog-action [align]="'end'">
+      <button mat-raised-button mat-button color="warn" mat-dialog-close>Close</button>
+      <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="addHospital()" [disabled]="!hospitalForm.valid">{{actionName}}</button>
+    
+    </div>
+    </div>

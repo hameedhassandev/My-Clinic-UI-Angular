@@ -1,5 +1,5 @@
 <div class="container">
-<h1 mat-dialog-title>{{buttonName}} Department Form</h1>
+<h1 mat-dialog-title>{{actionName}} Department</h1>
 <div mat-dialog-content>
     <form [formGroup]="departmentForm">  
             <div class="mb-3">
@@ -17,7 +17,7 @@
 </div>
 <div mat-dialog-action [align]="'end'">
   <button mat-raised-button mat-button color="warn" mat-dialog-close>Close</button>
-  <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="addDepartment()" [disabled]="!departmentForm.valid">{{buttonName}}</button>
+  <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="addDepartment()" [disabled]="!departmentForm.valid">{{actionName}}</button>
 
 </div>
 </div>

@@ -2,8 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthSerciceService } from './auth-service';
-import { IHospital } from '../Models/IHospital';
+import { Hospital } from '../Models/Hospital';
 import { Observable } from 'rxjs';
+import { Cities } from '../Models/Cities';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class HospitalServiceService {
 
   private hospitalServiceAPI: string = environment.APIURL + "/Hospital";
   httpOptions: any
-  constructor(private _httpClient: HttpClient, authService : AuthSerciceService) { 
+  constructor(private _httpClient: HttpClient,private authService : AuthSerciceService) { 
     this.httpOptions = {
       headers: new HttpHeaders({
        'Content-Type': 'application/json',
@@ -21,25 +22,29 @@ export class HospitalServiceService {
     };
   }
 
-  getAllHospitals(): Observable<IHospital[]>{
-    return this._httpClient.get<IHospital[]>(`${this.hospitalServiceAPI}/GetAll`)
+  getAllHospitals(): Observable<Hospital[]>{
+    return this._httpClient.get<Hospital[]>(`${this.hospitalServiceAPI}/GetAll`)
   }
 
-  getHospitalById(hospId:number): Observable<IHospital[]>{
-    return this._httpClient.get<IHospital[]>(`${this.hospitalServiceAPI}/GetById/${hospId}`)
+  getHospitalById(hospId:number): Observable<Hospital>{
+    return this._httpClient.get<Hospital>(`${this.hospitalServiceAPI}/GetById/${hospId}`)
   }
 
   addHospital(hosp:any){
-    return this._httpClient.post<any>(`${this.hospitalServiceAPI}/AddHospital`,this.httpOptions)
+    return this._httpClient.post<any>(`${this.hospitalServiceAPI}/AddHospital`,hosp)
   }
 
   updateHospital(hospId : number, UpdatedHosp:any){
-    return this._httpClient.put<any>(`${this.hospitalServiceAPI}/UpdateHospital/${hospId}`,this.httpOptions)
+    return this._httpClient.put<any>(`${this.hospitalServiceAPI}/UpdateHospital/${hospId}`,UpdatedHosp)
   }
 
-  deleteDepartment(hospId: number):Observable<IHospital> {
-    return this._httpClient.delete<IHospital>(`${this.hospitalServiceAPI}/DeleteHospital/${hospId}`)
+  deleteDepartment(hospId: number):Observable<Hospital> {
+    return this._httpClient.delete<Hospital>(`${this.hospitalServiceAPI}/DeleteHospital/${hospId}`)
 
+  }
+
+  getAllCities():Observable<Cities[]>{
+    return this._httpClient.get<Cities[]>(`https://localhost:7041/api/Enums/GetValuesOfCities`);
   }
 
 

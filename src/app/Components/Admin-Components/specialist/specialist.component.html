@@ -2,9 +2,9 @@
     <!-- <div class="page__box p-3 mt-2">Departments
       
     </div> -->
-    <h2 style="color: black;">Hosptals</h2>
+    <h2 style="color: black;">Specialist</h2>
         <div class="page__content shadow p-3">
-            <button  mat-raised-button mat-button color="primary" (click)="openDialog()" ><mat-icon>add</mat-icon>Add New Hospital</button>
+            <button  mat-raised-button mat-button color="primary" (click)="openDialog()" ><mat-icon>add</mat-icon>Add New Specialist</button>
             <div>
                 <mat-form-field >
                   <mat-label>Filter</mat-label>
@@ -12,7 +12,6 @@
                 </mat-form-field> 
                  
                 <div class="mat-elevation-z8">
-       
                   <table mat-table [dataSource]="dataSource" matSort>
                 
                 
@@ -21,21 +20,20 @@
                       <td mat-cell *matCellDef="let row"> {{row.id}} </td>
                     </ng-container>
                 
-                    <ng-container matColumnDef="name">
-                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Name </th>
-                      <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                    <ng-container matColumnDef="specialistName">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header> Specialist Name </th>
+                      <td mat-cell *matCellDef="let row"> {{row.specialistName}} </td>
                     </ng-container>
-
-                    <ng-container matColumnDef="address">
-                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hospital Address </th>
-                        <td mat-cell *matCellDef="let row"> {{row.address}} </td>
+                    <ng-container matColumnDef="departmentName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Department Name </th>
+                        <td mat-cell *matCellDef="let row"> {{row.departmentName}} </td>
                       </ng-container>
 
                     <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
                         <td mat-cell *matCellDef="let row">
-                            <button mat-icon-button color="primary" (click)="editHospital(row)"><mat-icon>edit</mat-icon></button>
-                            <button mat-icon-button color="warn" (click)="  deleteHospital(row.id)"><mat-icon>delete</mat-icon></button>     
+                            <button mat-icon-button color="primary" (click)="editSpecialist(row)"><mat-icon>edit</mat-icon></button>
+                            <button mat-icon-button color="warn" (click)="deleteSpecialist(row.id)"><mat-icon>delete</mat-icon></button>     
                         </td>
                       </ng-container>
                 
@@ -52,12 +50,4 @@
                 </div>
             </div>
        </div>  
-</div>
-         
-<div class="mb-3">
-  <label for="" class="form-label">Cities</label>
-  <select class="form-select">
-      <option value="" >Select City...</option>
-      <option *ngFor="let cities of citiesList" [value]="cities.id">{{cities.id }} - {{cities.name}}</option>
-    </select>
 </div>

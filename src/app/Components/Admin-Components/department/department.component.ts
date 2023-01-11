@@ -3,9 +3,9 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
-import { IDepartment } from 'src/app/Models/IDepartment';
+import { Department } from 'src/app/Models/Department';
 import { DepartmentServiceService } from 'src/app/Services/department-service.service';
-import { FormDepartmentComponent } from '../form.department/form.department.component';
+import { FormDepartmentComponent } from '../forms-components/form.department/form.department.component';
 
 
 @Component({
@@ -19,18 +19,11 @@ export class DepartmentComponent implements OnInit {
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  departmentList : IDepartment[] = [];
+  departmentList : Department[] = [];
   errMassage:any;
 
   constructor(public _dialog: MatDialog ,private _departmentService : DepartmentServiceService) {
-   this._departmentService.getAllDepartments().subscribe(
-    data=>{
-     this.departmentList = data;
-    },
-    error=>{
-     this.errMassage = error;
-    }
-   )
+
   }
   ngOnInit(): void {
     this.getAllDepartment();
