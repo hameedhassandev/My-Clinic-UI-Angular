@@ -17,7 +17,7 @@ export class SpecialistServiceService{
       headers: new HttpHeaders({
        'Content-Type': 'application/json',
        // Authorization: authService.GetToken()
-      })
+      })      
     };
   }
 

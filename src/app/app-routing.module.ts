@@ -9,8 +9,18 @@ import { AdminHomeComponent } from './Components/Admin-Components/Dashboard/admi
 import { AdminDashboardComponent } from './Components/Admin-Components/Dashboard/admin-dashboard/admin-dashboard.component';
 import { SpecialistComponent } from './Components/Admin-Components/specialist/specialist.component';
 import { DoctorFiltersComponent } from './Components/Visitor-Component/doctor-filters/doctor-filters.component';
+import { MainHomeComponent } from './Components/Visitor-Component/main-home/main-home.component';
+import { HomeComponent } from './Components/Shared-Components/home/home.component';
+import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
 
 const routes: Routes = [
+  {path: '', component: MainHomeComponent, children:[
+    {path: '', component: HomeComponent, pathMatch: 'full'},
+    {path:'home', component:HomeComponent},
+    {path:'login', component:LoginComponent},
+    {path:'docotrs', component:DoctorComponent},
+  ]},
+
   {path:'login', component:LoginComponent},
   {path:'filter', component:DoctorFiltersComponent},
   {path:'doctor', component:DoctorLayoutComponentComponent},

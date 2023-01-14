@@ -39,6 +39,11 @@ import { ForgetPasswordComponent } from './Components/Auth-Components/forget-pas
 import { SpecialistComponent } from './Components/Admin-Components/specialist/specialist.component';
 import { FormSpecialistComponent } from './Components/Admin-Components/forms-components/form.specialist/form.specialist.component';
 import { DoctorFiltersComponent } from './Components/Visitor-Component/doctor-filters/doctor-filters.component';
+import { NavigationBarComponent } from './Components/Shared-Components/navigation-bar/navigation-bar.component';
+import { FooterComponent } from './Components/Shared-Components/footer/footer.component';
+import { MainHomeComponent } from './Components/Visitor-Component/main-home/main-home.component';
+import { HomeComponent } from './Components/Shared-Components/home/home.component';
+import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
 
   
 @NgModule({
@@ -62,6 +67,11 @@ import { DoctorFiltersComponent } from './Components/Visitor-Component/doctor-fi
     SpecialistComponent,
     FormSpecialistComponent,
     DoctorFiltersComponent,
+    NavigationBarComponent,
+    FooterComponent,
+    MainHomeComponent,
+    HomeComponent,
+    DoctorComponent,
     
   ],
   imports: [
