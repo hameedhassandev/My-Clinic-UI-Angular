@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Doctor } from 'src/app/Models/doctor';
+import { Observable, Subscriber } from 'rxjs';
+import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
 
 @Component({
@@ -10,11 +11,43 @@ import { DoctorService } from 'src/app/Services/doctor.service';
 export class DoctorComponent implements OnInit{
   doctorList : Doctor[] = [];
   errMassage:any;
+  myImage!:Observable<any>;
+
+
   constructor(private _doctorService:DoctorService) {
     
   }
   ngOnInit(): void {
     this.getAllDoctors()
+  }
+
+  onChange(event:Event){
+    const target = event.target as HTMLInputElement;
+    const file:File = (target.files as FileList)[0];
+    this.converToBase64(file);
+  }
+  converToBase64(file:File){
+    const observable = new Observable((subscriber : Subscriber<any>)=>{
+       this.readFile(file, subscriber);
+    })
+    observable.subscribe((img=>{
+      console.log(img);
+      this.myImage = img;
+      this.converToBase64(img);
+    }))
+  }
+
+  readFile(file:File, subscribe:Subscriber<any>){
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file)
+    fileReader.onload = () => {
+      subscribe.next(fileReader.result);
+      subscribe.complete();
+    }
+    fileReader.onerror = () => {
+      subscribe.error();
+      subscribe.complete();
+    }
   }
 
   getAllDoctors(){

@@ -34,8 +34,8 @@ export class HospitalServiceService {
     return this._httpClient.post<any>(`${this.hospitalServiceAPI}/AddHospital`,hosp)
   }
 
-  updateHospital(hospId : number, UpdatedHosp:any){
-    return this._httpClient.put<any>(`${this.hospitalServiceAPI}/UpdateHospital/${hospId}`,UpdatedHosp)
+  updateHospital(UpdatedHosp:any){
+    return this._httpClient.put<any>(`${this.hospitalServiceAPI}/UpdateHospital`,UpdatedHosp)
   }
 
   deleteDepartment(hospId: number):Observable<Hospital> {

@@ -12,6 +12,7 @@ import { DoctorFiltersComponent } from './Components/Visitor-Component/doctor-fi
 import { MainHomeComponent } from './Components/Visitor-Component/main-home/main-home.component';
 import { HomeComponent } from './Components/Shared-Components/home/home.component';
 import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
+import { RegisterAsDoctorComponent } from './Components/Auth-Components/register-as-doctor/register-as-doctor.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path:'home', component:HomeComponent},
     {path:'login', component:LoginComponent},
     {path:'docotrs', component:DoctorComponent},
+    {path:'docotr-register', component:RegisterAsDoctorComponent},
   ]},
 
   {path:'login', component:LoginComponent},

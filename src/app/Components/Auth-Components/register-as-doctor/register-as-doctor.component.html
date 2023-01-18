@@ -1,1 +1,72 @@
-<p>register-as-doctor works!</p>
+
+ <div class="container">
+  <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+  <h1>Join As A Doctor</h1>
+  <form #loginForm="ngForm">
+      <div class="alert alert-danger" >
+        <small></small>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter username" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter full name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter your title ex: Consultant of Pediatrics and Neonatology." required>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Enter email" required>
+      </div>
+<div class="row">
+       <div class="col-6">
+        <div class="form-group">
+          <input type="number" class="form-control" placeholder="Enter cost (L.E)" required>
+        </div>
+       </div>
+       <div class="col-6">
+        <div class="form-group">
+          <input type="number" class="form-control" placeholder="Enter waiting time (in minutes)" required>
+        </div>
+       </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="pass" name="pass"  placeholder="Enter password" required >
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <select class="form-control" aria-label="Default select example">
+              <option selected>Choose you department</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+          <ng-select [items]="items"
+          bindLabel="name"
+          placeholder="Select Specialists"
+          appendTo="body"
+          [multiple]="true"
+          [searchable]="true"
+          [(ngModel)] = "selected"
+          (change)="getValue()">
+          <ng-option *ngFor="let item of items" [value]="item.id">{{item.name}}</ng-option>   
+       </ng-select>
+       </div>
+        </div>
+       </div>
+   
+ 
+ <button type="submit" class="btn btn-success">Sign Up</button>
+
+    </form>   
+      </div>
+  </div>
+</div>

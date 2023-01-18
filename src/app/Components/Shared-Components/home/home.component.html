@@ -1,37 +1,44 @@
 <div class="my_slider">
   <img src="assets/imges/slider/slider1.jpg"  alt="Snow" style="width:100%;">
-  <div class="filter_form col-12">
-    <form class="form_control">
-      <div class="find_doctor_bg">
-        <h1 id="find_doctor_h1">Find your doctor... <span id="book_now">book now!</span></h1>
-
-
-        <hr>
-        <select class="select_form col-3" aria-label=".form-select-lg example">
-
-          <option selected><span>Choose Department</span></option>
-          <option value="1">One</option>
+  <div class="back-filter">
+    <div class="container">
+   <h2 style="color: black;color:rgb(0, 112, 205);" >Find your doctor</h2>
+  <hr class="filter_line">
+  <div class="row">
   
-        </select>
-
-        <select class="select_form col-3" aria-label=".form-select-lg example">
-          <option selected>Choose City</option>
-          <option value="1">Cairo</option>
-          <option value="1">Alexandria</option>
-          <option value="1">Giza</option>
-          <option value="1">Qalyubia</option>
-          <option value="1">PortSaid</option>
-          <option value="1">Luxor</option>
-        </select>
-        <select class="select_form col-3" aria-label=".form-select-lg example">
-          <option selected>Choose Area</option>
-          <option value="1">One</option>
+    <mat-form-field>
+      <mat-label>Choose Department</mat-label>
+      <mat-select >
+        <mat-option >Option 1</mat-option>
+        <mat-option >Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose City</mat-label>
+      <mat-select >
+        <mat-option value="1">Giza</mat-option>
+        <mat-option value="1">Giza</mat-option>
+        <mat-option value="1">Giza</mat-option>
+        <mat-option >Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose Area</mat-label>
+      <mat-select>
+        <mat-option value="">None</mat-option>
+        <mat-option >Option 1</mat-option>
+        <mat-option >Option 2</mat-option>
+        <mat-option value="option3">Option 3</mat-option>
+      </mat-select>
+    </mat-form-field>
   
-        </select>
-        <button class="filter_button col-3" type="submit">Search</button>
-      </div>
+  
+        <button class="search-button">Search</button>
    
-    </form>
+   
   </div>
-</div>
-
+    </div>
+  </div>
+  </div>

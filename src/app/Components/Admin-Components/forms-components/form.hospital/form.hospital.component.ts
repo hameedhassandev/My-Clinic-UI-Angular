@@ -54,12 +54,13 @@ addHospital(){
     }
   }
   else{
-    this.updateHospital(this.editeData.id, fData);
+    fData.append('id',this.editeData.id);
+    this.updateHospital(fData);
   }
 }
 
-updateHospital(id:number, fData:FormData){
-this._hospitalService.updateHospital(id,fData).subscribe({
+updateHospital(fData:FormData){
+this._hospitalService.updateHospital(fData).subscribe({
   next:(res)=>{
     alert("Hospital updated successfully");
     this.hospitalForm.reset();

@@ -44,6 +44,7 @@ import { FooterComponent } from './Components/Shared-Components/footer/footer.co
 import { MainHomeComponent } from './Components/Visitor-Component/main-home/main-home.component';
 import { HomeComponent } from './Components/Shared-Components/home/home.component';
 import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
+import { MatSelectModule } from '@angular/material/select';
 
   
 @NgModule({
@@ -93,6 +94,7 @@ import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.co
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatSortModule,
     MatSlideToggleModule,
     NgSelectModule

@@ -1,18 +1,39 @@
 <p>doctor works!</p>
 
-<div *ngFor="let doctor of doctorList">
+<div *ngFor="let doctor of doctorList;index as i;">
 <h3>{{doctor.id}}</h3>
 <h3>Doctor Name : {{doctor.fullName}}</h3>
 <h3>Doctor Title: {{doctor.doctorTitle}}</h3>
 <h3>Number : {{doctor.phoneNo}}</h3>
 <h3>Rate : {{doctor.avgRate}}</h3>
-<h3>Number Of Views: {{doctor.numberOfViews}}</h3>
 <h3>Waiting Time: {{doctor.waitingTime}} min.</h3>
 <h3>City: {{doctor.cities}}</h3>
 <h3>Area : {{doctor.area}}</h3>
 <h3>Address : {{doctor.address}}</h3>
-<h5>Specialist : {{doctor.specialists}}</h5>
-<h3>Department : {{doctor.department}</h3>
+<h3>All Specialist </h3>
+<ul *ngFor="let s of doctor.specialists">
+    <li>{{s.specialistName}}</li>
+
+</ul>
+<h3>All Hospitals </h3>
+<ul *ngFor="let h of doctor.hospitals">
+    <li>{{h.name}}</li>
+
+</ul>
+
+<h3>All Insurance </h3>
+<ul *ngFor="let i of doctor.insurance">
+    <li>{{i.companyName}}</li>
+
+</ul>
+<h3>Department : {{doctor.department}}</h3>
+<h3>Image : {{doctor.image}}</h3>
+<img [src]="" width="100" height="100">
+<img id="profilePicture" alt="profile_image" class="profile-picture" src= "data:image\/(png|jpg);base64,@(Convert.ToBase64String({{doctor.image}}))" />
+
+<h3>Doctor Image : </h3>
+<img [src]="" alt="doctor_img">
+
 <hr>
 
 </div>

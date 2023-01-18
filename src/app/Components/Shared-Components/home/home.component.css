@@ -7,50 +7,38 @@
 
 }
 
-.filter_form{
+.ng-select{
+    font-family: Arial
+}
+.container{
+    text-align: center;
+}
+.back-filter{
 	position: absolute;
-	top: 65%;
-	left: 50%;
+	top: 50%;
+	left: 10%;
 	width: 80%;
-	height: 100px;
-	transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px  #cacbcd;
 }
 
-.find_doctor_bg{
-	background-color: white; 
-	width: 100%;
-	height: 200px; 
-	border-radius: 25px; 
-	padding: 5px;
-	box-shadow: 2px 2px 2px 2px  #68696a;
+.search-button{
+    color: white;
+    border: none;
+    width: 200px;
+    height: 56px;
+    background-color: rgb(239, 15, 15);
+    border-top-right-radius: 25px;
 }
-
-#find_doctor_h1{
-	color: rgb(0, 112, 205); 
-	font-weight:500;
-	 margin-right: 60px;
+.row{
+    margin-left: 10%;
 }
-#book_now{
-	color: rgb(239, 15, 15);
-}
-.select_form{
-	width: 23%;
-	height: 80px;
-	text-align: center;
-	color: rgb(0, 112, 205);
-	font-weight: 500;
-	font-size: 18px;
-    border: 0.5px solid #bfc0c3 ;
-}
-
-.filter_button{
- width: 23%;
- height: 80px;
- background-color: rgb(239, 15, 15);
- color: aliceblue;
- border: none;
- border-top-right-radius: 20px;
- font-weight: 500;
- font-size: 18px;
+.filter_line{
+	height:2px;
+	border-width:0;
+	color:rgb(0, 112, 205);
+	background-color:rgb(0, 112, 205);
 }
 
