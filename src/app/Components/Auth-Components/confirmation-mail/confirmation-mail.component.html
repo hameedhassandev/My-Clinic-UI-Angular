@@ -1,1 +1,119 @@
-<p>confirmation-mail works!</p>
+<div class="row"> 
+    <div class="col-md-12 col-md-offset-3">
+        <form [formGroup]="personalDetails" id="msform">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li [ngClass]="step>=1 ? 'active ' : 'inactive'">Personal Details</li>
+                <li [ngClass]="step>=2 ? 'active' : 'inactive'">Social Profiles</li>
+                <li [ngClass]="step==3 ? 'active' : 'inactive'">Account Setup</li>
+            </ul>
+            <!-- fieldsets -->
+
+            <fieldset  *ngIf="step == 1" >
+                <h2 class="fs-title">Personal Details</h2>
+                <input type="text" class="form-control" required formControlName="name"  placeholder="Full Name"/>
+                <div *ngIf="personal_step && personalDetails.controls['name'].errors">
+                    <small class="text-danger" *ngIf="!personalDetails.controls['name'].valid && personalDetails.controls['name'].touched">
+                        Name is required
+                    </small>
+                </div>
+
+                <input type="text" class="form-control" required formControlName="email"  placeholder="Enter Email"/>
+                <div *ngIf="personal_step && personalDetails.controls['email'].errors">
+                    <small class="text-danger" *ngIf="!personalDetails.controls['email'].valid && personalDetails.controls['email'].touched">
+                        Email is required
+                    </small>
+                </div>
+                <input type="tel" (change)="changeList(personalDetails.controls['phone'].value)" class="form-control" required formControlName="phone"  placeholder="Enter Phone"/>
+                <div *ngIf="personal_step && personalDetails.controls['phone'].errors">
+                    <small class="text-danger" *ngIf="!personalDetails.controls['phone'].valid && personalDetails.controls['phone'].touched">
+                        Phone is required
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Department Name</label>
+                    <select class="form-select"  name="dep" id="departId"  class="form-control" formControlName="departmentId">
+                        <option value="" >Select Department...</option>
+                        <option *ngFor="let i of testList" [value]="i">{{i}}</option>
+                      </select>
+                  </div>
+                <input (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+
+        <form [formGroup]="addressDetails" id="msform">
+            <fieldset *ngIf="step == 2" >
+                <h2 class="fs-title">Address Details</h2>
+               <input type="text" class="form-control" required formControlName="phone"  placeholder="Enter City"/>
+                <div *ngIf="address_step && addressDetails.controls['city'].errors">
+                    <small class="text-danger" *ngIf="!addressDetails.controls['city'].valid && addressDetails.controls['city'].touched">
+                        City is required
+                    </small>
+                </div>
+                <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
+                <div *ngIf="address_step && addressDetails.controls['city'].errors">
+                    <small class="text-danger" *ngIf="!addressDetails.controls['address'].valid && addressDetails.controls['address'].touched">
+                        address is required
+                    </small>
+                </div>
+
+               <input type="text" class="form-control" required formControlName="pincode"  placeholder="Enter pincode"/>
+                <div *ngIf="address_step && addressDetails.controls['pincode'].errors">
+                    <small class="text-danger" *ngIf="!addressDetails.controls['pincode'].valid && addressDetails.controls['pincode'].touched">
+                        address is required
+                    </small>
+                </div>
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+<!--         
+         <form [formGroup]="addressDetails" id="msform">
+            <fieldset *ngIf="step == 2" >
+                <h2 class="fs-title">Address Details</h2>
+               <input type="text" class="form-control" required formControlName="phone"  placeholder="Enter City"/>
+                <div *ngIf="address_step && addressDetails.controls['city'].errors">
+                    <small class="text-danger" *ngIf="!addressDetails.controls['city'].valid && addressDetails.controls['city'].touched">
+                        City is required
+                    </small>
+                </div>
+                <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
+                <div *ngIf="address_step && addressDetails.controls['city'].errors">
+                    <small class="text-danger" *ngIf="!addressDetails.controls['address'].valid && addressDetails.controls['address'].touched">
+                        address is required
+                    </small>
+                </div>
+
+               <input type="text" class="form-control" required formControlName="pincode"  placeholder="Enter pincode"/>
+                <div *ngIf="address_step && addressDetails.controls['pincode'].errors">
+                    <small class="text-danger" *ngIf="!addressDetails.controls['pincode'].valid && addressDetails.controls['pincode'].touched">
+                        address is required
+                    </small>
+                </div>
+           
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
+            </fieldset>
+        </form>
+         <form [formGroup]="addressDetails" id="msform">
+            <fieldset *ngIf="step == 3">
+                <h2 class="fs-title">Educational Details</h2>
+                <input type="text" formControlName="highest_qualification" placeholder="Highest Qualification"/>
+                <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
+                    <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
+                </div>
+                <input type="text" formControlName="university"  placeholder="University"/>
+                <div *ngIf="education_step && educationalDetails.controls.university.errors">
+                    <div *ngIf="education.university.errors?.required">University is required</div>
+                </div>
+                <input type="text" formControlName="total_marks" placeholder="Total Marks"/>
+                <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
+                    <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
+                </div>
+                <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input (click)="submit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
+            </fieldset>
+        </form> -->
+
+    </div>
+</div>

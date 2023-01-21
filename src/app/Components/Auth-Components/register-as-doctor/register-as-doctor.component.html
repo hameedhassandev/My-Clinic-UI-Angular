@@ -1,4 +1,34 @@
+<!-- group
 
+    
+    public userName : string;
+    public email : string;
+    public fullName : string;
+    public doctorTitle : string;
+    public password : string;
+    public gender : number;
+    public phoneNo  : string;
+
+    public cities: number;
+    public areaId: number;
+    public address :string;
+    public cost : number;
+    public waitingTime  : number;
+
+    
+    public image :string;
+    public departmentId: number;
+    public specialistsIds : number[];
+    public hospitalsIds : number[];
+    public insuranceIds : number[];
+-->
+
+
+
+
+<!-- 
+ 
+ 
  <div class="container">
   <div class="row">
       <div class="col-lg-6 offset-lg-3">
@@ -19,6 +49,9 @@
       </div>
       <div class="form-group">
         <input type="email" class="form-control" placeholder="Enter email" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" placeholder="Enter phone" required>
       </div>
 <div class="row">
        <div class="col-6">
@@ -49,24 +82,74 @@
         </div>
         <div class="col-6">
           <div class="form-group">
-          <ng-select [items]="items"
-          bindLabel="name"
-          placeholder="Select Specialists"
-          appendTo="body"
-          [multiple]="true"
-          [searchable]="true"
-          [(ngModel)] = "selected"
-          (change)="getValue()">
-          <ng-option *ngFor="let item of items" [value]="item.id">{{item.name}}</ng-option>   
-       </ng-select>
+
        </div>
         </div>
        </div>
-   
+       <div class="form-group">
+        <ng-select [items]="items"
+        bindLabel="name"
+        placeholder="Select Hospitals"
+        appendTo="body"
+        [multiple]="true"
+        [searchable]="true"
+        (change)="getValue()">
+        <ng-option *ngFor="let item of items" [value]="item.id">{{item.name}}</ng-option>   
+     </ng-select>
+       </div>
+
+       <div class="form-group">
  
+       </div>
+       <div class="row">
+        <div class="col-3">
+         <div class="form-group">
+          <select class="form-control" aria-label="Default select example">
+            <option selected>City</option>
+            <option value="1">cairo</option>
+            <option value="2">giza</option>
+            <option value="3">alex</option>
+          </select>
+         </div>
+        </div>
+        <div class="col-4">
+         <div class="form-group">
+          <select class="form-control" aria-label="Default select example">
+            <option selected>Area</option>
+            <option value="1">new cairo</option>
+            <option value="2">mazatria test test tet </option>
+            <option value="3">fesil</option>
+          </select>
+         </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <input type="string" class="form-control" placeholder="Enter address" required>
+          </div>
+         </div>
+       </div>
+ 
+       <div class="form-group">
+        <select class="form-control" aria-label="Default select example">
+          <option selected>Gender</option>
+          <option value="1">Male</option>
+          <option value="2">Female</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+          <label for="formFileLg" class="form-label">Large file input example</label>
+          <input class="form-control form-control" id="formFileLg" type="file">
+      </div>
  <button type="submit" class="btn btn-success">Sign Up</button>
+
 
     </form>   
       </div>
   </div>
 </div>
+
+<!-- 
+
+  https://stackblitz.com/edit/angular-multi-step-reactive-form?file=src%2Fapp%2Fcomponents%2Fmulti-step-form%2Fmulti-step-form.component.ts
+ --> -->

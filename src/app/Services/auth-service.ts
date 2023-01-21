@@ -5,6 +5,7 @@ import { Route, Router } from '@angular/router';
 import { LoginVM } from '../ViewModels/LoginVM';
 import { Observable } from 'rxjs';
 import { AuthUserVM } from '../ViewModels/AuthUserVM';
+import { RegisterAsDoctorVM } from '../ViewModels/RegisterAsDoctorVM';
 
 
 @Injectable({
@@ -27,6 +28,11 @@ export class AuthSerciceService {
   Login(logingUser: LoginVM) : Observable<AuthUserVM>
   {
     return this._httpClient.post<AuthUserVM>(this.serviceApi + "/Login", JSON.stringify(logingUser), this.httpOptions);
+  }
+
+  RegisterAsDoctor(registerAsDoctor: RegisterAsDoctorVM) : Observable<RegisterAsDoctorVM>
+  {
+    return this._httpClient.post<RegisterAsDoctorVM>(this.serviceApi + "/RegisterAsDoctor", JSON.stringify(registerAsDoctor));
   }
 
   isLogged() : Boolean

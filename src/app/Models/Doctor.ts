@@ -1,3 +1,4 @@
+import { Gender } from "../ViewModels/Gender";
 import { Area } from "./Area";
 import { Cities } from "./Cities";
 import { Department } from "./Department";
@@ -17,6 +18,7 @@ export interface Doctor{
     cities: Cities,
     area:Area['areaName'],
     address:string,
+    gender:Gender,
     department: Department,
     specialists: Specialist[]|null,
     hospitals: Hospital[]|null,

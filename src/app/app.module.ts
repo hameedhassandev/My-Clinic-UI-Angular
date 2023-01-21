@@ -45,6 +45,8 @@ import { MainHomeComponent } from './Components/Visitor-Component/main-home/main
 import { HomeComponent } from './Components/Shared-Components/home/home.component';
 import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
 import { MatSelectModule } from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
+
 
   
 @NgModule({
@@ -97,7 +99,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule,
     MatSortModule,
     MatSlideToggleModule,
-    NgSelectModule
+    NgSelectModule,
+    MatStepperModule
 
   ],
   providers: [],

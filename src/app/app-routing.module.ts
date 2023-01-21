@@ -13,6 +13,8 @@ import { MainHomeComponent } from './Components/Visitor-Component/main-home/main
 import { HomeComponent } from './Components/Shared-Components/home/home.component';
 import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
 import { RegisterAsDoctorComponent } from './Components/Auth-Components/register-as-doctor/register-as-doctor.component';
+import { ForgetPasswordComponent } from './Components/Auth-Components/forget-password/forget-password.component';
+import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -21,6 +23,8 @@ const routes: Routes = [
     {path:'login', component:LoginComponent},
     {path:'docotrs', component:DoctorComponent},
     {path:'docotr-register', component:RegisterAsDoctorComponent},
+    {path:'multi-form', component:ForgetPasswordComponent},
+    {path:'multi-form2', component:ConfirmationMailComponent},
   ]},
 
   {path:'login', component:LoginComponent},

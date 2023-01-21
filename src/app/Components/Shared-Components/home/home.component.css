@@ -3,13 +3,16 @@
 	text-align: center;
 	color: white;
 	margin: 0px;
+
 	/* margin-bottom: 800px; */
 
 }
 
 .ng-select{
-    font-family: Arial
+    font-family: Arial;
+
 }
+
 .container{
     text-align: center;
 }
@@ -21,7 +24,7 @@
     background-color: white;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 2px 2px 2px 2px  #cacbcd;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 }
 
 .search-button{
@@ -29,8 +32,11 @@
     border: none;
     width: 200px;
     height: 56px;
+    font-family: Arial;
     background-color: rgb(239, 15, 15);
     border-top-right-radius: 25px;
+    cursor: pointer;
+
 }
 .row{
     margin-left: 10%;
@@ -42,3 +48,20 @@
 	background-color:rgb(0, 112, 205);
 }
 
+/* about */
+.about_us{
+    margin-top: 70px;;
+    margin-right: 10%;
+}
+
+.about_p{
+   font-size: 16px;
+   font-weight: 300;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.about_h{
+    font-weight: 600;
+    color: rgb(95, 94, 94);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
