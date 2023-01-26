@@ -1,92 +1,73 @@
-
-
-    <!-- Shop Section Begin -->
-    <section class="shop spad">
+ <!-- Shop Section Begin -->
+    <section class="all_doctors">
+       
         <div class="container">
+            <div class="doctor_header">
+                <h5 id="page_path">My Clinci / Home / All Doctors</h5>
+            </div>
+
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="shop__sidebar">
-                        <div class="shop__sidebar__search">
-                            <form action="#">
-                                <input type="text" placeholder="Search...">
-                                <button type="submit"><span class="icon_search"></span></button>
-                            </form>
-                        </div>
-                        <div class="shop__sidebar__accordion">
-                            <div class="accordion" id="accordionExample">
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseOne">Categories</a>
-                                    </div>
-                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__categories">
-                                                <ul class="nice-scroll">
-
-                                                    <li class="my-3">
-                                                      <div class="checkout__input__checkbox">
-                                                        <label >
-                                                          <input type="radio" aria-label="Radio button for following text input" value="Departments"  name="category">
-                                                          <span class="checkmark"></span>
-                                                          Departments 16
-                                                        </label>
-                                                    </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
-                                    </div>
-                                    <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__price">
-                                              <div class="mb-3 row">
-                                                <label for="MinValue" class="col-sm-3 col-form-label">Min</label>
-                                                <div class="col-sm-8">
-                                                  <input type="number"  class="form-control" id="MinValue" >
-                                                </div>
-                                              </div>
-                                              <div class="mb-3 row">
-                                                <label for="MaxValue" class="col-sm-3 col-form-label">Max</label>
-                                                <div class="col-sm-8">
-                                                  <input type="number" class="form-control" id="MaxValue" >
-                                                </div>
-                                              </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <i class="fa fa-star" style=" color:#f7941d !important;"></i>
-
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseSix">Rate</a>
-                                    </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__tags">
-                                              <div class="rating">
-                                                  <i class="fa fa-star" style=" color:#f7941d !important;"></i>
-                                                  4 <input type="range" class="form-range" min="0" max="5" step="1" id="customRange1">                                            </div>
-                                              </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-right col-12">
-                                  <button class="btn btn-danger" >Submit</button>
-                                </div>
+                <div class="col-3">
+                    <div class="filter_sidebar card">
+                        <div class="card-header" style="background-color: rgb(0, 112, 205);color: white; border-radius: 20px; margin-bottom: 10px;">filters</div>
+                        <form>
+                            <div class="card" style="padding: 10px; border-radius: 20px;margin-bottom: 5px;">
+                               <h4 class="card-title" style="color:rgb(0, 112, 205);">Department</h4>
+                               <mat-label>    <img src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="search_icon" width="17">
+                                 Choose Department</mat-label>
+                              <mat-select >
+                                <mat-option >Option 1</mat-option>
+                                <mat-option >Option 2</mat-option>
+                                <mat-option value="option3">Option 3</mat-option>
+                              </mat-select>
                             </div>
-                        </div>
+
+                            <!-- city -->
+                            <div class="card" style="padding: 10px; border-radius: 20px;margin-bottom: 5px;">
+                                <h4 class="card-title" style="color:rgb(0, 112, 205);">City</h4>
+                                <mat-label>    <img src="assets/imges/home_icon/placeholder.png" alt="search_icon" width="17">
+                                  Choose City</mat-label>
+                               <mat-select >
+                                 <mat-option >Option 1</mat-option>
+                                 <mat-option >Option 2</mat-option>
+                                 <mat-option value="option3">Option 3</mat-option>
+                               </mat-select>
+                             </div>
+
+                              <!-- area -->
+                            <div class="card" style="padding: 10px; border-radius: 20px;margin-bottom: 5px;">
+                                <h4 class="card-title" style="color:rgb(0, 112, 205);">Area</h4>
+                                <mat-label>    <img src="assets/imges/home_icon/placeholder.png" alt="search_icon" width="17">
+                                  Choose Area</mat-label>
+                               <mat-select >
+                                 <mat-option >Option 1</mat-option>
+                                 <mat-option >Option 2</mat-option>
+                                 <mat-option value="option3">Option 3</mat-option>
+                               </mat-select>
+                             </div>
+
+                             <!-- price -->
+                            <div class="card" style="padding: 10px; border-radius: 20px;margin-bottom: 5px;">
+                                <h4 class="card-title" style="color:rgb(0, 112, 205);">Price</h4>
+                                <mat-label>    <img src="assets/imges/home_icon/price-tag.png" alt="search_icon" width="17">
+                                  Price</mat-label>
+                               <mat-select >
+                                 <mat-option value="1">Highest price</mat-option>
+                                 <mat-option value="0">Less price </mat-option>
+                               </mat-select>
+                             </div>
+
+                    
+
+                             <button class="btn btn-danger col-12" style="margin-top: 5px; margin-bottom: 10px; border-radius: 20px;">Filter</button>
+                        </form>
                     </div>
                 </div>
-                <div class="col-lg-9">
+
+                <div class="col-9" id="doctor_cards">
+                    <app-doctor></app-doctor>
+                </div>
+                <!-- <div class="col-8">
                     <div class="shop__product__option">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -99,9 +80,8 @@
                     </div>
                     <div class="row">
 
-                      <ng-container  >
-                        <app-doctor></app-doctor>
-                      </ng-container>
+                     
+                   
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
@@ -110,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

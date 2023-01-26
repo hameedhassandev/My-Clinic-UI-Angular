@@ -25,10 +25,11 @@ const routes: Routes = [
     {path:'docotr-register', component:RegisterAsDoctorComponent},
     {path:'multi-form', component:ForgetPasswordComponent},
     {path:'multi-form2', component:ConfirmationMailComponent},
+    {path:'home/all-doctors', component:DoctorFiltersComponent},
+
   ]},
 
   {path:'login', component:LoginComponent},
-  {path:'filter', component:DoctorFiltersComponent},
   {path:'doctor', component:DoctorLayoutComponentComponent},
   {path:'admin', component:AdminLayoutComponentComponent,
   children: [

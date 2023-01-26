@@ -16,6 +16,7 @@ export interface Doctor{
     avgRate:number,
     waitingTime:number,
     cities: Cities,
+    cost :number,
     area:Area['areaName'],
     address:string,
     gender:Gender,

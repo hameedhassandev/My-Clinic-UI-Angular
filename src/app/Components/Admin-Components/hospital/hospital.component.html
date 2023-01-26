@@ -54,10 +54,10 @@
        </div>  
 </div>
          
-<div class="mb-3">
+<!-- <div class="mb-3">
   <label for="" class="form-label">Cities</label>
-  <select class="form-select">
+  <select (change)="selectMe()" class="form-select" formControlName="city">
       <option value="" >Select City...</option>
       <option *ngFor="let cities of citiesList" [value]="cities.id">{{cities.id }} - {{cities.name}}</option>
     </select>
-</div>
+</div> -->

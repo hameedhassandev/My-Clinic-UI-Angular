@@ -28,6 +28,9 @@ export class HospitalComponent implements OnInit{
     this.getAllHospitals()
     this.getAlCities()
   }
+  selectMe(){
+    
+  }
   getAlCities(){
     this._hospitalService.getAllCities().subscribe(Cities=>{
       this.citiesList = Cities;
