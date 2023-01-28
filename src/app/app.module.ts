@@ -46,6 +46,8 @@ import { HomeComponent } from './Components/Shared-Components/home/home.componen
 import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
+import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
+import { VisitorCommentsComponent } from './Components/Shared-Components/visitor-comments/visitor-comments.component';
 
 
   
@@ -75,6 +77,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MainHomeComponent,
     HomeComponent,
     DoctorComponent,
+    DoctorDetailsComponent,
+    VisitorCommentsComponent,
     
   ],
   imports: [

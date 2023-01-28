@@ -2,9 +2,16 @@
   <img src="assets/imges/home_icon/doctor.png" alt="" width="30"> 
    Join Our Doctors
 </h1>
+<!-- <ng-select [items]="specialistsList" 
+placeholder="Specialists"
+bindLabel="specialistName" 
+bindValue="id" 
+[multiple]="true"
+[(ngModel)]="selectedCar">
+</ng-select> -->
 <!-- <p>{{personalDetails.value | json}}</p>
 <p>{{addressAndCostDetails.value | json}}</p> -->
-<!-- <p>{{finalRegisterForm.value | json}}</p> -->
+<p>{{finalRegisterForm.value | json}}</p>
 <!-- <div class="mb-3">
   <label for="" class="form-label">Cities</label>
   <select (change)="selectMe()" class="form-select">
@@ -86,28 +93,29 @@
           <fieldset *ngIf="step == 2" >
               <h2 class="fs-title">Address Details</h2>
 
-              <!-- <div class="mb-3">
+              <div class="mb-3">
                 <select class="form-select"  name="dep" id="gender"  class="form-control" formControlName="gender">
                   <option value="" >Select Gender...</option>
                   <option value="0">Male</option>
                   <option value="1">Female</option>
                 </select>
-            </div> -->
+            </div>
 
            
             <div class="mb-3">
-              <select (change)="selectMe()" class="form-control" required formControlName="cities">
+              <select (change)="changeAreaValue($event)"  class="form-control" required formControlName="cities">
                   <option value="" >Select City...</option>
                   <option *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</option>
                 </select>
-                </div>
-       
-             <!-- <input type="text" class="form-control" required formControlName="cities"  placeholder="Enter City"/>
-              <div *ngIf="address_step && addressAndCostDetails.controls['cities'].errors">
-                  <small class="text-danger" *ngIf="!addressAndCostDetails.controls['cities'].valid && addressAndCostDetails.controls['cities'].touched">
-                      City is required
-                  </small>
-              </div> -->
+            </div>
+
+            <div class="mb-3">
+              <select (change)="getAreaValue($event)" class="form-control" required formControlName="areaId">
+                  <option value="" >Select Area...</option>
+                  <option *ngFor="let a of areasList" [value]="a.id">{{a.areaName}}</option>
+                </select>
+            </div>
+      
               <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
               <div *ngIf="address_step && addressAndCostDetails.controls['address'].errors">
                   <small class="text-danger" *ngIf="!addressAndCostDetails.controls['address'].valid && addressAndCostDetails.controls['address'].touched">
@@ -115,13 +123,20 @@
                   </small>
               </div>
 
-              <!-- <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Area"/>
-              <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                  <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                    departmentId is required
+              <input type="number"  class="form-control" required formControlName="cost"  placeholder="Enter cost (L.E)"/>
+              <!-- <div *ngIf="">
+                  <small class="text-danger" *ngIf="">
+                    cost is required
                   </small>
-              </div>
-   -->
+              </div> -->
+
+              <input type="number"  class="form-control" required formControlName="waitingTime"  placeholder="Enter waiting time (min.)"/>
+              <!-- <div *ngIf="">
+                  <small class="text-danger" *ngIf="">
+                    waitingTime is required
+                  </small>
+              </div> -->
+
               <!-- <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Cost"/>
               <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
                   <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
@@ -163,25 +178,35 @@
         <fieldset *ngIf="step == 3">
             <h2 class="fs-title">Extra Info Details</h2>
 
-            
-            <input type="text" class="form-control" required formControlName="image"  placeholder="Enter image"/>
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['image'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['image'].valid && extraInfoDetails.controls['image'].touched">
-                    image is required
-                </small>
+            <div class="mb-3">
+              <select class="form-control" required formControlName="departmentId">
+                  <option value="" >Select Department...</option>
+                  <option *ngFor="let department of departmentList" [value]="department.id">{{department.name}}</option>
+                </select>
             </div>
-            <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter departmentId"/>
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                  departmentId is required
-                </small>
-            </div>
-            <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Specialists"/>
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                  departmentId is required
-                </small>
-            </div>
+          
+
+         <div class="mb-3">
+            <ng-select [items]="specialistsList" 
+            formControlName="specialistsIds"
+            placeholder="what is/are your specialist(s)"
+            bindLabel="specialistName" 
+            bindValue="id" 
+            [multiple]="true"
+            [(ngModel)]="selected">
+            </ng-select>
+          </div>
+<!-- hospitals -->
+          <div class="mb-3">
+            <ng-select [items]="hospitalsList" 
+            formControlName="hospitalsIds"
+            placeholder="where hospital(s) you work?"
+            bindLabel="name" 
+            bindValue="id" 
+            [multiple]="true"
+            [(ngModel)]="selected">
+            </ng-select>
+          </div>
 
             <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Hospitasl"/>
             <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
@@ -195,19 +220,11 @@
                   departmentId is required
                 </small>
             </div>
-  
-            <!-- <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['address'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['address'].valid && extraInfoDetails.controls['address'].touched">
-                    address is required
-                </small>
-            </div>
-            <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['address'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['address'].valid && extraInfoDetails.controls['address'].touched">
-                    address is required
-                </small>
-            </div> -->
+                   
+            <div class="mb-3">
+              <label for="image" class="form-label">Upload profile image</label>
+              <input type="file" (change)="onchange($event)" class="form-control" accept="image/png, image/jpeg" name="Image" placeholder="Image" required formControlName="image">
+           </div>
 
             <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
             <input (click)="register()"type="submit" name="submit" class="submit action-button" value="Submit"/>

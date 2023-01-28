@@ -4,6 +4,7 @@ import { Cities } from "./Cities";
 import { Department } from "./Department";
 import { Hospital } from "./Hospital";
 import { Insurance } from "./Insurance";
+import { RateAndReviews } from "./RateAndReviews";
 import { Specialist } from "./Specialist";
 
 
@@ -17,12 +18,14 @@ export interface Doctor{
     waitingTime:number,
     cities: Cities,
     cost :number,
-    area:Area['areaName'],
-    address:string,
+    area:Area,
+    address: string,
     gender:Gender,
     department: Department,
     specialists: Specialist[]|null,
     hospitals: Hospital[]|null,
     insurance:Insurance[]|null
     image:string
+    rateAndReview:RateAndReviews[]|null
+    
 }

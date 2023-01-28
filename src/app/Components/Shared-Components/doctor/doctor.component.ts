@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
@@ -14,7 +15,7 @@ export class DoctorComponent implements OnInit{
   myImage!:Observable<any>;
 
 
-  constructor(private _doctorService:DoctorService) {
+  constructor(private _doctorService:DoctorService, private _router: Router) {
     
   }
   ngOnInit(): void {
@@ -62,4 +63,7 @@ export class DoctorComponent implements OnInit{
     })
   }
 
+  getDoctorDetails(){
+    this._router.navigate(['/home/doctor-details']);
+  }
 }

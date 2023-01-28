@@ -15,6 +15,7 @@ import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.co
 import { RegisterAsDoctorComponent } from './Components/Auth-Components/register-as-doctor/register-as-doctor.component';
 import { ForgetPasswordComponent } from './Components/Auth-Components/forget-password/forget-password.component';
 import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
+import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -26,6 +27,8 @@ const routes: Routes = [
     {path:'multi-form', component:ForgetPasswordComponent},
     {path:'multi-form2', component:ConfirmationMailComponent},
     {path:'home/all-doctors', component:DoctorFiltersComponent},
+    {path:'home/doctor-details', component:DoctorDetailsComponent},
+    
 
   ]},
 

@@ -4,7 +4,8 @@
 - API Server Repo: https://github.com/hameedhassandev/My-Clinic-API
 # Screenshot
 ![c1-1](https://user-images.githubusercontent.com/57669085/214542034-fae6900a-a39b-4d5b-ba2e-ef28ee1dd425.PNG)
-![all](https://user-images.githubusercontent.com/57669085/214657820-9d6d5130-7bca-4989-947e-bcda6eb01a90.PNG)
+![f1](https://user-images.githubusercontent.com/57669085/214816897-476dc11e-fca8-4ac5-92bb-0045f6430911.PNG)
+
 ![c2](https://user-images.githubusercontent.com/57669085/213862974-0fa84233-62d8-46d3-a63a-7845ed575137.PNG)
 
 ![f1](https://user-images.githubusercontent.com/57669085/214657867-50c00f29-0134-472f-8a2a-8b2bbe281dce.PNG)
@@ -12,5 +13,5 @@
 ![f3](https://user-images.githubusercontent.com/57669085/214657909-20be19e1-d946-41d6-9322-35326139fc92.PNG)
 ![h1](https://user-images.githubusercontent.com/57669085/214657939-b24b4b58-5e44-4e45-9e0f-525cab0897fc.PNG)
 
-![h1](https://user-images.githubusercontent.com/57669085/214657952-09cfbda3-2634-4613-bfd3-1bc3b1b1f025.PNG)
 
+![h2](https://user-images.githubusercontent.com/57669085/214721855-ab0abc54-86c5-4e8c-9e0e-64c9ef1cfec7.PNG)

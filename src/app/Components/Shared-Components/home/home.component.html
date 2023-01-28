@@ -19,13 +19,10 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> Choose City</mat-label>
+      <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> 
+        Choose City</mat-label>
       <mat-select >
-        <mat-option value="1">Giza</mat-option>
-        <mat-option value="1">Giza</mat-option>
-        <mat-option value="1">Giza</mat-option>
-        <mat-option >Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
+        <mat-option  *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
