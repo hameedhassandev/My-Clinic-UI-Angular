@@ -1,22 +1,51 @@
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-    <h1>Login</h1>
-    <form #loginForm="ngForm" (ngSubmit)="Login()">
-        <div class="alert alert-danger" *ngIf="serverError">
-          <small>{{errorMessage}}</small>
+
+<div class="loading" *ngIf="!loader" >
+  <div class="spinner-grow text-primary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-secondary" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-danger" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow text-warning" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  
+</div>
+
+<section class="login_form" >
+  <div class="container">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="assets/imges/login/medical-team.png" alt="login_icon" style="width: 80%;margin-top: 40px;" > 
+         
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+        <div class="divider d-flex align-items-center my-4">
+          <h1 class="text-center fw-bold mx-3 mb-0 text-muted">Login Form</h1>
         </div>
+        <form #loginForm="ngForm" (ngSubmit)="Login()">
+          <div class="alert alert-danger" *ngIf="serverError">
+            <small>{{errorMessage}}</small>
+          </div>
 
-        <div class="form-group">
-          <label for="email">Email address</label>
-          <input #emailIput="ngModel" type="email" class="form-control" id="email" name="account" [class.is-invalid]="emailIput.invalid && emailIput.touched" [pattern]="emailPattern" [(ngModel)]="loginVm.Email" email="true" placeholder="Enter email" required>
-         <div *ngIf="emailIput.errors && emailIput.invalid|| emailIput.touched">
-          <small class="text-danger" *ngIf="emailIput.errors?.['required'] && emailIput.touched">Email is required.</small>
-          <small class="text-danger"  *ngIf="emailIput.errors?.['pattern']">Invalid email.</small>
-         </div>
-        </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input #emailIput="ngModel" type="email" class="form-control" id="email" name="account" [class.is-invalid]="emailIput.invalid && emailIput.touched" [pattern]="emailPattern" [(ngModel)]="loginVm.Email" email="true" placeholder="Enter email" required>
+           <div *ngIf="emailIput.errors && emailIput.invalid|| emailIput.touched">
+            <small class="text-danger" *ngIf="emailIput.errors?.['required'] && emailIput.touched">Email is required.</small>
+            <small class="text-danger"  *ngIf="emailIput.errors?.['pattern']">Invalid email.</small>
+           </div>
+          </div>
 
-
+         
+          
         <div class="form-group">
           <label for="pass">Password</label>
           <input #passwordInp="ngModel" type="password" class="form-control" id="pass" name="pass" [class.is-invalid]="passwordInp.invalid && passwordInp.touched" [(ngModel)]="loginVm.Password" placeholder="Enter password" required >
@@ -24,14 +53,28 @@
         </div>
 
 
-        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Sign In</button>
-      </form>   
-      <div class="">
-        <a routerLink="" class="nav-link" class="">Or Create An Account</a>
+          <div class="d-flex justify-content-around align-items-center mb-4">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+            <a href="#!">Forgot password?</a>
+          </div>
+
+          <!-- Submit button -->
+          <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+       
+          <a class="btn btn-danger btn-lg btn-block" style="background-color:rgb(239, 15, 15);" href="#"
+            role="button">
+            Continue with Google</a>
+
+        </form>
       </div>
-      <div>
-        <a routerLink="" class="nav-link" class="">Forget Password</a>
-      </div>
-        </div>
     </div>
-</div>
+  </div>
+</section>

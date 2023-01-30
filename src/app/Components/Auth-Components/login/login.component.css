@@ -1,3 +1,17 @@
-.container{
-    margin-top: 100px;
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+
+}
+.login_form{
+    margin-top: 50px;
+    margin-bottom: 60px;
 }

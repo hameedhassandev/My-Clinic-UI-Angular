@@ -11,6 +11,7 @@ import { RoleNames } from 'src/app/ViewModels/RoleNames';
 })
 export class LoginComponent implements OnInit {
 
+loader = true;
 public loginVm: LoginVM;
 public errorMessage: string;
 public serverError: boolean;
@@ -22,7 +23,6 @@ constructor(private _authSrevice: AuthSerciceService, private _router: Router) {
 
 }
 ngOnInit(): void {
-
 }
 
 Login(){

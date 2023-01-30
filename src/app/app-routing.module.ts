@@ -16,12 +16,14 @@ import { RegisterAsDoctorComponent } from './Components/Auth-Components/register
 import { ForgetPasswordComponent } from './Components/Auth-Components/forget-password/forget-password.component';
 import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
 import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
+import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
     {path: '', component: HomeComponent, pathMatch: 'full'},
     {path:'home', component:HomeComponent},
     {path:'login', component:LoginComponent},
+    {path:'visitor-register', component:RegisterAsVisitorComponent},
     {path:'docotrs', component:DoctorComponent},
     {path:'docotr-register', component:RegisterAsDoctorComponent},
     {path:'multi-form', component:ForgetPasswordComponent},

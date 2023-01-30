@@ -1,1 +1,131 @@
-<p>register-as-visitor works!</p>
+
+  <section class="register_visitor">
+    <div class="container">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-8">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4">
+                <h2 style="text-align: center;font-weight: 500;">Sign up</h2>
+                <hr>
+              <form>
+                <!-- usernam and email -->
+                <div class="row">
+                  <!-- email -->
+                  <div class="col-6">
+                    <div class="form-group">
+                        <label for="email"> Email <sup class="req_astric">*</sup></label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                  </div>
+                  <!-- username -->
+                  <div class="col-6">
+                    <div class="form-group">
+                        <label for="userName">Username <sup class="req_astric">*</sup></label>
+                        <input type="text" class="form-control" id="username"  placeholder="Enter your username" required>
+                    </div>
+                  </div>
+                  <!-- fullname -->
+                  <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="fullName">Full name <sup class="req_astric">*</sup></label>
+                        <input type="text" class="form-control" id="fullName"  placeholder="Enter your full name" required>
+                    
+                    </div>
+                  </div>
+                  <!-- password -->
+                  <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                        <label for="password">Password <sup class="req_astric">*</sup></label>
+                        <input type="password" class="form-control" id="password"  placeholder="Enter your password" required>
+                    </div>
+                  </div>
+                </div> 
+                <!-- full name and password -->
+                <div class="row">
+                    <!-- phoneNo -->
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label for="phoneNo">Phone number <sup class="req_astric">*</sup></label>
+                            <input type="tel" class="form-control" id="phoneNo"  placeholder="Enter your phone number" required>
+                        
+                        </div>
+                      </div>
+                 
+                       <!-- city -->
+                       <div class="col-md-6 mb-2">
+                        <label for="cities">City <sup class="req_astric">*</sup></label>
+
+                        <select class="form-control" required >
+                            <option value="" >Select your city...</option>
+                            <option value="1" >city1</option>
+                            <option value="2" >city2</option>
+                          </select>
+                      </div>  
+                </div>
+                <!-- phone number and city -->
+                <div class="row">
+                    <!-- areaId -->
+                    <div class="col-md-6 mb-2">
+                        <label for="areaId">Area <sup class="req_astric">*</sup></label>
+
+                        <select class="form-control" required >
+                            <option value="" >Select your area...</option>
+                            <option value="1" >area1</option>
+                            <option value="2" >area2</option>
+                          </select>
+                      </div>  
+                 
+                       <!-- city -->
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="userName">Address <sup class="req_astric">*</sup></label>
+                                <input type="text" class="form-control" id="address"  placeholder="Enter your address" required>
+                            </div>
+                        </div>
+
+                </div>
+                <!-- image and gender -->
+                <div class="row">
+                
+                <!-- image -->
+                <div class="col-md-6 mb-2">
+                    <div class="form-group">
+                    <label for="image">Image <sup class="req_astric">*</sup></label>
+                    <input type="file" class="form-control" id="phoneNo"  placeholder="Enter your phone number" required>
+                </div>
+                        </div>
+                <!-- gender -->
+                <div class="col-md-6 mb-4">
+
+                    <p for="Gender">Gender <sup class="req_astric">*</sup></p>
+
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" 
+                        value="option1" checked />
+                    <label class="form-check-label" for="Gender">Male</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                        value="option2" />
+                    <label class="form-check-label" for="maleGender">Female</label>
+                    </div>
+
+                </div>
+                
+                </div>
+
+                <!-- submit -->
+                <div class="row">
+                    <div class="col-12">
+                        <button  type="submit" class="btn btn-primary btn-lg btn-block" style="border-radius: 16px;">Sign up</button>
+                    </div>
+                </div>    
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

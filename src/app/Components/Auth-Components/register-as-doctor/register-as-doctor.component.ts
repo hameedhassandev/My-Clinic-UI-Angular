@@ -26,10 +26,10 @@ export class RegisterAsDoctorComponent implements OnInit{
   citiesList :any;
   areasList :any;
   departmentList : any;
-  specialistsList : any;
-  hospitalsList : any;
+  specialistsList : any[] = [];
+  hospitalsList : any[] = [];
   file:string='';
-  selected = 0;
+  selected = [];
 
  constructor(private _fb: FormBuilder,private _authSrevice: AuthSerciceService, 
   private _router: Router,private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService,
@@ -64,6 +64,9 @@ export class RegisterAsDoctorComponent implements OnInit{
       doctorTitle: ['',Validators.required],
       password: ['',Validators.required],
       phoneNo: ['',Validators.required],
+      specialistsIds: ['',Validators.required],
+      hospitalsIds: ['',Validators.required],
+
   }),
 
     p2 : this._fb.group({
@@ -78,8 +81,7 @@ export class RegisterAsDoctorComponent implements OnInit{
     p3: this._fb.group({
         image: ['', Validators.required],
         departmentId: ['', Validators.required],
-        specialistsIds: ['',Validators.required],
-        hospitalsIds: ['',Validators.required],
+        // hospitalsIds: ['',Validators.required],
         // insuranceIds: ['',Validators.required],
   })
   });
@@ -139,14 +141,21 @@ getAlCities(){
 getAllAreaByCityId(cityId:number){
   this._ddlService.getAllAreaByCityId(cityId).subscribe(areas=>{
     this.areasList = areas;
-
-    // const mapped2 = Object.entries(this.areasList).map(([id, areaName]) => ({id, areaName}));
-    //  this.areasList = mapped2;
     console.log(areas);
     console.log(this.areasList);
-    // console.log(mapped2);
-
   })
+}
+getAllDepartments(){
+  this._departmentService.getAllDepartments().subscribe(departments=>{
+    this.departmentList = departments;
+})
+  console.log(this.departmentList);
+}
+
+getAllHospitals(){
+  this._hospitalServ.getAllHospitals().subscribe(hospital=>{
+    this.hospitalsList = hospital;
+})
 }
 
 getAllSpecialisatByDepId(depId:number){
@@ -162,18 +171,11 @@ getAllSpecialisatByDepId(depId:number){
   })
 }
 
-getAllDepartments(){
-  this._departmentService.getAllDepartments().subscribe(departments=>{
-    this.departmentList = departments;
-})
-  console.log(this.departmentList);
-}
 
-getAllHospitals(){
-  this._hospitalServ.getAllHospitals().subscribe(hospital=>{
-    this.hospitalsList = hospital;
-})
-}
+
+
+
+
 
 
 changeAreaValue(cityValue:any){

@@ -84,7 +84,30 @@ bindValue="id"
                   </small>
               </div>
 
-            
+              <div class="mb-3">
+                <ng-select [items]="specialistsList" 
+                formControlName="specialistsIds"
+                placeholder="what is/are your specialist(s)"
+                bindLabel="specialistName" 
+                bindValue="id" 
+                [multiple]="true"
+                [(ngModel)]="selected"
+                required>
+                </ng-select>
+              </div>
+
+            <div class="mb-3">
+            <ng-select [items]="hospitalsList"
+            formControlName="hospitalsIds"
+            placeholder="where hospital(s) you work?"
+            bindLabel="name" 
+            bindValue="id" 
+            [multiple]="true"
+            [(ngModel)]="selected"
+            required>
+            </ng-select>
+          </div>
+
               <input (click)="test()" type="button" name="next" class="next action-button" value="Next"/>
           </fieldset>
         </div>
@@ -186,18 +209,9 @@ bindValue="id"
             </div>
           
 
-         <div class="mb-3">
-            <ng-select [items]="specialistsList" 
-            formControlName="specialistsIds"
-            placeholder="what is/are your specialist(s)"
-            bindLabel="specialistName" 
-            bindValue="id" 
-            [multiple]="true"
-            [(ngModel)]="selected">
-            </ng-select>
-          </div>
+  
 <!-- hospitals -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <ng-select [items]="hospitalsList" 
             formControlName="hospitalsIds"
             placeholder="where hospital(s) you work?"
@@ -206,25 +220,21 @@ bindValue="id"
             [multiple]="true"
             [(ngModel)]="selected">
             </ng-select>
-          </div>
+          </div> -->
 
             <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Hospitasl"/>
+               
+            <!-- <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Insurance" />
             <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
                 <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
                   departmentId is required
                 </small>
-            </div>
-            <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Insurance" />
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                  departmentId is required
-                </small>
-            </div>
+            </div> -->
                    
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="image" class="form-label">Upload profile image</label>
               <input type="file" (change)="onchange($event)" class="form-control" accept="image/png, image/jpeg" name="Image" placeholder="Image" required formControlName="image">
-           </div>
+           </div> -->
 
             <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
             <input (click)="register()"type="submit" name="submit" class="submit action-button" value="Submit"/>
