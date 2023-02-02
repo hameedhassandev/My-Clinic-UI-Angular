@@ -1,4 +1,4 @@
- <!-- Shop Section Begin -->
+   <!-- Shop Section Begin -->
     <section class="all_doctors">
        
         <div class="container">
@@ -15,10 +15,9 @@
                                <h4 class="card-title" style="color:rgb(0, 112, 205);">Department</h4>
                                <mat-label>    <img src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="search_icon" width="17">
                                  Choose Department</mat-label>
-                              <mat-select >
-                                <mat-option >Option 1</mat-option>
-                                <mat-option >Option 2</mat-option>
-                                <mat-option value="option3">Option 3</mat-option>
+                              <mat-select   [ngModel]="departId" >
+                                <mat-option  *ngFor="let d of departmentList" [value]="d.id">{{d.name}}</mat-option>
+
                               </mat-select>
                             </div>
 
@@ -27,22 +26,8 @@
                                 <h4 class="card-title" style="color:rgb(0, 112, 205);">City</h4>
                                 <mat-label>    <img src="assets/imges/home_icon/placeholder.png" alt="search_icon" width="17">
                                   Choose City</mat-label>
-                               <mat-select >
-                                 <mat-option >Option 1</mat-option>
-                                 <mat-option >Option 2</mat-option>
-                                 <mat-option value="option3">Option 3</mat-option>
-                               </mat-select>
-                             </div>
-
-                              <!-- area -->
-                            <div class="card" style="padding: 10px; border-radius: 20px;margin-bottom: 5px;">
-                                <h4 class="card-title" style="color:rgb(0, 112, 205);">Area</h4>
-                                <mat-label>    <img src="assets/imges/home_icon/placeholder.png" alt="search_icon" width="17">
-                                  Choose Area</mat-label>
-                               <mat-select >
-                                 <mat-option >Option 1</mat-option>
-                                 <mat-option >Option 2</mat-option>
-                                 <mat-option value="option3">Option 3</mat-option>
+                               <mat-select [(ngModel)]="cityId">
+                                <mat-option  *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</mat-option>
                                </mat-select>
                              </div>
 
@@ -56,42 +41,19 @@
                                  <mat-option value="0">Less price </mat-option>
                                </mat-select>
                              </div>
-
-                    
-
-                             <button class="btn btn-danger col-12" style="margin-top: 5px; margin-bottom: 10px; border-radius: 20px;">Filter</button>
+            
+            
+                             <button (click)="filter()" class="btn btn-danger col-12" style="margin-top: 5px; margin-bottom: 10px; border-radius: 20px;">Filter</button>
                         </form>
                     </div>
                 </div>
 
-                <div class="col-9" id="doctor_cards">
-                    <app-doctor></app-doctor>
+                  <div class="col-9" id="doctor_cards">
+                    <div class="container-fluid" *ngFor="let doctor of doctorList;index as i;">
+                      <app-doctor [app-doctor]="doctor"></app-doctor>
+                  </div>
                 </div>
-                <!-- <div class="col-8">
-                    <div class="shop__product__option">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="shop__product__option__left">
-                                    <p>Showing  4 – 100 of 200 results</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-
-                     
-                   
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="product__pagination">
-                                <a  style="cursor: pointer;">44</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+               
             </div>
         </div>
     </section>
-    <!-- Shop Section End -->

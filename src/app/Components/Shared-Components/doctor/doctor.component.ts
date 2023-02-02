@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { Doctor } from 'src/app/Models/Doctor';
@@ -10,60 +10,34 @@ import { DoctorService } from 'src/app/Services/doctor.service';
   styleUrls: ['./doctor.component.css']
 })
 export class DoctorComponent implements OnInit{
-  doctorList : Doctor[] = [];
-  errMassage:any;
-  myImage!:Observable<any>;
 
+  @Input('app-doctor') doctor!:Doctor;
+  timesOfWorkList:any
+  listOfrate = [1,2,3,4,5]
+  checkedMe = 'checked'
 
   constructor(private _doctorService:DoctorService, private _router: Router) {
     
   }
   ngOnInit(): void {
-    this.getAllDoctors()
+ this.getDoctorTimesOfWork()
   }
 
-  onChange(event:Event){
-    const target = event.target as HTMLInputElement;
-    const file:File = (target.files as FileList)[0];
-    this.converToBase64(file);
-  }
-  converToBase64(file:File){
-    const observable = new Observable((subscriber : Subscriber<any>)=>{
-       this.readFile(file, subscriber);
-    })
-    observable.subscribe((img=>{
-      console.log(img);
-      this.myImage = img;
-      this.converToBase64(img);
-    }))
-  }
-
-  readFile(file:File, subscribe:Subscriber<any>){
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file)
-    fileReader.onload = () => {
-      subscribe.next(fileReader.result);
-      subscribe.complete();
-    }
-    fileReader.onerror = () => {
-      subscribe.error();
-      subscribe.complete();
-    }
-  }
-
-  getAllDoctors(){
-    this._doctorService.getAllDoctors().subscribe({
+  getDoctorTimesOfWork(){
+    this._doctorService.GetAllTimesOfWork(this.doctor.id).subscribe({
       next:(res)=>{
-        this.doctorList = res
+        this.timesOfWorkList = res
+        console.log(this.timesOfWorkList)
       },
       error:(err)=>{
-        this.errMassage = err
-        console.log(this.errMassage)
+        console.log(err)
       }
     })
-  }
-
-  getDoctorDetails(){
-    this._router.navigate(['/home/doctor-details']);
+    
+    }
+  
+  
+  getDoctorDetails(doctorId:any){
+    this._router.navigate(['/home/doctor-details',doctorId]);
   }
 }

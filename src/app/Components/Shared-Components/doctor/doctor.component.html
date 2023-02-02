@@ -1,7 +1,7 @@
-<div (click)="getDoctorDetails()" class="container-fluid" *ngFor="let doctor of doctorList;index as i;">
-    <div class="row">
+
+<div class="row">
         <div class="col-12">
-            <div class="card" style="border-radius: 20px;box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);">
+            <div (click)="getDoctorDetails(doctor.id)" class="card" style="border-radius: 20px;box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);">
                 <div class="card-horizontal">
                     <div class="img-square-wrapper">
                         <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
@@ -11,73 +11,35 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="col-5">
-                                <h2 id="doctor_title" class="card-title"><span style="font-size: 12px;">Doctor</span> {{doctor.fullName}}</h2>
+                                <h2 id="doctor_title" class="card-title"><span style="font-size: 12px;">Doctor</span> {{ doctor.fullName}}</h2>
                                 <p class="card-title">{{doctor.doctorTitle}}</p>
-                                <div style="margin-bottom: 10px;">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star"></span>
+                                {{doctor.id}}
+                                <div style="margin-bottom: 10px;font-size: 20px;">
+                                    <span *ngFor="let s of listOfrate" class="fa fa-star" [ngClass]="checkedMe"></span>
+                                    
                                 </div>
-                                <p><img class="" src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="placeholder img" width="17"> {{doctor.department['name']}}</p>
+                                <p><img class="" src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="placeholder img" width="17"> {{ doctor.department['name']}}</p>
                                 <p><img class="" src="assets/imges/home_icon/doctor.png" alt="placeholder img" width="20"><span style="font-weight: bold;"> Specialists</span>   
-                                    <span *ngFor="let s of doctor.specialists">
+                                    <span *ngFor="let s of  doctor.specialists">
                                     {{s.specialistName}},</span> </p>
-                                <p><img class="" src="assets/imges/home_icon/placeholder.png" alt="placeholder img" width="15"> {{doctor.address}}, {{doctor.area['areaName']}}, {{doctor.cities}}.</p>
-                                <p style="color: rgb(106, 207, 128);"><img class="" src="assets/imges/home_icon/time.png" alt="time img" width="17"> waiting time {{doctor.waitingTime}} min.</p>
-                                <p><img class="" src="assets/imges/home_icon/money.png" alt="time img" width="17"> {{doctor.cost}} EGP</p>
-                                <p><img class="" src="assets/imges/home_icon/call.png" alt="call img" width="13"> {{doctor.phoneNo}}</p>
+                                <p><img class="" src="assets/imges/home_icon/placeholder.png" alt="placeholder img" width="15"> {{ doctor.address}}, {{ doctor.area['areaName']}}, {{ doctor.cities}}.</p>
+                                <p style="color: rgb(106, 207, 128);"><img class="" src="assets/imges/home_icon/time.png" alt="time img" width="17"> waiting time {{ doctor.waitingTime}} min.</p>
+                                <p><img class="" src="assets/imges/home_icon/money.png" alt="time img" width="17"> {{ doctor.cost}} EGP</p>
+                                <p><img class="" src="assets/imges/home_icon/call.png" alt="call img" width="13"> {{ doctor.phoneNo}}</p>
                             </div>
                             <div class="col-3">
                     
-                                    <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232); margin-top: 20px;">
-                                        <!-- <thead>
-                                        <tr>
-                                            <th>Day</th>
-                                            <th>From</th>
-                                            <th>To</th>
-                                            <th>Book</th>
-                                        
-                                        </tr>
-                                        </thead> -->
-                                        <tbody>
-
-                                         <tr>
-                                            <td style="background-color: rgb(0, 112, 205);"><p style="color:white; ;">sunday 12-2-23</p></td>
-                                           
-                                            <td>2:30</td>
-                                            <td>11:30</td>
-                                            <td style="background-color:#DC3545 ;"><button routerLink="/multi-form2" class="btn btn-danger btn-sm">book</button></td>
-                                   
-                                        </tr>
-                                       
-                                        <tr>
-                                           
-                                            <td style="background-color: rgb(0, 112, 205);"><p style="color:white; ;">thusday</p></td>
-                                            <td>2:30</td>
-                                            <td>11:30</td>
-                                            <td style="background-color:#DC3545 ;"><button  class="btn btn-danger btn-sm">book</button></td>
-                                   
-                                        </tr>
-                                        <tr>
-                                           
-                                            <td style="background-color: rgb(0, 112, 205);"><p style="color:white; ;">friday</p></td>
-                                            <td>2:30</td>
-                                            <td>11:30</td>
-                                            <td style="background-color:#DC3545 ;"><button  class="btn btn-danger btn-sm">book</button></td>
-                                   
-                                        </tr>
-                                        <tr>
-                                           
-                                            <td style="background-color: rgb(0, 112, 205);"><p style="color:white; ;">monday</p></td>
-                                            <td>00</td>
-                                            <td>00</td>
-                                            <td style="background-color:#DC3545 ;"><button  class="btn btn-danger btn-sm disabled">book</button></td>
-                                            <!-- <td><p style="background-color:rgb(239, 15, 15); color: white; padding: 3px;border-radius: 5px;font-size: 12px;text-align: center;">book</p></td> -->
-                                   
-                                        </tr>
+                                    <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232); margin-top:50px;">
                         
+                                        <tbody>
+                                            <tr *ngFor="let t of timesOfWorkList">
+                                                <td style="background-color: rgb(0, 112, 205);"><p style="color:white;font-size: 12px;">{{t.day}}</p></td>
+                                            
+                                                <td style="font-size: 12px;">{{t.startWork}}</td>
+                                                <td style="font-size: 12px;">{{t.endWork}}</td>
+                                                <td style="background-color:#DC3545;"><button routerLink="/multi-form2" class="btn btn-danger btn-sm" style="font-size: 12px;">book</button></td>
+                                    
+                                            </tr>
                                         </tbody>
                                     </table> 
                                 </div>
@@ -88,57 +50,10 @@
                   
                 </div>
               
-            </div>
+         
    
     </div>
 </div>
 
 
 
-
-<div *ngFor="let doctor of doctorList;index as i;">
-<h3>{{doctor.id}}</h3>
-<h3>Doctor Name : {{doctor.fullName}}</h3>
-<h3>Doctor Title: {{doctor.doctorTitle}}</h3>
-<h3>Number : {{doctor.phoneNo}}</h3>
-<h3>Rate : {{doctor.avgRate}}</h3>
-<h3>Waiting Time: {{doctor.waitingTime}} min.</h3>
-<h3>City: {{doctor.cities}}</h3>
-<h3>Area : {{doctor.area}}</h3>
-<h3>Gender : {{doctor.gender}}</h3>
-
-<h3>Address : {{doctor.address}}</h3>
-
-<h3>All Specialist </h3>
-<ul *ngFor="let s of doctor.specialists">
-    <li>{{s.specialistName}}</li>
-
-</ul>
-<h3>All Hospitals </h3>
-<ul *ngFor="let h of doctor.hospitals">
-    <li>{{h.name}}</li>
-
-</ul>
-
-<h3>All Insurance </h3>
-<ul *ngFor="let i of doctor.insurance">
-    <li>{{i.companyName}}</li>
-
-</ul>
-
-<h1>All Rate And Reviews </h1>
-<ul *ngFor="let r of doctor.rateAndReview">
-    <li>{{r.review}}</li>
-
-</ul>
-<h3>Department : {{doctor.department}}</h3>
-<h3>Image : {{doctor.image}}</h3>
-<img [src]="" width="100" height="100">
-<img id="profilePicture" alt="profile_image" class="profile-picture" src= "data:image\/(png|jpg);base64,@(Convert.ToBase64String({{doctor.image}}))" />
-
-<h3>Doctor Image : </h3>
-<img [src]="" alt="doctor_img">
-
-<hr>
-
-</div>

@@ -27,9 +27,9 @@ const routes: Routes = [
     {path:'docotrs', component:DoctorComponent},
     {path:'docotr-register', component:RegisterAsDoctorComponent},
     {path:'multi-form', component:ForgetPasswordComponent},
-    {path:'multi-form2', component:ConfirmationMailComponent},
+    {path:'confirm-email', component:ConfirmationMailComponent},
     {path:'home/all-doctors', component:DoctorFiltersComponent},
-    {path:'home/doctor-details', component:DoctorDetailsComponent},
+    {path:'home/doctor-details/:doctorId', component:DoctorDetailsComponent},
     
 
   ]},

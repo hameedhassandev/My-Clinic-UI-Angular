@@ -1,5 +1,5 @@
 <div class="my_slider">
-  <img src="assets/imges/slider/slider1.jpg"  alt="Snow" style="width:100%;">
+  <img src="assets/imges/slider/slide-20-1.jpg"  alt="Snow" style="width:100%;">
   <div class="back-filter">
     <div class="container">
    <h2 style="color: black;color:rgb(0, 112, 205);" >         
@@ -7,6 +7,7 @@
     Find your doctor
   </h2>
   <hr class="filter_line">
+
   <div class="row">
   
     <mat-form-field>
@@ -14,9 +15,7 @@
       <mat-label>   <img src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="search_icon" id="search_icon">
         Choose Department</mat-label>
       <mat-select style="height: 40px;">
-        <mat-option >Option 1</mat-option>
-        <mat-option >Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
+        <mat-option  *ngFor="let d of departmentList" [value]="d.id">{{d.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
@@ -29,18 +28,13 @@
     <mat-form-field>
       <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> Choose Area </mat-label>
       <mat-select>
-        <mat-option value="">None</mat-option>
-        <mat-option >Option 1</mat-option>
-        <mat-option >Option 2</mat-option>
-        <mat-option value="option3">Option 3</mat-option>
+        <mat-option value="All Area">All Area</mat-option>
       </mat-select>
     </mat-form-field>
-  
-  
-        <button class="search-button">Search</button>
-   
-   
+    <button (click)="movetoContact()" class="search-button">Search</button>
   </div>
+
+  
     </div>
   </div>
   </div>

@@ -38,7 +38,7 @@ export class FormSpecialistComponent implements OnInit {
     this._departmentService.getAllDepartments().subscribe(departments=>{
       this.departmentList = departments;
 
-    }
+  }
 
     )
     console.log(this.departmentList);

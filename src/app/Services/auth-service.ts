@@ -6,6 +6,7 @@ import { LoginVM } from '../ViewModels/LoginVM';
 import { Observable } from 'rxjs';
 import { AuthUserVM } from '../ViewModels/AuthUserVM';
 import { RegisterAsDoctorVM } from '../ViewModels/RegisterAsDoctorVM';
+import { RegisterAsVisitorVM } from '../ViewModels/RegisterAsVisitorVM';
 
 
 @Injectable({
@@ -33,6 +34,11 @@ export class AuthSerciceService {
   RegisterAsDoctor(registerAsDoctor: RegisterAsDoctorVM) : Observable<RegisterAsDoctorVM>
   {
     return this._httpClient.post<RegisterAsDoctorVM>(this.serviceApi + "/RegisterAsDoctor", JSON.stringify(registerAsDoctor));
+  }
+
+  RegisterAsVisitor(registerVisitor: any)
+  {
+    return this._httpClient.post<any>( `${this.serviceApi}/RegisterAsPatient`,registerVisitor);
   }
 
   isLogged() : Boolean

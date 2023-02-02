@@ -23,11 +23,12 @@
 .container{
     text-align: center;
 }
+
 .back-filter{
 	position: absolute;
 	top: 50%;
-	left: 10%;
-	width: 80%;
+	left: 5%;
+	width: 90%;
     background-color: white;
     padding: 25px;
     border-radius: 20px;
@@ -37,7 +38,7 @@
 .search-button{
     color: white;
     border: none;
-    width: 270px;
+    width: 250px;
     height: 72px;
     font-family: Arial;
     background-color: rgb(239, 15, 15);
@@ -46,9 +47,7 @@
     cursor: pointer;
 
 }
-.row{
-    margin-left: 5%;
-}
+
 .filter_line{
 	height:2px;
 	border-width:0;

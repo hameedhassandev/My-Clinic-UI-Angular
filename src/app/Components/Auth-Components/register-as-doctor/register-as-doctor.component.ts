@@ -30,6 +30,7 @@ export class RegisterAsDoctorComponent implements OnInit{
   hospitalsList : any[] = [];
   file:string='';
   selected = [];
+  selected2 = [];
 
  constructor(private _fb: FormBuilder,private _authSrevice: AuthSerciceService, 
   private _router: Router,private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService,
@@ -42,7 +43,6 @@ export class RegisterAsDoctorComponent implements OnInit{
  ngOnInit(): void {
   this.getAlCities();
   this.getAllDepartments();
-  this.getAllSpecialisatByDepId(1);
   this.getAllHospitals();
   //this.getAllAreaByCityId(0);
   // this.finalRegisterForm = this._fb.group({
@@ -64,8 +64,7 @@ export class RegisterAsDoctorComponent implements OnInit{
       doctorTitle: ['',Validators.required],
       password: ['',Validators.required],
       phoneNo: ['',Validators.required],
-      specialistsIds: ['',Validators.required],
-      hospitalsIds: ['',Validators.required],
+    
 
   }),
 
@@ -81,6 +80,8 @@ export class RegisterAsDoctorComponent implements OnInit{
     p3: this._fb.group({
         image: ['', Validators.required],
         departmentId: ['', Validators.required],
+        specialistsIds: ['',Validators.required],
+        hospitalsIds: ['',Validators.required],
         // hospitalsIds: ['',Validators.required],
         // insuranceIds: ['',Validators.required],
   })
@@ -115,15 +116,6 @@ export class RegisterAsDoctorComponent implements OnInit{
 
 }
  
-get personal(){ 
-  return this.personalDetails.controls;
-}
-get address(){
- return this.addressAndCostDetails.controls;
-}
-get extraInfo() {
-   return this.extraInfoDetails.controls; 
-}
 
 getAlCities(){
   this._ddlService.getAllCities().subscribe(Cities=>{
@@ -158,8 +150,14 @@ getAllHospitals(){
 })
 }
 
+getSpecByDepId(depId:any){
+ var departmentId = depId.target.value;
+ this.getAllSpecialisatByDepId(departmentId);
+}
+
+
 getAllSpecialisatByDepId(depId:number){
-  this._specService.getAllSpecialistByDepartmentId(1).subscribe(spec=>{
+  this._specService.getAllSpecialistByDepartmentId(depId).subscribe(spec=>{
     this.specialistsList = spec;
 
     // const mapped2 = Object.entries(this.areasList).map(([id, areaName]) => ({id, areaName}));
@@ -218,7 +216,7 @@ onchange(event:any){
 
 }
 
-test(){
+next(){
   console.log('use test()')
   if(this.step==1 && this.finalRegisterForm.controls['p1'].valid)
   {
@@ -238,22 +236,22 @@ test(){
   console.log(this.step)
 }
 
-next(){
-    if(this.step==1){
-      console.log('lol')
-      this.personal_step = true;
+// next(){
+//     if(this.step==1){
+//       console.log('lol')
+//       this.personal_step = true;
       
-      if (this.finalRegisterForm.invalid) { return  }
-      this.step++
-    }
-    if(this.step==2){
-    this.address_step = true;
-    if (this.addressAndCostDetails.invalid) { return }
-        this.step++;
-        console.log(this.step)
-    }
-    console.log(this.step)
-}
+//       if (this.finalRegisterForm.invalid) { return  }
+//       this.step++
+//     }
+//     if(this.step==2){
+//     this.address_step = true;
+//     if (this.addressAndCostDetails.invalid) { return }
+//         this.step++;
+//         console.log(this.step)
+//     }
+//     console.log(this.step)
+// }
 
 previous(){
     this.step--
