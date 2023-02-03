@@ -17,6 +17,8 @@ import { ForgetPasswordComponent } from './Components/Auth-Components/forget-pas
 import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
 import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
 import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
+import { ConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/confirmed-doctors/confirmed-doctors.component';
+import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/not-confirmed-doctors/not-confirmed-doctors.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -44,6 +46,9 @@ const routes: Routes = [
     {path:'department', component:DepartmentComponent},
     {path:'hospital', component:HospitalComponent},
     {path:'specialist', component:SpecialistComponent},
+    {path:'confirmed-doctors', component:ConfirmedDoctorsComponent},
+    {path:'not-confirmed-doctors', component:NotConfirmedDoctorsComponent},
+    
 
   ]},
  

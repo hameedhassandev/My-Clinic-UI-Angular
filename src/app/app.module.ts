@@ -49,6 +49,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
 import { VisitorCommentsComponent } from './Components/Shared-Components/visitor-comments/visitor-comments.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/confirmed-doctors/confirmed-doctors.component';
+import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/not-confirmed-doctors/not-confirmed-doctors.component';
 
 
   
@@ -80,6 +82,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DoctorComponent,
     DoctorDetailsComponent,
     VisitorCommentsComponent,
+    ConfirmedDoctorsComponent,
+    NotConfirmedDoctorsComponent,
     
   ],
   imports: [

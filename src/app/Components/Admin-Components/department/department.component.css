@@ -4,10 +4,11 @@
   background-color: #f1f5f9;
 }
 .page__box{
-  min-height: 120px;
-  background-color: #1e293b;
+  min-height: 80px;
+  background-color: rgb(183, 183, 184);
   margin: 0 -1rem;
-  font-size: 36px;
+  font-size: 18px;
+  color: black;
 }
 .page__content{
 min-height: calc(100vh - 160px);

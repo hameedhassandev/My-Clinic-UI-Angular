@@ -1,16 +1,22 @@
 <div class="container-fluid page">
-    <!-- <div class="page__box p-3 mt-2">Departments
-      
-    </div> -->
-    <h2 style="color: black;">Departments</h2>
+  <div class="page__box p-3 mt-2">
+    <img src="assets/imges/admin/sitemap.png" alt="search_icon" width="25"> Departments
+    
+  </div>
         <div class="page__content shadow p-3">
-            <button  mat-raised-button mat-button color="primary" (click)="openDialog()"><mat-icon>add</mat-icon>Add New Department</button>
             <div>
-                <mat-form-field >
-                  <mat-label>Filter</mat-label>
-                  <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
-                </mat-form-field> 
-                 
+              <div class="row">
+                <div class="col-6">
+                  <mat-form-field >
+                    <mat-label>Filter</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+                  </mat-form-field> 
+                 </div>
+                 <div class="col-6">
+                  <button style="height: 55px;" mat-raised-button mat-button color="primary" (click)="openDialog()" ><mat-icon>add</mat-icon>Add New Department</button>
+
+                 </div>     
+              </div>
                 <div class="mat-elevation-z8">
                   <table mat-table [dataSource]="dataSource" matSort>
                 

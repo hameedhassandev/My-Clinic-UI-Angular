@@ -2,7 +2,7 @@ mat-toolbar{
     position: sticky;
     top: 0;
     z-index: 100%;
-    background-color: #80CBE7;
+    background: rgb(183, 183, 184);
 }
 ul li{
     list-style: none;

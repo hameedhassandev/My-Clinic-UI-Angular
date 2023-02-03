@@ -1,22 +1,27 @@
 <mat-nav-list>
     <div class="logo py-4">
-        <h3>My Clinic</h3>
+        <img src="assets/imges/home_icon/logo2.png" alt="logo" style="width: 60%;margin-left: 20px;">
     </div>
     <mat-divider></mat-divider>
-    <h4 matSubheader class="mt-2">Admin Dashboard</h4>
     <a mat-list-item routerLink="/admin/home" routerLinkActive="list-item-active">
-        <mat-icon>home</mat-icon> Home
+        <img src="assets/imges/admin/home.png" alt="search_icon" width="20"> Home
     </a>
     <a mat-list-item routerLink="/admin/hospital" routerLinkActive="list-item-active">
-        <mat-icon>local_hospital</mat-icon> Hospitals
+        <img src="assets/imges/admin/hospital.png" alt="search_icon" width="20">
+         Hospitals
     </a>
     <a mat-list-item routerLink="/admin/department" routerLinkActive="list-item-active">
-        <img src="assets/imges/home_icon/placeholder.png" alt="search_icon" width="20"> Departments
+        <img src="assets/imges/admin/sitemap.png" alt="search_icon" width="20"> Departments
     </a>
     <a mat-list-item routerLink="/admin/specialist" routerLinkActive="list-item-active">
-        <mat-icon>local_hospital</mat-icon> Specialists
+        <img src="assets/imges/admin/specialist.png" alt="search_icon" width="20"> Specialists
     </a>
-    <a mat-list-item routerLinkActive="list-item-active"><mat-icon>edit</mat-icon> test 1</a>
+    <a mat-list-item routerLink="/admin/confirmed-doctors" routerLinkActive="list-item-active">
+        <img src="assets/imges/admin/verified.png" alt="search_icon" width="20"> Confrimed Doctors
+    </a>
+    <a mat-list-item routerLink="/admin/not-confirmed-doctors" routerLinkActive="list-item-active">
+        <img src="assets/imges/admin/not-allowed.png" alt="search_icon" width="22"> Not Confrimed Doctors
+    </a>
     <a mat-list-item routerLinkActive="list-item-active"><mat-icon>edit</mat-icon> test 1</a>
     <a mat-list-item routerLinkActive="list-item-active"><mat-icon>edit</mat-icon> test 1</a>
 </mat-nav-list> 

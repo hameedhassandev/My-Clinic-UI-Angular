@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Doctor } from '../Models/Doctor';
 import { DoctorFilterVM } from '../ViewModels/DoctorFilterVM';
 import { TimeOfWork } from '../Models/TimeOfWork';
+import { DoctorVM } from '../ViewModels/DoctorVM';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,14 @@ export class DoctorService {
   }
 getAllDoctors():Observable<Doctor[]>{
 return this._httpClient.get<Doctor[]>(`${this.DoctorAPIUrl}/GetAllDoctorsWithData`);
+}
+
+GetAllConfirmedDoctors():Observable<DoctorVM[]>{
+  return this._httpClient.get<DoctorVM[]>(`${this.DoctorAPIUrl}/GetAllConfirmedDoctors`);
+}
+
+GetAllNotConfirmedDoctors():Observable<DoctorVM[]>{
+  return this._httpClient.get<DoctorVM[]>(`${this.DoctorAPIUrl}/GetAllNotConfirmedDoctors`);
 }
 
 GetAllDoctorsWithFilter(filterObj : DoctorFilterVM):Observable<Doctor[]>{

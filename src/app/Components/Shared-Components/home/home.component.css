@@ -47,7 +47,9 @@
     cursor: pointer;
 
 }
-
+.row{
+    margin-left: 10%;
+}
 .filter_line{
 	height:2px;
 	border-width:0;
