@@ -35,11 +35,11 @@ export class DepartmentServiceService {
   }
 
   updateDepartment(depId : number, UpdatedDep:any){
-    return this._httpClient.put<any>(`${this.depServiceApi}/UpadteDepartment/${depId}`,UpdatedDep)
+    return this._httpClient.put<any>(`${this.depServiceApi}/UpadteDepartment?id=${depId}`,UpdatedDep)
   }
 
   deleteDepartment(depId: number):Observable<Department> {
-    return this._httpClient.delete<Department>(`${this.depServiceApi}/DeleteDepartment/${depId}`)
+    return this._httpClient.delete<Department>(`${this.depServiceApi}/DeleteDepartment?id=${depId}`)
 
   }
 

@@ -19,6 +19,9 @@ import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-de
 import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
 import { ConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/confirmed-doctors/confirmed-doctors.component';
 import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/not-confirmed-doctors/not-confirmed-doctors.component';
+import { DoctorHomeComponent } from './Components/Doctor-Components/doctor-home/doctor-home.component';
+import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-review/rate-and-review.component';
+import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-booking/visitor-booking.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -37,7 +40,6 @@ const routes: Routes = [
   ]},
 
   {path:'login', component:LoginComponent},
-  {path:'doctor', component:DoctorLayoutComponentComponent},
   {path:'admin', component:AdminLayoutComponentComponent,
   children: [
     {path:'', redirectTo:'home', pathMatch:'full'},
@@ -51,6 +53,13 @@ const routes: Routes = [
     
 
   ]},
+  {path:'doctor', component:DoctorLayoutComponentComponent,
+  children: [
+    {path:'', redirectTo:'profile', pathMatch:'full'},
+    {path:'profile', component:DoctorHomeComponent},
+    {path:'rate-and-review', component:RateAndReviewComponent},
+    {path:'visitor-booking', component:VisitorBookingComponent},
+    ]},
  
 
 ];

@@ -32,7 +32,7 @@ Login(){
     this._authSrevice.Login(this.loginVm).subscribe({
       next: data => {
         localStorage.setItem("User", JSON.stringify(data));
-        
+        console.log(data)
         let userRoles = this._authSrevice.GetUserRoles();
 
         if(userRoles.some( i => i === RoleNames.AdminRole))

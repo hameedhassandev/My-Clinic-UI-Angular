@@ -7,6 +7,7 @@ import { Specialist } from "../Models/Specialist";
 import { TimeOfWork } from "../Models/TimeOfWork";
 
 export class DoctorVM {
+    id:string;
     image:string;
     email:string;
     userName:string;
@@ -23,6 +24,7 @@ export class DoctorVM {
     hospitals:Hospital[];
   
     constructor() {
+        this.id='';
         this.image = ''
         this.userName=''
         this.email=''

@@ -12,13 +12,23 @@ export class HomeComponent implements OnInit{
 
   citiesList :any;
   departmentList : any;
+  cityId:any
+  departmentId:any
   constructor(private _ddlService: DropDownSelectService,private router: Router,
     private _departmentService : DepartmentServiceService) {}
   ngOnInit(): void {
     this.getAlCities()
-    this.getAllDepartments()
-  
+    this.getAllDepartments()  
+  }
 
+  getCityValue(cityValue:any){
+    console.log(cityValue.value);
+    this.cityId = cityValue.value;
+  }
+
+  getDepartmentValue(departmentValue:any){
+    console.log(departmentValue.value);
+    this.departmentId = departmentValue.value;
   }
 
   getAlCities(){
@@ -31,10 +41,27 @@ export class HomeComponent implements OnInit{
       console.log(mapped);
     })
   }
-  
+
+  // filter(){
+  //   var filterDoctor: DoctorFilterVM={
+  //     departmentId:this.departId,
+  //     cityId:this.cityId
+  //   };
+  //   this._doctorService.GetAllDoctorsWithFilter(filterDoctor).subscribe({
+  //    next:(res)=>{
+  //      this.doctorList = res
+  //      console.log(this.doctorList)
+  //    },
+  //    error:(err)=>{
+  //      this.errMassage = err
+  //      console.log(this.errMassage)
+  //    }
+  //  })
+   
+  //  }
   movetoContact(){
-    this.router.navigate(['/home/all-doctors'],{queryParams: {part: 'navbar',search: 'contact', }})
-    // this.router.navigate(['/home/all-doctors'],{queryParams: {part: 'navbar',search: 'contact', year: 2021 }})
+
+    this.router.navigate(['/home/all-doctors'],{queryParams: {department: this.departmentId, city:this.cityId }})
   }
   
   getAllDepartments(){

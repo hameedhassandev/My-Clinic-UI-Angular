@@ -1,0 +1,14 @@
+mat-toolbar{
+    position: sticky;
+    top: 0;
+    z-index: 100%;
+    background: rgb(217, 217, 235);
+}
+ul li{
+    list-style: none;
+}
+button{
+    border: 0;
+    outline: none;
+    background: transparent;
+}

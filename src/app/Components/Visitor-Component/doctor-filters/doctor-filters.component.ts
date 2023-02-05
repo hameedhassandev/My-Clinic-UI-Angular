@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DepartmentServiceService } from 'src/app/Services/department-service.service';
 import { DoctorService } from 'src/app/Services/doctor.service';
@@ -17,19 +17,25 @@ export class DoctorFiltersComponent implements OnInit{
   isEmpty = false;
   citiesList :any;
   departmentList : any;
-  departId:number;
-  cityId:number;
+  departId :any;
+  cityId: any;
 constructor(private _doctorService:DoctorService, private _router: Router,
-  private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService) {
+  private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService, private router: ActivatedRoute) {
 
-    this.departId = 1
-    this.cityId = 1
+
 }
 
 ngOnInit(): void {
-  this.getAllDoctors()
+  
   this.getAlCities()
   this.getAllDepartments()
+  console.log('===============')
+  console.log(this.router.snapshot.queryParamMap.get('department'))
+  this.departId  = this.router.snapshot.queryParamMap.get('department');
+  console.log(this.router.snapshot.queryParamMap.get('city'))
+  this.cityId  = this.router.snapshot.queryParamMap.get('city');
+  this.filter()
+ 
 }
 
 getAllDoctors(){
@@ -68,6 +74,16 @@ getAllDepartments(){
     this.departmentList = departments;
 
 })
+}
+
+getCityValue(cityValue:any){
+  console.log(cityValue.value);
+  this.cityId = cityValue.value;
+}
+
+getDepartmentValue(departmentValue:any){
+  console.log(departmentValue.value);
+  this.departId = departmentValue.value;
 }
 
 filter(){

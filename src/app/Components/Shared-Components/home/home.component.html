@@ -14,14 +14,14 @@
      
       <mat-label>   <img src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="search_icon" id="search_icon">
         Choose Department</mat-label>
-      <mat-select style="height: 40px;">
+      <mat-select (selectionChange)="getDepartmentValue($event)" style="height: 40px;">
         <mat-option  *ngFor="let d of departmentList" [value]="d.id">{{d.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> 
         Choose City</mat-label>
-      <mat-select >
+      <mat-select (selectionChange)="getCityValue($event)" >
         <mat-option  *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</mat-option>
       </mat-select>
     </mat-form-field>

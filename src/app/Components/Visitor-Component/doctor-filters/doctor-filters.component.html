@@ -15,7 +15,7 @@
                                <h4 class="card-title" style="color:rgb(0, 112, 205);">Department</h4>
                                <mat-label>    <img src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="search_icon" width="17">
                                  Choose Department</mat-label>
-                              <mat-select   [ngModel]="departId" >
+                              <mat-select  (selectionChange)="getDepartmentValue($event)" >
                                 <mat-option  *ngFor="let d of departmentList" [value]="d.id">{{d.name}}</mat-option>
 
                               </mat-select>
@@ -26,7 +26,7 @@
                                 <h4 class="card-title" style="color:rgb(0, 112, 205);">City</h4>
                                 <mat-label>    <img src="assets/imges/home_icon/placeholder.png" alt="search_icon" width="17">
                                   Choose City</mat-label>
-                               <mat-select [(ngModel)]="cityId">
+                               <mat-select (selectionChange)="getCityValue($event)">
                                 <mat-option  *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</mat-option>
                                </mat-select>
                              </div>

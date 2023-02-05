@@ -76,7 +76,7 @@ export class AuthSerciceService {
     let user: any = localStorage.getItem("User");
     user = JSON.parse(user);
     
-    return new AuthUserVM(user.massage,user.email, user.userName,user.isAuth,user.roles, user.token, user.expiresOn);
+    return new AuthUserVM(user.id,user.massage,user.email, user.userName,user.isAuth,user.roles, user.token, user.expiresOn);
   }
 
   Logout()

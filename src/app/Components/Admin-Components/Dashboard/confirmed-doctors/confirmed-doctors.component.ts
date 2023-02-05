@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { LoginComponent } from 'src/app/Components/Auth-Components/login/login.component';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
 
@@ -11,12 +13,14 @@ import { DoctorService } from 'src/app/Services/doctor.service';
   styleUrls: ['./confirmed-doctors.component.css']
 })
 export class ConfirmedDoctorsComponent implements OnInit {
+  title:string = '';
+
   displayedColumns: string[] = ['image','email','fullName','phoneNo','gender','cost','cities','area','action'];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   doctorList : Doctor[] = [];
-  constructor(private _doctorService:DoctorService) {
+  constructor(public _dialog: MatDialog ,private _doctorService:DoctorService) {
     
   }
   ngOnInit(): void {
@@ -27,10 +31,34 @@ export class ConfirmedDoctorsComponent implements OnInit {
 
     this._doctorService.GetAllConfirmedDoctors().subscribe(doctors =>{
       console.log(doctors)
+      this.title = 'Confirmed Doctors'
       this.dataSource = new MatTableDataSource(doctors);
       this.dataSource.paginator=this.paginator;
       this.dataSource.sort=this.sort;
     })
   }
+
+
+  changedToNotConfirmed(){
+    this._doctorService.GetAllNotConfirmedDoctors().subscribe(doctors =>{
+      console.log(doctors)
+      this.title = 'Not Confirmed Doctors'
+      this.dataSource = new MatTableDataSource(doctors);
+      this.dataSource.paginator=this.paginator;
+      this.dataSource.sort=this.sort;
+    }) 
+  }
+
+  doctorDetails() {
+    this._dialog.open(LoginComponent, {
+      width:'60%',
+      height:'80%'
+    }).afterClosed().subscribe(val => {
+     
+        this.getAllConfirmedDoctors();
+      
+    })
+  }
+
 
 }

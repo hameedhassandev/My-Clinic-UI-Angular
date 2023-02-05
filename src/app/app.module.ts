@@ -51,6 +51,11 @@ import { VisitorCommentsComponent } from './Components/Shared-Components/visitor
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/confirmed-doctors/confirmed-doctors.component';
 import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/not-confirmed-doctors/not-confirmed-doctors.component';
+import { SideBarComponent } from './Components/Doctor-Components/side-bar/side-bar.component';
+import { DoctorHeaderComponent } from './Components/Doctor-Components/doctor-header/doctor-header.component';
+import { DoctorHomeComponent } from './Components/Doctor-Components/doctor-home/doctor-home.component';
+import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-booking/visitor-booking.component';
+import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-review/rate-and-review.component';
 
 
   
@@ -84,6 +89,11 @@ import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dash
     VisitorCommentsComponent,
     ConfirmedDoctorsComponent,
     NotConfirmedDoctorsComponent,
+    SideBarComponent,
+    DoctorHeaderComponent,
+    DoctorHomeComponent,
+    VisitorBookingComponent,
+    RateAndReviewComponent,
     
   ],
   imports: [

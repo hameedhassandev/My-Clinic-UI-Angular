@@ -1,0 +1,92 @@
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="row">
+            <div class="col-4">
+              <!-- <img  src="data:image/*;base64,{{doctorObj.image}}" alt="doctor_image" class="doctor_image">  -->
+
+                <img src="assets/imges/admin/defult.jpg" alt="doctor_image" class="doctor_image"> 
+                <hr>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text"[(ngModel)]="doctorObj.fullName" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="userName" >Username</label>
+                    <input type="text" [(ngModel)]="doctorObj.userName" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text"  [(ngModel)]="doctorObj.email" class="form-control" id="email" name="email" readonly>
+                  </div>
+               
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="doctorTitle">Title</label>
+                    <input type="text" [(ngModel)]="doctorObj.doctorTitle"  class="form-control" id="pass" name="pass" readonly>
+                  </div>
+    
+                <div class="form-group">
+                  <label for="specialists">Specialists</label>
+                  <div class="colect_text">
+                    <span *ngFor="let s of doctorObj.specialists">
+                      {{s.specialistName}}.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="hospitals">Hospitals</label>
+                  <div class="colect_text">
+                    <span *ngFor="let h of doctorObj.hospitals">
+                      {{h.name}}.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="insurances">Insurances</label>
+                  <div class="colect_text">
+                    <span *ngFor="let i of doctorObj.insurances">
+                      {{i.companyName}}({{i.discount}}%).</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNo">Department</label>
+                    <input type="tel" [(ngModel)]="doctorObj.department['name']" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+                  <!-- <a class="btn btn-danger btn-block" style="background-color:rgb(239, 15, 15);" href="#"
+                  role="button">
+                  Change Password</a> -->
+            </div>
+            <div class="col-4">
+             
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text"  [(ngModel)]="doctorObj.gender" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+                <div class="form-group">
+                    <label for="phoneNo">Phone number</label>
+                    <input type="tel" [(ngModel)]="doctorObj.phoneNo" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+               
+                  <div class="form-group">
+                    <label for="insurances">Full address</label>
+                    <div class="colect_text">
+                      <span>{{doctorObj.address}}, {{doctorObj.area['areaName']}}, {{doctorObj.cities}}.</span>
+                    </div>
+                  </div>
+          
+                  <div class="form-group">
+                    <label for="cost">Cost (L.E)</label>
+                    <input type="number" [(ngModel)]="doctorObj.cost" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="cost">Waiting time (min.)</label>
+                    <input type="number" [(ngModel)]="doctorObj.waitingTime" class="form-control" id="pass" name="pass" readonly>
+                  </div>
+                  <button type="submit" class="btn btn-success  btn-block">Update Profile</button>
+    
+            </div>
+        </div>
+    </div>
+</div>
+

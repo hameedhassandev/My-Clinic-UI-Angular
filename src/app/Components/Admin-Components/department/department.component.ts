@@ -49,13 +49,17 @@ export class DepartmentComponent implements OnInit {
   }
 
   deleteDepartment(depId:number){
-    this._departmentService.deleteDepartment(depId).subscribe(departments =>{
-      alert("Department Deleted");
-      this._departmentService.getAllDepartments().subscribe(departments =>{
-        this.dataSource = new MatTableDataSource(departments);
-        this.dataSource.paginator=this.paginator;
-        this.dataSource.sort=this.sort;
-      })
+    this._departmentService.deleteDepartment(depId).subscribe({
+      next:(res)=>{
+        alert('Department Deleted Successfultty')
+        console.log(res)
+        this.getAllDepartment()
+      },
+      error:(err)=>{
+        alert('Somthing error while delete department, try again')
+        console.log(err)
+      }
+     
     })
   }
 
