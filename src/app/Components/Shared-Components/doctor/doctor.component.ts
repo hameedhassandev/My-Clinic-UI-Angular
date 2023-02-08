@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable, Subscriber } from 'rxjs';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
+import { TimeofworkService } from 'src/app/Services/timeofwork.service';
 
 @Component({
   selector: 'app-doctor',
@@ -16,7 +17,7 @@ export class DoctorComponent implements OnInit{
   listOfrate = [1,2,3,4,5]
   checkedMe = 'checked'
 
-  constructor(private _doctorService:DoctorService, private _router: Router) {
+  constructor(private _timeOfWorkServ: TimeofworkService,private _doctorService:DoctorService, private _router: Router) {
     
   }
   ngOnInit(): void {
@@ -24,7 +25,7 @@ export class DoctorComponent implements OnInit{
   }
 
   getDoctorTimesOfWork(){
-    this._doctorService.GetAllTimesOfWork(this.doctor.id).subscribe({
+    this._timeOfWorkServ.getAllAppointmentByDocId(this.doctor.id).subscribe({
       next:(res)=>{
         this.timesOfWorkList = res
         console.log(this.timesOfWorkList)

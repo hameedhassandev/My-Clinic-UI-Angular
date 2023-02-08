@@ -56,8 +56,6 @@ GetDoctorById(doctorId:any):Observable<Doctor>{
 }
 
 
-GetAllTimesOfWork(doctorId:any):Observable<TimeOfWork[]>{
-  return this._httpClient.get<TimeOfWork[]>(`${this.TimeOfWork}/GetDatesOfDoctor?doctorId=${doctorId}`);
-  }
+
 
 }

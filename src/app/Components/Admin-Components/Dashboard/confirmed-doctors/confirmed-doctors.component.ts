@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { LoginComponent } from 'src/app/Components/Auth-Components/login/login.component';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
+import { ConfirmDoctorFormComponent } from '../../forms-components/confirm-doctor-form/confirm-doctor-form.component';
 
 @Component({
   selector: 'app-confirmed-doctors',
@@ -49,13 +50,14 @@ export class ConfirmedDoctorsComponent implements OnInit {
     }) 
   }
 
-  doctorDetails() {
-    this._dialog.open(LoginComponent, {
+  doctorDetails(id:any) {
+    this._dialog.open(ConfirmDoctorFormComponent, {
       width:'60%',
-      height:'80%'
+      height:'90%',
+      data:id
     }).afterClosed().subscribe(val => {
      
-        this.getAllConfirmedDoctors();
+        //this.getAllConfirmedDoctors();
       
     })
   }

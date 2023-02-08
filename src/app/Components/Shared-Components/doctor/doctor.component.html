@@ -1,58 +1,49 @@
 
 <div class="row">
-        <div class="col-12">
-            <div (click)="getDoctorDetails(doctor.id)" class="card" style="border-radius: 20px;box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);">
-                <div class="card-horizontal">
-                    <div class="img-square-wrapper">
-                        <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
-                        <!-- <img class="" src="assets/imges/home_icon/m1.PNG" alt="Card image cap" id="doctor_img"> -->
-                   
+    <div class="col-12">
+      <div  class="card" style="border-radius: 20px;box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);">
+        <div class="card-horizontal">
+          <div class="img-square-wrapper">
+            <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
+             <!-- <img class="" src="assets/imges/home_icon/m1.PNG" alt="Card image cap" id="doctor_img"> -->
+           </div>
+
+            <div class="col-12">
+             <div class="row">
+                <div class="col-5">
+                    <h2 (click)="getDoctorDetails(doctor.id)" id="doctor_title" class="card-title"><span style="font-size: 12px;">Doctor </span>{{ doctor.fullName}}</h2>
+                    <p class="card-title">{{doctor.doctorTitle}}</p>
+                    {{doctor.id}}
+                    <div style="margin-bottom: 10px;font-size: 20px;">
+                    <span *ngFor="let s of listOfrate" class="fa fa-star" [ngClass]="checkedMe"></span>
+
                     </div>
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-5">
-                                <h2 id="doctor_title" class="card-title"><span style="font-size: 12px;">Doctor</span> {{ doctor.fullName}}</h2>
-                                <p class="card-title">{{doctor.doctorTitle}}</p>
-                                {{doctor.id}}
-                                <div style="margin-bottom: 10px;font-size: 20px;">
-                                    <span *ngFor="let s of listOfrate" class="fa fa-star" [ngClass]="checkedMe"></span>
-                                    
-                                </div>
-                                <p><img class="" src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="placeholder img" width="17"> {{ doctor.department['name']}}</p>
-                                <p><img class="" src="assets/imges/home_icon/doctor.png" alt="placeholder img" width="20"><span style="font-weight: bold;"> Specialists</span>   
-                                    <span *ngFor="let s of  doctor.specialists">
-                                    {{s.specialistName}},</span> </p>
-                                <p><img class="" src="assets/imges/home_icon/placeholder.png" alt="placeholder img" width="15"> {{ doctor.address}}, {{ doctor.area['areaName']}}, {{ doctor.cities}}.</p>
-                                <p style="color: rgb(106, 207, 128);"><img class="" src="assets/imges/home_icon/time.png" alt="time img" width="17"> waiting time {{ doctor.waitingTime}} min.</p>
-                                <p><img class="" src="assets/imges/home_icon/money.png" alt="time img" width="17"> {{ doctor.cost}} EGP</p>
-                                <p><img class="" src="assets/imges/home_icon/call.png" alt="call img" width="13"> {{ doctor.phoneNo}}</p>
-                            </div>
-                            <div class="col-3">
-                    
-                                    <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232); margin-top:50px;">
-                        
-                                        <tbody>
-                                            <tr *ngFor="let t of timesOfWorkList">
-                                                <td style="background-color: rgb(0, 112, 205);"><p style="color:white;font-size: 12px;">{{t.day}}</p></td>
-                                            
-                                                <td style="font-size: 12px;">{{t.startWork}}</td>
-                                                <td style="font-size: 12px;">{{t.endWork}}</td>
-                                                <td style="background-color:#DC3545;"><button routerLink="/multi-form2" class="btn btn-danger btn-sm" style="font-size: 12px;">book</button></td>
-                                    
-                                            </tr>
-                                        </tbody>
-                                    </table> 
-                                </div>
-                          
-                            </div>
-                        </div>
-                    </div>
-                  
+                    <p><img class="" src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="placeholder img" width="17"> {{ doctor.department['name']}}</p>
+                    <p><img class="" src="assets/imges/home_icon/doctor.png" alt="placeholder img" width="20"><span style="font-weight: bold;"> Specialists</span>   
+                    <span *ngFor="let s of  doctor.specialists">
+                    {{s.specialistName}},</span> </p>
+                    <p><img class="" src="assets/imges/home_icon/placeholder.png" alt="placeholder img" width="15"> {{ doctor.address}}, {{ doctor.area['areaName']}}, {{ doctor.cities}}.</p>
+                    <p style="color: rgb(106, 207, 128);"><img class="" src="assets/imges/home_icon/time.png" alt="time img" width="17"> waiting time {{ doctor.waitingTime}} min.</p>
+                    <p><img class="" src="assets/imges/home_icon/money.png" alt="time img" width="17"> {{ doctor.cost}} EGP</p>
+                    <p><img class="" src="assets/imges/home_icon/call.png" alt="call img" width="13"> {{ doctor.phoneNo}}</p>
                 </div>
-              
-         
-   
+                <div class="col-3">
+                    <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232); margin-top:50px;">
+                        <tbody>
+                        <tr *ngFor="let t of timesOfWorkList">
+                            <td style="background-color: rgb(0, 112, 205);"><p style="color:white;font-size: 12px;">{{t.day}}</p></td>
+                            <td style="font-size: 12px;">{{t.startWork}}</td>
+                            <td style="font-size: 12px;">{{t.endWork}}</td>
+                            <td style="background-color:#DC3545;"><button routerLink="/multi-form2" class="btn btn-danger btn-sm" style="font-size: 12px;">book</button></td>
+                        </tr>
+                        </tbody>
+                    </table> 
+             </div>
+          </div>
+        </div>
+      </div>
     </div>
+   </div>
 </div>
 
 

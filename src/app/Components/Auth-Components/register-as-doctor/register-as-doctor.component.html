@@ -1,7 +1,7 @@
-<h1 id="join_our_doctor">        
-  <img src="assets/imges/home_icon/doctor.png" alt="" width="30"> 
+<h4 id="join_our_doctor">        
+  <img src="assets/imges/home_icon/doctor.png" alt="" width="25"> 
    Join Our Doctors
-</h1>
+</h4>
 <!-- <ng-select [items]="specialistsList" 
 placeholder="Specialists"
 bindLabel="specialistName" 
@@ -11,7 +11,9 @@ bindValue="id"
 </ng-select> -->
 <!-- <p>{{personalDetails.value | json}}</p>
 <p>{{addressAndCostDetails.value | json}}</p> -->
-<p>{{finalRegisterForm.value | json}}</p>
+
+<!-- <p>{{finalRegisterForm.value | json}}</p> -->
+
 <!-- <div class="mb-3">
   <label for="" class="form-label">Cities</label>
   <select (change)="selectMe()" class="form-select">
@@ -50,9 +52,9 @@ bindValue="id"
                   </small> -->
 
               <input type="email" class="form-control" required formControlName="email"  placeholder="Enter Email"/>
-              <div *ngIf="personal_step && personalDetails.controls['email'].errors">
-                  <small class="text-danger" *ngIf="!personalDetails.controls['email'].valid && personalDetails.controls['email'].touched">
-                      Email is required
+              <div>
+                  <small class="text-danger" *ngIf="!finalRegisterForm.controls['p1'].valid && finalRegisterForm.controls['p1'].touched">
+                      Email is required 
                   </small>
               </div>
               <input type="text"  class="form-control" required formControlName="fullName"  placeholder="Enter Full name"/>

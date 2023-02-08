@@ -1,0 +1,70 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-7">
+            <div class="card card_style">
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper">
+                        <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
+                        <!-- <img class="" src="assets/imges/home_icon/m1.PNG" alt="Card image cap" id="doctor_img"> -->
+                    
+                    </div>
+                    <div class="col-12" style="margin-left: 20px;margin-top: 30px;">
+                        <div class="row">
+                            <div class="">
+                                <h2 id="doctor_title" class="card-title"><span style="font-size: 12px;">Doctor </span>{{doctorObj.fullName}}</h2>
+                               
+                                <p><img class="" src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="placeholder img" width="17"> {{ doctorObj.department['name']}}</p>
+                                <p><img class="" src="assets/imges/home_icon/doctor.png" alt="placeholder img" width="20"><span style="font-weight: bold;"> Specialists</span>   
+                                    <span style="color:rgb(0, 112, 205) ;" *ngFor="let s of doctorObj.specialists">
+                                        {{s.specialistName}},</span>
+                                </p>
+                                <hr>
+                                <p>{{dayOfBooking}} - <span style="font-weight: bold;">Reservation required, first-come, first-served</span></p>
+                            </div>
+                            
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="card card_style">
+                  
+                <div class="card-title" id="bookig_info">
+                    Enter Your Information
+                </div>
+               <div class="container-fluid">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Visitor name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1"  placeholder="Visitor name">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Phone number</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Select time of appointment</label>
+                        <select class="form-control">
+                            <option value="">Select time</option>
+                            <option value="">5:00:00</option>
+                            <option value="">5:20:00</option>
+                            <option value="">5:40:00</option>
+                            <option value="">6:00:00</option>
+                            <option value="">6:20:00</option>
+                            <option value="">6:40:00</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-danger" style="margin-bottom: 10px;margin-top: 15px;border-radius: 20px;margin-left: 25%;width: 200px;">Book Now</button>
+              
+                </form>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

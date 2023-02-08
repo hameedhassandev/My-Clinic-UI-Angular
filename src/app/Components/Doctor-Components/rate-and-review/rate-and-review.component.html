@@ -1,1 +1,22 @@
-<p>rate-and-review works!</p>
+ <div class="container-fluid" style="width: 70%;">
+    <div class="">
+        <div class="card w-100 mt-2" id="comment_card" *ngFor="let r of rateAndReviewObj">     
+            <div class="card-body">
+             <img class="" src="assets/imges/user/default-user.png" alt="user_Img" id="user_Img">
+              <h4 class="card-title">{{r.patient['fullName']}}</h4>
+              <p>{{r.patient['address']}}, {{r.patient['cities']}}</p>
+              <h2 class="card-text">"{{r.review}}"</h2>
+              <p style="font-size: 16px;"><img class="" src="assets/imges/user/star.png" style = "width: 20px;margin-bottom: 5px;">
+                {{r.rate}}/5 <span style="font-size: 12px;margin-left: 10px;"> Created At: {{r.createdAt}}</span>
+             </p>
+            </div>
+        </div>
+            
+    </div>
+ </div>
+
+    
+    
+    
+    
+    

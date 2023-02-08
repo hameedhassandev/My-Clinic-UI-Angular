@@ -35,7 +35,6 @@ import { FormHospitalComponent } from './Components/Admin-Components/forms-compo
 import { RegisterAsDoctorComponent } from './Components/Auth-Components/register-as-doctor/register-as-doctor.component';
 import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
 import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
-import { ForgetPasswordComponent } from './Components/Auth-Components/forget-password/forget-password.component';
 import { SpecialistComponent } from './Components/Admin-Components/specialist/specialist.component';
 import { FormSpecialistComponent } from './Components/Admin-Components/forms-components/form.specialist/form.specialist.component';
 import { DoctorFiltersComponent } from './Components/Visitor-Component/doctor-filters/doctor-filters.component';
@@ -56,6 +55,9 @@ import { DoctorHeaderComponent } from './Components/Doctor-Components/doctor-hea
 import { DoctorHomeComponent } from './Components/Doctor-Components/doctor-home/doctor-home.component';
 import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-booking/visitor-booking.component';
 import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-review/rate-and-review.component';
+import { ConfirmDoctorFormComponent } from './Components/Admin-Components/forms-components/confirm-doctor-form/confirm-doctor-form.component';
+import { AppointmentsComponent } from './Components/Doctor-Components/appointments/appointments.component';
+import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/book-doctor.component';
 
 
   
@@ -76,7 +78,6 @@ import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-
     RegisterAsDoctorComponent,
     RegisterAsVisitorComponent,
     ConfirmationMailComponent,
-    ForgetPasswordComponent,
     SpecialistComponent,
     FormSpecialistComponent,
     DoctorFiltersComponent,
@@ -94,6 +95,9 @@ import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-
     DoctorHomeComponent,
     VisitorBookingComponent,
     RateAndReviewComponent,
+    ConfirmDoctorFormComponent,
+    AppointmentsComponent,
+    BookDoctorComponent,
     
   ],
   imports: [

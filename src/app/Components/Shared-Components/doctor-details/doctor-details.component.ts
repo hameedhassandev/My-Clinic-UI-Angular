@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from 'src/app/Services/doctor.service';
+import { TimeofworkService } from 'src/app/Services/timeofwork.service';
 
 @Component({
   selector: 'app-doctor-details',
@@ -11,8 +12,9 @@ export class DoctorDetailsComponent implements OnInit {
 
   doctorObj:any
   timesOfWorkList:any
-
-  constructor(private _doctorService:DoctorService,private _router: ActivatedRoute) {
+  showReviews = false;
+  constructor(private _timeOfWorkSer: TimeofworkService,private router: Router,
+    private _doctorService:DoctorService,private _router: ActivatedRoute) {
     
   }
   ngOnInit(): void {
@@ -37,7 +39,7 @@ export class DoctorDetailsComponent implements OnInit {
     
 }
 getDoctorTimesOfWork(docId:any){
-  this._doctorService.GetAllTimesOfWork(docId).subscribe({
+  this._timeOfWorkSer.getAllAppointmentByDocId(docId).subscribe({
     next:(res)=>{
       this.timesOfWorkList = res
       console.log(this.timesOfWorkList)
@@ -49,5 +51,14 @@ getDoctorTimesOfWork(docId:any){
   
   }
 
-  
+  ShowAllReviews(){
+    this.showReviews = true;
+    alert('clicked')
+  }
+
+  navigateToBook(day:any){
+    this.router.navigate(['/home/book-doctor/',day,this.doctorObj.id]);
+
+  }
+
 }

@@ -1,0 +1,49 @@
+<div class="container-fluid" style="margin-top: 10px;">
+    <h3 id="app_header">Add  new appointment</h3>
+    <div class="form_appointment">
+        <form class="form-inline" [formGroup]="appoiForm">
+          <!-- <p>{{appoiForm.value | json}}</p> -->
+       
+            <div class="form-group mb-3">
+              <label for="day">Day</label>
+              <select class="form-control" name="day" formControlName="day">
+                <option value="">select day</option>
+                <option value="0">sunday</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+              </select>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="startWork">start time work </label>
+              <input type="time" class="form-control" id="startWork" name="startWork" formControlName="startWork">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="endWork">End time work </label>
+                <input type="time" class="form-control" id="endWork" name="endWork"  formControlName="endWork">
+              </div>
+            <button type="submit" class="btn btn-primary mb-2" (click)="addAppontment()">Add appointment</button>
+        </form>
+    </div>
+    
+ <hr>
+ <div class="container-fluid" style="width: 600px;">
+    <h3 id="app_header">All appointments</h3>
+
+    <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232);">    
+        <tbody>
+            <tr *ngFor="let t of appointemtObj">
+                <td style="background-color: rgb(44, 175, 101);"><p style="color:white;font-size: 18px;text-align: center;">{{t.day}}</p></td>
+                <td style="font-size: 18px;text-align: center;">{{t.startWork}}</td>
+                <td style="font-size: 18px;text-align: center;">{{t.endWork}}</td>
+                <td style="background-color: #DC3545"><p style="color:white;font-size: 18px;text-align: center;cursor: pointer; " (click)="removeAppointement(t.id)">Remove</p></td>
+            </tr>
+           
+        </tbody>
+    </table> 
+
+ </div>
+   </div>

@@ -34,6 +34,7 @@
     border-radius: 20px;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);
      padding: 10px;
+     margin-bottom: 20px;
 }
 .doctor_header{
 	
@@ -44,3 +45,5 @@
     border-radius: 25px;
     padding: 10px;
  }
+
+ 

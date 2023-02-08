@@ -46,13 +46,13 @@
                                             <hr>
                                             <p>
                                                 Overall Rating From Visitors
-                                                <span style="font-weight: bold;color:rgb(0, 112, 205); ;">Show all reviews</span></p>
+                                                <span (click)=" ShowAllReviews()" style="font-weight: bold;color:rgb(0, 112, 205); ;">Show all reviews</span></p>
                                         </div>
                                       
                                         </div>
                                 </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,6 +85,7 @@
                <div class="col-12">
                 <p style="text-align: center; font-weight: 500;">Choose your appointment</p>
                </div>
+
               <div class="col-12">
                 <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232); margin-top:50px;text-align: center;">    
                     <tbody>
@@ -93,12 +94,13 @@
                         
                             <td style="font-size: 12px;">{{t.startWork}}</td>
                             <td style="font-size: 12px;">{{t.endWork}}</td>
-                            <td style="background-color:#DC3545;"><button routerLink="" class="btn btn-danger btn-sm" style="font-size: 12px;">book</button></td>
+                            <td style="background-color:#DC3545;"><button (click)="navigateToBook(t.day)" class="btn btn-danger btn-sm" style="font-size: 12px;">book</button></td>
                 
                         </tr>
                     </tbody>
-                   </table> 
+                </table> 
               </div>
+          
             </div>
         </div>
     </div>

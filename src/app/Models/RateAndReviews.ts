@@ -5,4 +5,5 @@ export interface RateAndReviews{
     rate:number,
     review:string,
     createdAt: Date,
+    patient:Patient[]|null
 }

@@ -1,7 +1,9 @@
+import { Time } from "@angular/common";
+
 export interface TimeOfWork{
     id:number;
     day:string;
-    startWork:Date;
-    endWork:Date;
+    startWork:Time;
+    endWork:Time;
     doctorId:string;
 }

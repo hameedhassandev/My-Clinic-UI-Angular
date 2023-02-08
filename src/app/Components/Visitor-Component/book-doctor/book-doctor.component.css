@@ -1,0 +1,34 @@
+.container{
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+#doctor_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+#doctor_title{
+    color:rgb(0, 112, 205); 
+    font-family: Arial;
+    font-weight: 600;
+    margin-bottom: 2px;
+    margin-top: 20px;
+    font-size: 24px;
+}
+.card_style{
+    border-radius: 20px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);
+     padding: 10px;
+     margin-bottom: 20px;
+}
+#bookig_info{
+    text-align: center;
+     background-color: rgb(0, 112, 205); 
+     padding: 10px;
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+}

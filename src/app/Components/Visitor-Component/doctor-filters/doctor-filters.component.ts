@@ -14,7 +14,7 @@ import { DoctorFilterVM } from 'src/app/ViewModels/DoctorFilterVM';
 export class DoctorFiltersComponent implements OnInit{
   doctorList : Doctor[] = [];
   errMassage:any;
-  isEmpty = false;
+  isEmpty = true;
   citiesList :any;
   departmentList : any;
   departId :any;
@@ -22,19 +22,19 @@ export class DoctorFiltersComponent implements OnInit{
 constructor(private _doctorService:DoctorService, private _router: Router,
   private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService, private router: ActivatedRoute) {
 
-
 }
 
 ngOnInit(): void {
   
   this.getAlCities()
   this.getAllDepartments()
-  console.log('===============')
   console.log(this.router.snapshot.queryParamMap.get('department'))
   this.departId  = this.router.snapshot.queryParamMap.get('department');
   console.log(this.router.snapshot.queryParamMap.get('city'))
   this.cityId  = this.router.snapshot.queryParamMap.get('city');
   this.filter()
+  if(this.departId == null  && this,this.cityId == null)
+    this.getAllDoctors()
  
 }
 
@@ -44,7 +44,7 @@ getAllDoctors(){
       this.doctorList = res
       console.log(this.doctorList)
       if(this.doctorList.length === 0 ){
-        this.isEmpty = true;
+        this.isEmpty = false;
         this.errMassage = 'No result match your filter'
       }
     },
@@ -94,7 +94,13 @@ filter(){
  this._doctorService.GetAllDoctorsWithFilter(filterDoctor).subscribe({
   next:(res)=>{
     this.doctorList = res
+    console.log('befor filter : '+this.isEmpty)    
     console.log(this.doctorList)
+    if(this.doctorList.length === 0 ){
+      this.isEmpty = false;
+      console.log('after filter : '+this.isEmpty)    
+}
+    
   },
   error:(err)=>{
     this.errMassage = err

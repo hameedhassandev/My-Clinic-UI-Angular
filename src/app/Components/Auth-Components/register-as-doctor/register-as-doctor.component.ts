@@ -44,6 +44,7 @@ export class RegisterAsDoctorComponent implements OnInit{
   this.getAlCities();
   this.getAllDepartments();
   this.getAllHospitals();
+
   //this.getAllAreaByCityId(0);
   // this.finalRegisterForm = this._fb.group({
   //   userGroup: this._fb.group({
@@ -112,7 +113,6 @@ export class RegisterAsDoctorComponent implements OnInit{
   //       hospitalsIds: ['',Validators.required],
   //       insuranceIds: ['',Validators.required],
   // });
-
 
 }
  

@@ -1,0 +1,19 @@
+.doctor_image{
+    width: 140px;
+    border-radius: 50%;
+    margin-left:40% ;
+    margin-top: 10px;
+}
+
+.row{
+    padding: 10px;
+    margin-right: 20px;
+}
+
+
+.colect_text{
+    border:1px solid #cccccc;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgb(229, 232, 236);
+}

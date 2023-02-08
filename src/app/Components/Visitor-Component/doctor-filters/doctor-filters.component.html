@@ -1,4 +1,4 @@
-   <!-- Shop Section Begin -->
+   <!-- Doctor Section Begin -->
     <section class="all_doctors">
        
         <div class="container">
@@ -49,11 +49,12 @@
                 </div>
 
                   <div class="col-9" id="doctor_cards">
+                    <!-- <h3 *ngIf="!isEmpty">No results match your search criteria !</h3> -->
                     <div class="container-fluid" *ngFor="let doctor of doctorList;index as i;">
                       <app-doctor [app-doctor]="doctor"></app-doctor>
                   </div>
-                </div>
-               
+                 </div>
+  
             </div>
         </div>
     </section>

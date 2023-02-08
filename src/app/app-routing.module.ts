@@ -13,7 +13,6 @@ import { MainHomeComponent } from './Components/Visitor-Component/main-home/main
 import { HomeComponent } from './Components/Shared-Components/home/home.component';
 import { DoctorComponent } from './Components/Shared-Components/doctor/doctor.component';
 import { RegisterAsDoctorComponent } from './Components/Auth-Components/register-as-doctor/register-as-doctor.component';
-import { ForgetPasswordComponent } from './Components/Auth-Components/forget-password/forget-password.component';
 import { ConfirmationMailComponent } from './Components/Auth-Components/confirmation-mail/confirmation-mail.component';
 import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
 import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
@@ -22,6 +21,8 @@ import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dash
 import { DoctorHomeComponent } from './Components/Doctor-Components/doctor-home/doctor-home.component';
 import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-review/rate-and-review.component';
 import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-booking/visitor-booking.component';
+import { AppointmentsComponent } from './Components/Doctor-Components/appointments/appointments.component';
+import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/book-doctor.component';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -31,15 +32,14 @@ const routes: Routes = [
     {path:'visitor-register', component:RegisterAsVisitorComponent},
     {path:'docotrs', component:DoctorComponent},
     {path:'docotr-register', component:RegisterAsDoctorComponent},
-    {path:'multi-form', component:ForgetPasswordComponent},
     {path:'confirm-email', component:ConfirmationMailComponent},
     {path:'home/all-doctors', component:DoctorFiltersComponent},
     {path:'home/doctor-details/:doctorId', component:DoctorDetailsComponent},
+    {path:'home/book-doctor/:day/:doctorId', component:BookDoctorComponent},
     
 
   ]},
 
-  {path:'login', component:LoginComponent},
   {path:'admin', component:AdminLayoutComponentComponent,
   children: [
     {path:'', redirectTo:'home', pathMatch:'full'},
@@ -59,6 +59,8 @@ const routes: Routes = [
     {path:'profile', component:DoctorHomeComponent},
     {path:'rate-and-review', component:RateAndReviewComponent},
     {path:'visitor-booking', component:VisitorBookingComponent},
+    {path:'manage-appointment', component:AppointmentsComponent},
+    
     ]},
  
 
