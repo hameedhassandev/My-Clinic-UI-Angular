@@ -13,7 +13,7 @@
                 <div class="col-5">
                     <h2 (click)="getDoctorDetails(doctor.id)" id="doctor_title" class="card-title"><span style="font-size: 12px;">Doctor </span>{{ doctor.fullName}}</h2>
                     <p class="card-title">{{doctor.doctorTitle}}</p>
-                    {{doctor.id}}
+                    <!-- {{doctor.id}} -->
                     <div style="margin-bottom: 10px;font-size: 20px;">
                     <span *ngFor="let s of listOfrate" class="fa fa-star" [ngClass]="checkedMe"></span>
 

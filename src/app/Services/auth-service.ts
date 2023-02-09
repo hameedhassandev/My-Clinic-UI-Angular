@@ -53,9 +53,13 @@ export class AuthSerciceService {
       if(currentDate > user.expiresOn.getTime())
       {
         localStorage.removeItem("User");
+        console.log(user.expiresOn.getTime())
+        console.log("not logged and user removed");
         return false;
+        
       }
 
+      console.log("logged successfully");
       return true;
   }
 

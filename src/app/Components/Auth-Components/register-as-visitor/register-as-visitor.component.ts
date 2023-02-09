@@ -29,14 +29,14 @@ export class RegisterAsVisitorComponent implements OnInit {
     this.getAlCities();
 
     this.visitorRegisterForm = this._fb.group({
-      userName: ['hdhd', Validators.required],
-      email: ['dpodip', Validators.required],
-      password: ['pdipodipd', Validators.required],
-      fullName: ['dpodpo', Validators.required],
+      userName: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      fullName: ['', Validators.required],
       cities: ['', Validators.required],
       areaId: ['', Validators.required],
-      address: ['doidoi', Validators.required],
-      phoneNo: ['doidoi', Validators.required],
+      address: ['', Validators.required],
+      phoneNo: ['', Validators.required],
       gender: ['0', Validators.required],
     })
   }

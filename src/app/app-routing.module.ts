@@ -23,6 +23,7 @@ import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-
 import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-booking/visitor-booking.component';
 import { AppointmentsComponent } from './Components/Doctor-Components/appointments/appointments.component';
 import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/book-doctor.component';
+import { AuthGuard } from './Guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component: MainHomeComponent, children:[
@@ -45,7 +46,7 @@ const routes: Routes = [
     {path:'', redirectTo:'home', pathMatch:'full'},
     {path:'home', component:AdminHomeComponent},
     {path:'admin-dashboard', component:AdminDashboardComponent},
-    {path:'department', component:DepartmentComponent},
+    {path:'department', component:DepartmentComponent, canActivate:[AuthGuard]},
     {path:'hospital', component:HospitalComponent},
     {path:'specialist', component:SpecialistComponent},
     {path:'confirmed-doctors', component:ConfirmedDoctorsComponent},
