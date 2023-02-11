@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { LoginComponent } from 'src/app/Components/Auth-Components/login/login.component';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
 import { ConfirmDoctorFormComponent } from '../../forms-components/confirm-doctor-form/confirm-doctor-form.component';

@@ -58,6 +58,7 @@ import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-
 import { ConfirmDoctorFormComponent } from './Components/Admin-Components/forms-components/confirm-doctor-form/confirm-doctor-form.component';
 import { AppointmentsComponent } from './Components/Doctor-Components/appointments/appointments.component';
 import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/book-doctor.component';
+import { UpdateProfileComponent } from './Components/Doctor-Components/update-profile/update-profile.component';
 
 
   
@@ -98,6 +99,7 @@ import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/
     ConfirmDoctorFormComponent,
     AppointmentsComponent,
     BookDoctorComponent,
+    UpdateProfileComponent,
     
   ],
   imports: [

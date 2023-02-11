@@ -5,6 +5,7 @@ import { AuthSerciceService } from 'src/app/Services/auth-service';
 import { DepartmentServiceService } from 'src/app/Services/department-service.service';
 import { DropDownSelectService } from 'src/app/Services/drop-down-select.service';
 import { HospitalServiceService } from 'src/app/Services/hospital-service.service';
+import { InsuranceService } from 'src/app/Services/insurance.service';
 import { SpecialistServiceService } from 'src/app/Services/specialist-service.service';
 import { RegisterAsDoctorVM } from 'src/app/ViewModels/RegisterAsDoctorVM';
 
@@ -25,14 +26,19 @@ export class RegisterAsDoctorComponent implements OnInit{
   step = 1;
   citiesList :any;
   areasList :any;
+  imageValue:any
   departmentList : any;
   specialistsList : any[] = [];
   hospitalsList : any[] = [];
+  insuranceList : any[] = [];
   file:string='';
   selected = [];
   selected2 = [];
+  selected3 = [];
+  errorMassage:any
+  isError = false
 
- constructor(private _fb: FormBuilder,private _authSrevice: AuthSerciceService, 
+ constructor(private _fb: FormBuilder,private _authSrevice: AuthSerciceService,private _insuranceServ : InsuranceService,
   private _router: Router,private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService,
   private _specService:SpecialistServiceService, private _hospitalServ:HospitalServiceService) {
 
@@ -41,78 +47,43 @@ export class RegisterAsDoctorComponent implements OnInit{
 
 
  ngOnInit(): void {
+
   this.getAlCities();
   this.getAllDepartments();
   this.getAllHospitals();
+  this.getAllInsurance();
 
-  //this.getAllAreaByCityId(0);
-  // this.finalRegisterForm = this._fb.group({
-  //   userGroup: this._fb.group({
-  //     name: ['', Validators.required],
-  
-  // }),
-  // addressGroup: this._fb.group({
-  //     street: ['', Validators.required],
- 
-  // })
-  // });
   
   this.finalRegisterForm = this._fb.group({
     p1 :this._fb.group({
-      userName: ['', Validators.required],
-      email: ['', Validators.required],
-      fullName: ['',Validators.required],
-      doctorTitle: ['',Validators.required],
-      password: ['',Validators.required],
-      phoneNo: ['',Validators.required],
+      userName: ['osama88', Validators.required],
+      email: ['osamaali88@gmail.com  ', Validators.required],
+      fullName: ['osama ali ahmed',Validators.required],
+      doctorTitle: ['title text',Validators.required],
+      password: ['Osama33@',Validators.required],
+      phoneNo: ['01128199201',Validators.required],
     
 
   }),
 
     p2 : this._fb.group({
-        gender: ['',Validators.required],
-        cities: ['', Validators.required],
-        areaId: ['', Validators.required],
-        address: ['',Validators.required],
-        cost: ['',Validators.required],
-        waitingTime: ['',Validators.required],    
+        gender: ['0',Validators.required],
+        cities: ['0', Validators.required],
+        areaId: ['1', Validators.required],
+        address: ['osama address',Validators.required],
+        cost: ['500',Validators.required],
+        waitingTime: ['20',Validators.required],    
   }),
 
     p3: this._fb.group({
-        image: ['', Validators.required],
         departmentId: ['', Validators.required],
         specialistsIds: ['',Validators.required],
         hospitalsIds: ['',Validators.required],
-        // hospitalsIds: ['',Validators.required],
-        // insuranceIds: ['',Validators.required],
+         insuranceIds: ['',Validators.required],
+         image: ['', Validators.required],
+
   })
   });
-
-  //   this.personalDetails = this._fb.group({
-  //     userName: ['', Validators.required],
-  //     email: ['', Validators.required],
-  //     fullName: ['',Validators.required],
-  //     doctorTitle: ['',Validators.required],
-  //     password: ['',Validators.required],
-  //     phoneNo: ['',Validators.required],
-  // });
-
-  //   this.addressAndCostDetails = this._fb.group({
-  //       // gender: ['',Validators.required],
-  //       cities: ['', Validators.required],
-  //       // areaId: ['', Validators.required],
-  //       address: ['',Validators.required],
-  //       // cost: ['',Validators.required],
-  //       // waitingTime: ['',Validators.required],    
-  // });
-
-  //   this.extraInfoDetails = this._fb.group({
-  //       image: ['', Validators.required],
-  //       departmentId: ['', Validators.required],
-  //       specialistsIds: ['',Validators.required],
-  //       hospitalsIds: ['',Validators.required],
-  //       insuranceIds: ['',Validators.required],
-  // });
 
 }
  
@@ -150,6 +121,12 @@ getAllHospitals(){
 })
 }
 
+getAllInsurance(){
+  this._insuranceServ.getAllInsurance().subscribe(insurance=>{
+    this.insuranceList = insurance;
+})
+}
+
 getSpecByDepId(depId:any){
  var departmentId = depId.target.value;
  this.getAllSpecialisatByDepId(departmentId);
@@ -160,26 +137,15 @@ getAllSpecialisatByDepId(depId:number){
   this._specService.getAllSpecialistByDepartmentId(depId).subscribe(spec=>{
     this.specialistsList = spec;
 
-    // const mapped2 = Object.entries(this.areasList).map(([id, areaName]) => ({id, areaName}));
-    //  this.areasList = mapped2;
     console.log(spec);
     console.log(this.specialistsList);
-    // console.log(mapped2);
 
   })
 }
 
 
-
-
-
-
-
-
 changeAreaValue(cityValue:any){
-  // this.cityName?.setValue(cityValue.target.value, {
-  //   onlySelf: true,
-  // });
+ 
   console.log(cityValue.target.value);
   var cityId = cityValue.target.value;
   if(cityId === ''){
@@ -203,17 +169,13 @@ getAreaValue(areaVal:any){
 
 
 onchange(event:any){
+  let fileList: FileList = event.target.files;
+  if(fileList.length > 0) {
+      let file: File = fileList[0];
 
-  var reader = new FileReader();
-
-    reader.onload = (event:any) => {
-      console.log(event.target.result);
-       
-    }
-    reader.readAsDataURL(event.target.files[0]);
-
-    this.file=event.target.files[0];
-
+  this.imageValue = file;
+  }
+  
 }
 
 next(){
@@ -236,22 +198,6 @@ next(){
   console.log(this.step)
 }
 
-// next(){
-//     if(this.step==1){
-//       console.log('lol')
-//       this.personal_step = true;
-      
-//       if (this.finalRegisterForm.invalid) { return  }
-//       this.step++
-//     }
-//     if(this.step==2){
-//     this.address_step = true;
-//     if (this.addressAndCostDetails.invalid) { return }
-//         this.step++;
-//         console.log(this.step)
-//     }
-//     console.log(this.step)
-// }
 
 previous(){
     this.step--
@@ -266,15 +212,53 @@ previous(){
 register(){
     if(this.step==3){
     this.extraInfo_step = true;
-    if (this.extraInfoDetails.invalid) { return }
-    this._authSrevice.RegisterAsDoctor(this.RegisteDoctorVM).subscribe(
+    var data = new FormData();
+    data.append("UserName", this.finalRegisterForm.value['p1'].userName);
+    data.append("Email", this.finalRegisterForm.value['p1'].email);
+    data.append("FullName", this.finalRegisterForm.value['p1'].fullName);
+    data.append("DoctorTitle", this.finalRegisterForm.value['p1'].doctorTitle);
+    data.append("Password", this.finalRegisterForm.value['p1'].password);
+    data.append("PhoneNo", this.finalRegisterForm.value['p1'].phoneNo);
+    data.append("Gender", this.finalRegisterForm.value['p2'].gender);
+    data.append("Cities", this.finalRegisterForm.value['p2'].cities);
+    data.append("AreaId", this.finalRegisterForm.value['p2'].areaId);
+    data.append("Address", this.finalRegisterForm.value['p2'].address);
+    data.append("Cost", this.finalRegisterForm.value['p2'].cost);
+    data.append("WaitingTime", this.finalRegisterForm.value['p2'].waitingTime);
+    data.append("DepartmentId", this.finalRegisterForm.value['p3'].departmentId);
+    data.append("Image", this.finalRegisterForm.value['p3'].image);
+    for (let s of this.selected) {
+      data.append('SpecialistsIds[]', s);
+     }
+     for (let h of this.selected2) {
+      data.append('HospitalsIds[]', h);
+     }    
+    for (let i of this.selected3) {
+      data.append('InsuranceIds[]', i);
+     }
+    data.append("Image", this.imageValue, this.imageValue.name);
+
+    console.log(this.selected)
+    console.log(this.selected2)
+    console.log(this.selected3)
+    console.log(this.imageValue);
+    console.log(data)
+    if (this.finalRegisterForm.valid) {
+    this._authSrevice.RegisterAsDoctor(data).subscribe(
       {
-        next:data =>{
+        next:(data) =>{
+          alert('register successfully')
           
-        },
+        },error:(err)=>{
+
+          console.log(err.error);
+          this.isError = true;
+          this.errorMassage = err.error
+        }
       }
     )
     }
+  }
 }
 
 }

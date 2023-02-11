@@ -4,9 +4,9 @@
       <div  class="card" style="border-radius: 20px;box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.31);">
         <div class="card-horizontal">
           <div class="img-square-wrapper">
-            <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
-             <!-- <img class="" src="assets/imges/home_icon/m1.PNG" alt="Card image cap" id="doctor_img"> -->
-           </div>
+            <!-- <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img"> -->
+            <img  src="data:image/*;base64,{{doctor.image}}" alt="doctor_image" id="doctor_img"> 
+          </div>
 
             <div class="col-12">
              <div class="row">
@@ -27,7 +27,7 @@
                     <p><img class="" src="assets/imges/home_icon/money.png" alt="time img" width="17"> {{ doctor.cost}} EGP</p>
                     <p><img class="" src="assets/imges/home_icon/call.png" alt="call img" width="13"> {{ doctor.phoneNo}}</p>
                 </div>
-                <div class="col-3">
+                <div class="col-3" style="border-radius: 15px">
                     <table class="table table-striped" style="border: 1px solid rgb(235, 232, 232); margin-top:50px;">
                         <tbody>
                         <tr *ngFor="let t of timesOfWorkList">

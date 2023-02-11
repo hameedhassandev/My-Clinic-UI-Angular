@@ -1,9 +1,18 @@
-<div class="my_slider">
+<!-- slid section -->
+<div class="my_slider"  id="slider">
+  <div class="bottom-left">
+    <div class='lineUp'>
+    <h2 id="h_life">Find The Best Doctors </h2>
+    <h2 id="b_life">for a Better Life ... Choose and Book</h2>
+  </div>
+  </div>
   <img src="assets/imges/slider/slide-20-1.jpg"  alt="Snow" style="width:100%;">
-  <div class="back-filter">
+ 
+  <div class="back-filter" >
     <div class="container">
-   <h1 id="find_doctor" >         
-    Find your doctor
+   <h1 id="find_doctor" >  
+    Find and book a doctor
+    <img src="assets/imges/home_icon/search.png" alt="search_icon" style="width: 20px;margin-right: 5px;">       
   </h1>
   <hr class="filter_line">
 
@@ -13,7 +22,7 @@
      
       <mat-label>   <img src="assets/imges/home_icon/stethoscope-medical-tool.png" alt="search_icon" id="search_icon">
         Choose Department</mat-label>
-      <mat-select (selectionChange)="getDepartmentValue($event)" style="height: 40px;">
+      <mat-select (selectionChange)="getDepartmentValue($event)" style="height: 40px">
         <mat-option  *ngFor="let d of departmentList" [value]="d.id">{{d.name}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -27,7 +36,7 @@
     <mat-form-field>
       <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> Choose Area </mat-label>
       <mat-select>
-        <mat-option value="All Area">All Area</mat-option>
+        <mat-option  *ngFor="let a of areaList" [value]="a.id">{{a.areaName}}</mat-option>
       </mat-select>
     </mat-form-field>
     <button (click)="movetoContact()" class="search-button">Search</button>
@@ -36,38 +45,123 @@
   
     </div>
   </div>
-  </div>
+</div>
+<!-- about section -->
 <div class="about_us">
   <div class="col-12">
     <div class="row">
       <div class="col-3">
-        <img src="assets/imges/home_icon/doctor.png" alt="" width="70">
-        <h2 class="about_h">All your healthcare needs</h2>
+        <img src="assets/imges/home_icon/doctor.png" alt="" width="50">
+        <h2 class="about_h">Find the best doctors or clinics</h2>
         <p class="about_p">Search and book a clinic visit, home visit, 
-          or a contact with doctors.
-           and book a service or operation </p>
+          or a contact with doctors. </p>
       </div>
       <div class="col-3">
-        <img src="assets/imges/home_icon/rating.png" alt="" width="70">
+        <img src="assets/imges/home_icon/rating.png" alt="" width="50">
         <h2 class="about_h">Patient reviews and rates</h2>
         <p class="about_p">Doctor ratings are from 
           visitors who booked and visited the doctor </p>
 
       </div>
       <div class="col-3">
-        <img src="assets/imges/home_icon/solidarity.png" alt="" width="70">
+        <img src="assets/imges/home_icon/solidarity.png" alt="" width="50">
         <h2 class="about_h">All your healthcare needs</h2>
-        <p class="about_p">Hammed hassan muahmeed hassan
-          nohamed my clinic api </p>
+        <p class="about_p">welcome ou website what you think about us
+           my clinic </p>
       </div>
       <div class="col-3">
-        <img src="assets/imges/home_icon/appointment.png" alt="" width="70">
-        <h2 class="about_h">All your healthcare needs</h2>
-        <p class="about_p">Hammed hassan muahmeed hassan
+        <img src="assets/imges/home_icon/appointment.png" alt="" width="50">
+        <h2 class="about_h">All appointments of doctors</h2>
+        <p class="about_p">Find the best doctors or bes clinic 
           any description </p>
 
       </div>
     </div>
   </div>
 </div>
+<!-- cards section -->
+<div class="more_spec">
+<div class="doctors_card">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="card" id="doctor_specialist">
+          <img src="assets/imges/home_icon/teeth.jpg" style="height: 230px;padding: 2px;border-radius: 12px;" alt="">
+          <div class="card-body">
+            <h3 id="spec_title" class="card-title">Teeth</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card" id="doctor_specialist">
+          <img src="assets/imges/home_icon/mental.jpg" style="height: 230px;padding: 2px;border-radius: 12px;" alt="">
+          <div class="card-body">
+            <h3 id="spec_title" class="card-title">Mental</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card" id="doctor_specialist">
+          <img src="assets/imges/home_icon/child.jpg" style="height: 230px;padding: 2px;border-radius: 12px;" alt="">
+          <div class="card-body">
+            <h3 id="spec_title" class="card-title">Child</h3>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
 
+<!-- application -->
+<div class="our-applications">
+  <div class="application_card">
+    <div class="col-12">
+      <div class="card" id="app_card">
+        <div class="row">
+        <div class="col-6">
+          <h1>Download My Clinic Application </h1>
+          <p>
+            Search, compare and book doctor 
+            consultations with ease. Find the
+             nearst doctor to your area or city with
+             many criteria.
+          </p>
+          <div style="margin-top: 40px;">
+            
+            <img src="assets/imges/home_icon/apps.png" style="width: 45%;" alt="google-play">
+
+          </div>
+          <!-- <div class="row" style="margin-top: 30px;">
+            <div class="col">
+              <img src="assets/imges/home_icon/google-play.png" style="width: 140px" alt="google-play">
+            </div>
+            <div class="col">
+              <img src="assets/imges/home_icon/app-store.png" style="width: 140px;" alt="app-store">
+            </div>
+          </div> -->
+        </div>
+        <div class="col-6">
+          <img src="assets/imges/home_icon/download_app.png" style="width: 65%;" alt="">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="all_dep">
+<div class="container" style="margin-bottom: 60px;">
+  <h1>Choose from departments</h1>
+  <div class="row">
+    <span *ngFor="let d of departmentList" id="all_list_span">{{d.name}}</span>
+  </div>
+  <hr>
+  <h1>choose from cities</h1>
+  <div class="row">
+    <span *ngFor="let c of citiesList" id="all_list_span">{{c.name}}</span>
+  </div>
+</div>
+</div>
+  <!-- <a *ngIf="ShowTop" href="#slider" id="myBtn">Top</a>   -->

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand logo_img" href="#"> <img src="assets/imges/home_icon/logo2.png" alt="logo" style="width: 50%"></a>
+    <a class="navbar-brand logo_img" routerLink="/home"> <img src="assets/imges/home_icon/logo2.png" alt="logo" style="width: 50%"></a>
     <button class="navbar-toggler" type="button" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-bars"></i>
     </button>
@@ -9,9 +9,7 @@
         <li class="nav-item">
           <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
         </li>
-        <li class="nav-item">
-          <a routerLink="/home/book-doctor"  class="nav-link">Book</a>
-        </li>
+       
         <li class="nav-item">
           <a routerLink="/docotr-register" class="nav-link">Join Our Doctors</a>
         </li>
@@ -20,12 +18,37 @@
           <a routerLink="/home/all-doctors" class="nav-link">All Doctors</a>
         </li> 
         <li class="nav-item">
-          <a routerLink="/login" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/visitor-register" class="nav-link" style="border: 1px solid rgb(209, 206, 206);">Sign Up</a>
-        </li>
+          <a routerLink="/home/all-doctors" class="nav-link">Contact Us</a>
+        </li> 
         
+
+       
+     
+        <li class="nav-item" *ngIf="!isLogged">
+          <a routerLink="/login"  class="nav-link btn btn-secondary  btn-sm" style="margin-left: 500px;color: white;border-radius: 8px;">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged">
+          <a (click)="Logout()" class="nav-link btn btn-danger btn-sm" style="margin-left: 350px;margin-right: 10px;color: white;border-radius: 8px;background-color: rgb(239, 15, 15);">Logout</a>
+        </li>
+     
+        <li class="nav-item" *ngIf="!isLogged">
+          <a routerLink="/visitor-register" class="nav-link btn btn-success btn-sm" style="margin-left: 20px;color: white;border-radius: 8px;">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="isLogged" [matMenuTriggerFor]="menu">
+          <a  class="nav-link" style="cursor: pointer;">
+            <img src="assets/imges/user/default-user.png" alt="logo" style="width:30px">
+           Welcome, {{userName}}</a>
+           <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="myProfile()">
+                My Profile
+            </button>
+            <button mat-menu-item (click)="myAppointments()">
+              My Appointments
+          </button>
+        </mat-menu>
+        </li>
+       
+         
       </ul>
     </div>
   </div>

@@ -13,8 +13,8 @@
                         <div class="card card_style" >
                             <div class="card-horizontal">
                                 <div class="img-square-wrapper">
-                                    <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
-                                    <!-- <img class="" src="assets/imges/home_icon/m1.PNG" alt="Card image cap" id="doctor_img"> -->
+                                    <!-- <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img"> -->
+                                    <img  src="data:image/*;base64,{{doctorObj.image}}" alt="doctor_image" id="doctor_img"> 
                                
                                 </div>
                                 <div class="col-12" style="margin-left: 20px;margin-top: 30px;">
@@ -45,8 +45,8 @@
                                             <p><img class="" src="assets/imges/home_icon/call.png" alt="call img" width="13"> {{doctorObj.phoneNo}}</p>
                                             <hr>
                                             <p>
-                                                Overall Rating From Visitors
-                                                <span (click)=" ShowAllReviews()" style="font-weight: bold;color:rgb(0, 112, 205); ;">Show all reviews</span></p>
+                                                Overall Rating From Visitors ({{commentCount}})
+                                                <span (click)=" ShowAllReviews()" style="font-weight: bold;color:rgb(0, 112, 205); cursor: pointer;">Show all reviews</span></p>
                                         </div>
                                       
                                         </div>
@@ -106,7 +106,7 @@
     </div>
    
 
-    <div class="row">
+    <div class="row" *ngIf="showReviews">
         <div class="col-7">
         <div class="container-fluid">
             <div class="card card_style" style="margin-bottom: 40px;margin-top: 10px;">

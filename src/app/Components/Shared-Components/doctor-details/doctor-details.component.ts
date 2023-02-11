@@ -13,6 +13,7 @@ export class DoctorDetailsComponent implements OnInit {
   doctorObj:any
   timesOfWorkList:any
   showReviews = false;
+  commentCount :any;
   constructor(private _timeOfWorkSer: TimeofworkService,private router: Router,
     private _doctorService:DoctorService,private _router: ActivatedRoute) {
     
@@ -21,7 +22,7 @@ export class DoctorDetailsComponent implements OnInit {
     this._router.paramMap.subscribe((params) => {
       const doctorId = params.get('doctorId');
       this.getDoctoById(doctorId);
-      this.getDoctorTimesOfWork(doctorId)
+      this.getDoctorTimesOfWork(doctorId)    
     });  
   }
 
@@ -29,8 +30,9 @@ export class DoctorDetailsComponent implements OnInit {
     this._doctorService.GetDoctorById(docId).subscribe({
       next:(res)=>{
         this.doctorObj = res
-        console.log(this.doctorObj.Insurance)
         console.log(this.doctorObj)
+        this.commentCount = this.doctorObj['ratesAndReviews'].length;    
+       
       },
       error:(err)=>{
         console.log(err)
@@ -52,8 +54,13 @@ getDoctorTimesOfWork(docId:any){
   }
 
   ShowAllReviews(){
-    this.showReviews = true;
-    alert('clicked')
+    if(this.commentCount === 0){
+      this.showReviews = false   
+
+    }else{
+      this.showReviews = true;
+    }
+    //alert('clicked')
   }
 
   navigateToBook(day:any){

@@ -14,13 +14,18 @@ export class HomeComponent implements OnInit{
   departmentList : any;
   cityId:any
   departmentId:any
+  areaList:any
+  ShowTop = false
   constructor(private _ddlService: DropDownSelectService,private router: Router,
     private _departmentService : DepartmentServiceService) {}
   ngOnInit(): void {
     this.getAlCities()
     this.getAllDepartments()  
-  }
+    this.getAllAreas()
+    this.ShowTop = true
 
+  }
+ 
   getCityValue(cityValue:any){
     console.log(cityValue.value);
     this.cityId = cityValue.value;
@@ -42,23 +47,13 @@ export class HomeComponent implements OnInit{
     })
   }
 
-  // filter(){
-  //   var filterDoctor: DoctorFilterVM={
-  //     departmentId:this.departId,
-  //     cityId:this.cityId
-  //   };
-  //   this._doctorService.GetAllDoctorsWithFilter(filterDoctor).subscribe({
-  //    next:(res)=>{
-  //      this.doctorList = res
-  //      console.log(this.doctorList)
-  //    },
-  //    error:(err)=>{
-  //      this.errMassage = err
-  //      console.log(this.errMassage)
-  //    }
-  //  })
-   
-  //  }
+  getAllAreas(){
+    this._ddlService.getAllArea().subscribe(areas=>{
+      this.areaList = areas;
+      console.log(areas);
+      console.log(this.areaList);
+    })
+  }
   movetoContact(){
 
     this.router.navigate(['/home/all-doctors'],{queryParams: {department: this.departmentId, city:this.cityId }})

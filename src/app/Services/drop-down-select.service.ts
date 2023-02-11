@@ -21,4 +21,7 @@ export class DropDownSelectService {
   getAllAreaByCityId(cityId:number):Observable<Area[]>{
     return this._httpClient.get<Area[]>(`${this.areaAPI}/GetAllAreasByCityId/${cityId}`);
   }
+  getAllArea():Observable<Area[]>{
+    return this._httpClient.get<Area[]>(`${this.areaAPI}/GetAllAreas`);
+  }
 }

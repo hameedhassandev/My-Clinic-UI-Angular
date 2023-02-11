@@ -40,13 +40,17 @@ Login(){
 
        else if(userRoles.some( i => i === RoleNames.DoctorRole))
           this._router.navigate(['/doctor']);
+      
+          else if(userRoles.some( i => i === RoleNames.PatientRole))
+          this._router.navigate(['/home']);
 
         else
-          this._router.navigate(['/doctor']);
+          this._router.navigate(['/home']);
       },
 
       error: err => {
         this.serverError = true;
+        console.log(err)
         
         if(typeof err["error"] == "string")
           this.errorMessage = err["error"];

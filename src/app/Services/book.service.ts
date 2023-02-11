@@ -10,7 +10,7 @@ import { Book } from '../Models/Book';
 })
 export class BookService {
 
-  private bookApi: string = environment.APIURL + "/Department";
+  private bookApi: string = environment.APIURL + "/Book";
   httpOptions: any
   constructor(private _httpClient: HttpClient, authService : AuthSerciceService) { 
     this.httpOptions = {
@@ -24,4 +24,8 @@ export class BookService {
   gettAllBookOfDoctor(doctorId:any): Observable<Book[]>{
     return this._httpClient.get<Book[]>(`${this.bookApi}/GetBookingsOfDoctor?doctorId=${doctorId}`)
   }
+  addBook(data:any){
+    return this._httpClient.post<any>(`${this.bookApi}/AddBook`,data)
+  }
+
 }

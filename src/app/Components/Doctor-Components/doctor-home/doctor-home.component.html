@@ -3,88 +3,64 @@
     <div class="card">
         <div class="row">
             <div class="col-4">
-              <!-- <img  src="data:image/*;base64,{{doctorObj.image}}" alt="doctor_image" class="doctor_image">  -->
+              <div class="alert alert-danger" *ngIf="updateErr">
+                <small>{{updateMassage}}</small>
+              </div>
+              <img  src="data:image/*;base64,{{doctorObj.image}}" alt="doctor_image" class="doctor_image"> 
 
-                <img src="assets/imges/admin/defult.jpg" alt="doctor_image" class="doctor_image"> 
-                <hr>
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input type="text"[(ngModel)]="doctorObj.fullName" class="form-control" id="pass" name="fullName"readonly>
-                  </div>
-                  <div class="form-group">
-                    <label for="userName" >Username</label>
-                    <input type="text" [(ngModel)]="doctorObj.userName" class="form-control" id="pass" name="pass" readonly>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text"  [(ngModel)]="doctorObj.email" class="form-control" id="email" name="email" readonly>
-                  </div>
-               
+                <!-- <img src="assets/imges/admin/defult.jpg" alt="doctor_image" class="doctor_image"> -->
+              
+                <div class="container" style="margin-top: 20px;">
+                <input hidden type="file" (change)="onchange($event)" class="btn btn-dark btn-sm" accept="image/png, image/jpeg" name="Image" placeholder="Image" required #file>
+                <button (click)="updateImage()" class="btn btn-success" style="margin-right: 5px;">Update image</button>
+                <button  (click)="file.click()"class="btn btn-dark">Choose image</button>
+                <p *ngIf="isAdded">{{imageName}}</p>
+               </div>
+              
+              </div>
+            <div class="col-4">
+              <h3><span class="doctor_info">Full Name: </span>{{doctorObj.fullName}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Username: </span>{{doctorObj.userName}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Email: </span>{{doctorObj.email}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Doctor Title: </span>{{doctorObj.doctorTitle}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Gender: </span>{{doctorObj.gender}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Phone Number: </span>{{doctorObj.phoneNo}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Full Address: </span>{{doctorObj.address}}, {{doctorObj.area['areaName']}}, {{doctorObj.cities}}.</h3> 
+
             </div>
             <div class="col-4">
-                <div class="form-group">
-                    <label for="doctorTitle">Title</label>
-                    <input type="text" [(ngModel)]="doctorObj.doctorTitle"  class="form-control" id="pass" name="pass" readonly>
-                  </div>
-    
-                <div class="form-group">
-                  <label for="specialists">Specialists</label>
-                  <div class="colect_text">
-                    <span *ngFor="let s of doctorObj.specialists">
-                      {{s.specialistName}}.</span>
-                  </div>
-                </div>
+              <h3><span class="doctor_info">Cost: </span>{{doctorObj.cost}} (L.E)</h3> 
+              <hr>
+              <h3><span class="doctor_info">waiting Time: </span>{{doctorObj.waitingTime}} (Min.)</h3> 
+              <hr>
+              <h3><span class="doctor_info">Department: </span>{{doctorObj.department['name']}}</h3> 
+              <hr>
+              <h3><span class="doctor_info">Specialists: </span>
+                <span *ngFor="let s of doctorObj.specialists">
+                  {{s.specialistName}}.
+                </span>
+              </h3> 
+              <hr>
+              <h3><span class="doctor_info">Hospitals: </span>
+                <span *ngFor="let h of doctorObj.hospitals">
+                  {{h.name}}.
+                </span>
+              </h3> 
+              <hr>
+              <h3><span class="doctor_info">Insurances: </span>
+                <span *ngFor="let i of doctorObj.insurances">
+                  {{i.companyName}}({{i.discount}}%).
+                </span>
+              </h3> 
+              <hr>
+              <button type="submit" class="btn btn-success  btn-block" (click)="openFormDialog(doctorObj)">Update Profile</button>
 
-                <div class="form-group">
-                  <label for="hospitals">Hospitals</label>
-                  <div class="colect_text">
-                    <span *ngFor="let h of doctorObj.hospitals">
-                      {{h.name}}.</span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="insurances">Insurances</label>
-                  <div class="colect_text">
-                    <span *ngFor="let i of doctorObj.insurances">
-                      {{i.companyName}}({{i.discount}}%).</span>
-                  </div>
-                </div>
-                <div class="form-group">
-                    <label for="department">Department</label>
-                    <input type="tel" [(ngModel)]="doctorObj.department['name']" class="form-control" id="pass" name="pass" readonly>
-                  </div>
-                  <!-- <a class="btn btn-danger btn-block" style="background-color:rgb(239, 15, 15);" href="#"
-                  role="button">
-                  Change Password</a> -->
-            </div>
-            <div class="col-4">
-             
-                <div class="form-group">
-                    <label for="gender">Gender</label>
-                    <input type="text"  [(ngModel)]="doctorObj.gender" class="form-control" id="pass" name="pass" readonly>
-                  </div>
-                <div class="form-group">
-                    <label for="phoneNo">Phone number</label>
-                    <input type="tel" [(ngModel)]="doctorObj.phoneNo" class="form-control" id="pass" name="pass" readonly>
-                  </div>
-               
-                  <div class="form-group">
-                    <label for="area">Full address</label>
-                    <div class="colect_text">
-                      <span>{{doctorObj.address}}, {{doctorObj.area['areaName']}}, {{doctorObj.cities}}.</span>
-                    </div>
-                  </div>
-          
-                  <div class="form-group">
-                    <label for="cost">Cost (L.E)</label>
-                    <input type="number" [(ngModel)]="doctorObj.cost" class="form-control" id="pass" name="pass" readonly>
-                  </div>
-                  <div class="form-group">
-                    <label for="waitingTime">Waiting time (min.)</label>
-                    <input type="number" [(ngModel)]="doctorObj.waitingTime" class="form-control" id="pass" name="pass" readonly>
-                  </div>
-                  <button type="submit" class="btn btn-success  btn-block">Update Profile</button>
-    
             </div>
         </div>
     </div>

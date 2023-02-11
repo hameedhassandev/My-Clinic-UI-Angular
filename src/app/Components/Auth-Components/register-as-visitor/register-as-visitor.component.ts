@@ -121,7 +121,7 @@ if(this.visitorRegisterForm.valid)
       //   this.errorMessage = err["error"];
       
       // // else if(err["error"].hasOwnProperty("errors"))
-      // //   for(const e of err["error"]["errors"])
+        // //   for(const e of err["error"]["errors"])
       // //     this.errorMessage += e; 
       
       // else if(err["error"].hasOwnProperty("Password"))  

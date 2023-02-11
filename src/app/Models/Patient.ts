@@ -6,6 +6,7 @@ export interface Patient{
     image:string,
     address:string,
     cities:Cities,
+    phoneNo:string,
     
     
 }

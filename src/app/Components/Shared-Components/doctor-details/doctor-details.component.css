@@ -45,5 +45,10 @@
     border-radius: 25px;
     padding: 10px;
  }
+ table {
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+  }
 
  

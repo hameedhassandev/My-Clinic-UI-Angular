@@ -24,8 +24,25 @@ import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-
 import { AppointmentsComponent } from './Components/Doctor-Components/appointments/appointments.component';
 import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/book-doctor.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { NotAuthGuard } from './Guards/not-auth.guard';
+import { UserRoleGuard } from './Guards/user-role.guard';
+import { RoleNames } from './ViewModels/RoleNames';
 
 const routes: Routes = [
+
+
+  {path:'admin', component:AdminLayoutComponentComponent,
+  children: [
+    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'home', component:AdminHomeComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'admin-dashboard', component:AdminDashboardComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'department', component:DepartmentComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'hospital', component:HospitalComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'specialist', component:SpecialistComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'confirmed-doctors', component:ConfirmedDoctorsComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    
+
+  ]},
   {path: '', component: MainHomeComponent, children:[
     {path: '', component: HomeComponent, pathMatch: 'full'},
     {path:'home', component:HomeComponent},
@@ -36,31 +53,18 @@ const routes: Routes = [
     {path:'confirm-email', component:ConfirmationMailComponent},
     {path:'home/all-doctors', component:DoctorFiltersComponent},
     {path:'home/doctor-details/:doctorId', component:DoctorDetailsComponent},
-    {path:'home/book-doctor/:day/:doctorId', component:BookDoctorComponent},
+    {path:'home/book-doctor/:day/:doctorId', component:BookDoctorComponent,canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.PatientRole]}},
     
 
   ]},
 
-  {path:'admin', component:AdminLayoutComponentComponent,
-  children: [
-    {path:'', redirectTo:'home', pathMatch:'full'},
-    {path:'home', component:AdminHomeComponent},
-    {path:'admin-dashboard', component:AdminDashboardComponent},
-    {path:'department', component:DepartmentComponent, canActivate:[AuthGuard]},
-    {path:'hospital', component:HospitalComponent},
-    {path:'specialist', component:SpecialistComponent},
-    {path:'confirmed-doctors', component:ConfirmedDoctorsComponent},
-    {path:'not-confirmed-doctors', component:NotConfirmedDoctorsComponent},
-    
-
-  ]},
   {path:'doctor', component:DoctorLayoutComponentComponent,
   children: [
-    {path:'', redirectTo:'profile', pathMatch:'full'},
-    {path:'profile', component:DoctorHomeComponent},
-    {path:'rate-and-review', component:RateAndReviewComponent},
-    {path:'visitor-booking', component:VisitorBookingComponent},
-    {path:'manage-appointment', component:AppointmentsComponent},
+    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'home', component:DoctorHomeComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.DoctorRole]}},
+    {path:'rate-and-review', component:RateAndReviewComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.DoctorRole]}},
+    {path:'visitor-booking', component:VisitorBookingComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.DoctorRole]}},
+    {path:'manage-appointment', component:AppointmentsComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.DoctorRole]}},
     
     ]},
  

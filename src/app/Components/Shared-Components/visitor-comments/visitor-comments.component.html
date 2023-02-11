@@ -1,64 +1,25 @@
  
-    <div class="card">
+    <div class="card" *ngFor="let r of allVisitorsRateAndReview">
     <div class="card-body">
-    <p>any text of visitor comment</p>
-   
+    <h2>{{r.review}}</h2>
+    <p style="font-size: 12px;"><span style="font-weight: bold;">Created at: </span>{{r.createdAt}}</p>
+
     <div class="d-flex justify-content-between">
         <div class="d-flex flex-row align-items-center">
-        <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap"
+        <img class="" src="assets/imges/user/default-user.png" alt="Card image cap"
         style="width: 50px;height: 50px;border-radius: 50%; margin-right: 10px;">
 
-        <p class="small mb-0 ms-2"> visitor_name</p>
+        <h4 class="small mb-0 ms-2"> {{r.patient['fullName']}}</h4>
         </div>
         <div class="d-flex flex-row align-items-center">
         
-        <p class="small text-muted mb-0" style="margin-right: 5px;">4/5</p>
-        <img class="" src="assets/imges/home_icon/star.png" width="15" alt="Card image cap">
-        <p class="small text-muted mb-0">Doctor Rate</p>
+        <p class="small text-muted mb-0" style="margin-right: 5px;font-size: 16px;">{{r.rate}}/5</p>
+        <img class="" src="assets/imges/user/star.png" width="20" alt="Card image cap">
         </div>
     </div>
     </div>
     </div>
 
-    <div class="card">
-    <div class="card-body">
-        <p>Type your note, and hit enter to add it</p>
-
-        <div class="d-flex justify-content-between">
-        <div class="d-flex flex-row align-items-center">
-            <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap"
-            style="width: 50px;height: 50px;border-radius: 50%; margin-right: 10px;">
-
-            <p class="small mb-0 ms-2"> Martha</p>
-        </div>
-        <div class="d-flex flex-row align-items-center">
-            <p class="small text-muted mb-0">Upvote?</p>
-            <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
-            <p class="small text-muted mb-0">3</p>
-        </div>
-        </div>
-    </div>
-    </div>
-
-    <div class="card">
-    <div class="card-body">
-        <p>Type your note, and hit enter to add it</p>
-
-        <div class="d-flex justify-content-between">
-        <div class="d-flex flex-row align-items-center">
-            <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap"
-            style="width: 50px;height: 50px;border-radius: 50%; margin-right: 10px;">
-
-            <p class="small mb-0 ms-2"> Martha</p>
-        </div>
-        <div class="d-flex flex-row align-items-center">
-            <p class="small text-muted mb-0">Upvote?</p>
-            <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
-            <p class="small text-muted mb-0">3</p>
-        </div>
-        </div>
-    </div>
-    </div>
 
 
 

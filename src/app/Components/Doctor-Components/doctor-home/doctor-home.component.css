@@ -1,5 +1,6 @@
 .doctor_image{
     width: 200px;
+    height: 200px;
     margin-left:30px ;
     border-radius: 50%;
 }
@@ -15,7 +16,9 @@
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 
 }
-
+.doctor_info{
+    font-weight: bold;
+}
 .colect_text{
     border:1px solid #cccccc;
     padding: 10px;

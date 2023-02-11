@@ -2,38 +2,19 @@
   <img src="assets/imges/home_icon/doctor.png" alt="" width="25"> 
    Join Our Doctors
 </h4>
-<!-- <ng-select [items]="specialistsList" 
-placeholder="Specialists"
-bindLabel="specialistName" 
-bindValue="id" 
-[multiple]="true"
-[(ngModel)]="selectedCar">
-</ng-select> -->
-<!-- <p>{{personalDetails.value | json}}</p>
-<p>{{addressAndCostDetails.value | json}}</p> -->
+<div class="container">
+  <div class="alert alert-danger" style="text-align: center;" *ngIf="isError">
+    <small>{{errorMassage}}</small>
+  </div>
+</div>
 
 <!-- <p>{{finalRegisterForm.value | json}}</p> -->
 
-<!-- <div class="mb-3">
-  <label for="" class="form-label">Cities</label>
-  <select (change)="selectMe()" class="form-select">
-      <option value="" >Select City...</option>
-      <option *ngFor="let cities of citiesList" [value]="cities.id">{{cities.name}}</option>
-    </select>
-</div> -->
+
 
 <div class="row"> 
   <div class="col-md-12 col-md-offset-3">
-    <!-- <form [formGroup]="finalRegisterForm">
-      <form formGroupName = "userGroup">
-        <input type="text" class="form-control" required formControlName="name"  placeholder="name"/>
-        <div *ngIf="finalRegisterForm.controls['name'].errors">
-            <small class="text-danger" *ngIf="!finalRegisterForm.controls['name'].valid && finalRegisterForm.controls['name'].touched">
-              Name is required
-            </small>
-          </div>
-      </form>
-    </form> -->
+
     <form [formGroup]="finalRegisterForm">
       <div formGroupName="p1" ngOnChanges id="msform">
           <!-- progressbar -->
@@ -53,37 +34,37 @@ bindValue="id"
 
               <input type="email" class="form-control" required formControlName="email"  placeholder="Enter Email"/>
               <div>
-                  <small class="text-danger" *ngIf="!finalRegisterForm.controls['p1'].valid && finalRegisterForm.controls['p1'].touched">
+                  <!-- <small class="text-danger" *ngIf="!finalRegisterForm.controls['p1'].valid && finalRegisterForm.controls['p1'].touched">
                       Email is required 
-                  </small>
+                  </small> -->
               </div>
               <input type="text"  class="form-control" required formControlName="fullName"  placeholder="Enter Full name"/>
-              <div *ngIf="personal_step && personalDetails.controls['fullName'].errors">
-                  <small class="text-danger" *ngIf="!personalDetails.controls['fullName'].valid && personalDetails.controls['fullName'].touched">
+              <div *ngIf="personal_step && finalRegisterForm.controls['fullName'].errors">
+                  <!-- <small class="text-danger" *ngIf="!finalRegisterForm.controls['fullName'].valid && finalRegisterForm.controls['fullName'].touched">
                     Full name is required
-                  </small>
+                  </small> -->
               </div>
 
               <input type="text"  class="form-control" required formControlName="doctorTitle"  placeholder="Enter Your Title ex: Consultant of Pediatrics."/>
-              <div *ngIf="personal_step && personalDetails.controls['doctorTitle'].errors">
-                  <small class="text-danger" *ngIf="!personalDetails.controls['doctorTitle'].valid && personalDetails.controls['doctorTitle'].touched">
+              <div *ngIf="personal_step && finalRegisterForm.controls['doctorTitle'].errors">
+                  <!-- <small class="text-danger" *ngIf="!finalRegisterForm.controls['doctorTitle'].valid && finalRegisterForm.controls['doctorTitle'].touched">
                     Doctor Title is required
-                  </small>
+                  </small> -->
               </div>
               
               <input type="password"  class="form-control" required formControlName="password"  placeholder="Enter Password"/>
-              <div *ngIf="personal_step && personalDetails.controls['password'].errors">
-                  <small class="text-danger" *ngIf="!personalDetails.controls['password'].valid && personalDetails.controls['password'].touched">
+              <div *ngIf="personal_step && finalRegisterForm.controls['password'].errors">
+                  <!-- <small class="text-danger" *ngIf="!finalRegisterForm.controls['password'].valid && finalRegisterForm.controls['password'].touched">
                     Password is required
-                  </small>
+                  </small> -->
               </div>
 
                
               <input type="tel"  class="form-control" required formControlName="phoneNo"  placeholder="Enter Phone Number"/>
-              <div *ngIf="personal_step && personalDetails.controls['phoneNo'].errors">
-                  <small class="text-danger" *ngIf="!personalDetails.controls['phoneNo'].valid && personalDetails.controls['phoneNo'].touched">
+              <div *ngIf="personal_step && finalRegisterForm.controls['phoneNo'].errors">
+                  <!-- <small class="text-danger" *ngIf="!finalRegisterForm.controls['phoneNo'].valid && finalRegisterForm.controls['phoneNo'].touched">
                     Phone Nnmber is required
-                  </small>
+                  </small> -->
               </div>
 
    
@@ -120,58 +101,17 @@ bindValue="id"
             </div>
       
               <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-              <div *ngIf="address_step && addressAndCostDetails.controls['address'].errors">
+              <!-- <div *ngIf="address_step && addressAndCostDetails.controls['address'].errors">
                   <small class="text-danger" *ngIf="!addressAndCostDetails.controls['address'].valid && addressAndCostDetails.controls['address'].touched">
                       address is required
                   </small>
-              </div>
+              </div> -->
 
               <input type="number"  class="form-control" required formControlName="cost"  placeholder="Enter cost (L.E)"/>
-              <!-- <div *ngIf="">
-                  <small class="text-danger" *ngIf="">
-                    cost is required
-                  </small>
-              </div> -->
-
+  
               <input type="number"  class="form-control" required formControlName="waitingTime"  placeholder="Enter waiting time (min.)"/>
-              <!-- <div *ngIf="">
-                  <small class="text-danger" *ngIf="">
-                    waitingTime is required
-                  </small>
-              </div> -->
+     
 
-              <!-- <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Cost"/>
-              <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                  <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                    departmentId is required
-                  </small>
-              </div>
-              <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Waiting Time"/>
-              <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                  <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                    departmentId is required
-                  </small>
-              </div> -->
-             <!-- <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-              <div *ngIf="address_step && addressAndCostDetails.controls['address'].errors">
-                  <small class="text-danger" *ngIf="!addressAndCostDetails.controls['address'].valid && addressAndCostDetails.controls['address'].touched">
-                      address is required
-                  </small>
-              </div> -->
-
-              <!-- <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-              <div *ngIf="address_step && addressAndCostDetails.controls['address'].errors">
-                  <small class="text-danger" *ngIf="!addressAndCostDetails.controls['address'].valid && addressAndCostDetails.controls['address'].touched">
-                      address is required
-                  </small>
-              </div>
-
-              <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-              <div *ngIf="address_step && addressAndCostDetails.controls['address'].errors">
-                  <small class="text-danger" *ngIf="!addressAndCostDetails.controls['address'].valid && addressAndCostDetails.controls['address'].touched">
-                      address is required
-                  </small>
-              </div> -->
               <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
               <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
           </fieldset>
@@ -213,12 +153,17 @@ bindValue="id"
           </ng-select>
         </div>
                
-            <!-- <input type="text" class="form-control" required formControlName="departmentId"  placeholder="Enter Insurance" />
-            <div *ngIf="extraInfo_step && extraInfoDetails.controls['departmentId'].errors">
-                <small class="text-danger" *ngIf="!extraInfoDetails.controls['departmentId'].valid && extraInfoDetails.controls['departmentId'].touched">
-                  departmentId is required
-                </small>
-            </div> -->
+        <div class="mb-3">
+          <ng-select [items]="insuranceList"
+          formControlName="insuranceIds"
+          placeholder="where insurance(s) you work?"
+          bindLabel="companyName"
+          bindValue="id" 
+          [multiple]="true"
+          [(ngModel)]="selected3"
+          required>
+          </ng-select>
+        </div>
                    
             <div class="mb-3">
               <label for="image" class="form-label">Upload profile image</label>
@@ -230,208 +175,3 @@ bindValue="id"
         </fieldset>
     </form> 
   </form>
-<!--         
-       <form [formGroup]="addressDetails" id="msform">
-          <fieldset *ngIf="step == 2" >
-              <h2 class="fs-title">Address Details</h2>
-             <input type="text" class="form-control" required formControlName="phone"  placeholder="Enter City"/>
-              <div *ngIf="address_step && addressDetails.controls['city'].errors">
-                  <small class="text-danger" *ngIf="!addressDetails.controls['city'].valid && addressDetails.controls['city'].touched">
-                      City is required
-                  </small>
-              </div>
-              <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-              <div *ngIf="address_step && addressDetails.controls['city'].errors">
-                  <small class="text-danger" *ngIf="!addressDetails.controls['address'].valid && addressDetails.controls['address'].touched">
-                      address is required
-                  </small>
-              </div>
-
-             <input type="text" class="form-control" required formControlName="address"  placeholder="Enter address"/>
-              <div *ngIf="address_step && addressDetails.controls['address'].errors">
-                  <small class="text-danger" *ngIf="!addressDetails.controls['address'].valid && addressDetails.controls['address'].touched">
-                      address is required
-                  </small>
-              </div>
-         
-              <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-              <input  (click)="next()" type="button" name="next" class="next action-button" value="Next"/>
-          </fieldset>
-      </form>
-       <form [formGroup]="addressDetails" id="msform">
-          <fieldset *ngIf="step == 3">
-              <h2 class="fs-title">Educational Details</h2>
-              <input type="text" formControlName="highest_qualification" placeholder="Highest Qualification"/>
-              <div *ngIf="education_step && educationalDetails.controls.highest_qualification.errors">
-                  <div *ngIf="education.highest_qualification.errors?.required">Highest qualification is required</div>
-              </div>
-              <input type="text" formControlName="university"  placeholder="University"/>
-              <div *ngIf="education_step && educationalDetails.controls.university.errors">
-                  <div *ngIf="education.university.errors?.required">University is required</div>
-              </div>
-              <input type="text" formControlName="total_marks" placeholder="Total Marks"/>
-              <div *ngIf="education_step && educationalDetails.controls.total_marks.errors">
-                  <div *ngIf="education.total_marks.errors?.required">Total marks is required</div>
-              </div>
-              <input (click)="previous()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-              <input (click)="submit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
-          </fieldset>
-      </form> -->
-
-  </div>
-</div>
-<!-- group
-
-    
-    public userName : string;
-    public email : string;
-    public fullName : string;
-    public doctorTitle : string;
-    public password : string;
-    public gender : number;
-    public phoneNo  : string;
-
-    public cities: number;
-    public areaId: number;
-    public address :string;
-    public cost : number;
-    public waitingTime  : number;
-
-
-    public image :string;
-    public departmentId: number;
-    public specialistsIds : number[];
-    public hospitalsIds : number[];
-    public insuranceIds : number[];
--->
-
-
-
-
-<!-- 
- 
- 
- <div class="container">
-  <div class="row">
-      <div class="col-lg-6 offset-lg-3">
-  <h1>Join As A Doctor</h1>
-  <form #loginForm="ngForm">
-      <div class="alert alert-danger" >
-        <small></small>
-      </div>
-
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter username" required>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter full name" required>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter your title ex: Consultant of Pediatrics and Neonatology." required>
-      </div>
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Enter email" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" class="form-control" placeholder="Enter phone" required>
-      </div>
-<div class="row">
-       <div class="col-6">
-        <div class="form-group">
-          <input type="number" class="form-control" placeholder="Enter cost (L.E)" required>
-        </div>
-       </div>
-       <div class="col-6">
-        <div class="form-group">
-          <input type="number" class="form-control" placeholder="Enter waiting time (in minutes)" required>
-        </div>
-       </div>
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" id="pass" name="pass"  placeholder="Enter password" required >
-      </div>
-
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group">
-            <select class="form-control" aria-label="Default select example">
-              <option selected>Choose you department</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="form-group">
-
-       </div>
-        </div>
-       </div>
-       <div class="form-group">
-        <ng-select [items]="items"
-        bindLabel="name"
-        placeholder="Select Hospitals"
-        appendTo="body"
-        [multiple]="true"
-        [searchable]="true"
-        (change)="getValue()">
-        <ng-option *ngFor="let item of items" [value]="item.id">{{item.name}}</ng-option>   
-     </ng-select>
-       </div>
-
-       <div class="form-group">
- 
-       </div>
-       <div class="row">
-        <div class="col-3">
-         <div class="form-group">
-          <select class="form-control" aria-label="Default select example">
-            <option selected>City</option>
-            <option value="1">cairo</option>
-            <option value="2">giza</option>
-            <option value="3">alex</option>
-          </select>
-         </div>
-        </div>
-        <div class="col-4">
-         <div class="form-group">
-          <select class="form-control" aria-label="Default select example">
-            <option selected>Area</option>
-            <option value="1">new cairo</option>
-            <option value="2">mazatria test test tet </option>
-            <option value="3">fesil</option>
-          </select>
-         </div>
-        </div>
-        <div class="col-5">
-          <div class="form-group">
-            <input type="string" class="form-control" placeholder="Enter address" required>
-          </div>
-         </div>
-       </div>
- 
-       <div class="form-group">
-        <select class="form-control" aria-label="Default select example">
-          <option selected>Gender</option>
-          <option value="1">Male</option>
-          <option value="2">Female</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-          <label for="formFileLg" class="form-label">Large file input example</label>
-          <input class="form-control form-control" id="formFileLg" type="file">
-      </div>
- <button type="submit" class="btn btn-success">Sign Up</button>
-
-
-    </form>   
-      </div>
-  </div>
-</div>
-
-
-
-  https://stackblitz.com/edit/angular-multi-step-reactive-form?file=src%2Fapp%2Fcomponents%2Fmulti-step-form%2Fmulti-step-form.component.ts
- --> 

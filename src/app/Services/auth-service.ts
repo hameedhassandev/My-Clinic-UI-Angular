@@ -17,8 +17,8 @@ export class AuthSerciceService {
   private serviceApi: string = environment.APIURL + "/Auth";
   private httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-    })
+      'Content-Type': 'multipart/form-data'
+      })
   };
 
 
@@ -28,19 +28,23 @@ export class AuthSerciceService {
 
   Login(logingUser: LoginVM) : Observable<AuthUserVM>
   {
-    return this._httpClient.post<AuthUserVM>(this.serviceApi + "/Login", JSON.stringify(logingUser), this.httpOptions);
+    return this._httpClient.post<AuthUserVM>(this.serviceApi + "/Login",logingUser);
   }
 
-  RegisterAsDoctor(registerAsDoctor: RegisterAsDoctorVM) : Observable<RegisterAsDoctorVM>
+  RegisterAsDoctor(registerAsDoctor: any)
   {
-    return this._httpClient.post<RegisterAsDoctorVM>(this.serviceApi + "/RegisterAsDoctor", JSON.stringify(registerAsDoctor));
+    return this._httpClient.post<any>(this.serviceApi + "/DoctorRegister", registerAsDoctor);
   }
 
   RegisterAsVisitor(registerVisitor: any)
   {
     return this._httpClient.post<any>( `${this.serviceApi}/RegisterAsPatient`,registerVisitor);
   }
+  
+  UpdateImagePicture(userData:any){
+    return this._httpClient.put<any>( `${this.serviceApi}/updateProfilePic`,userData);
 
+  }
   isLogged() : Boolean
   {
     if(!localStorage.hasOwnProperty("User"))

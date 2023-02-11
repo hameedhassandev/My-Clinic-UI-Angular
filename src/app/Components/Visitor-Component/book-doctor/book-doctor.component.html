@@ -5,9 +5,8 @@
             <div class="card card_style">
                 <div class="card-horizontal">
                     <div class="img-square-wrapper">
-                        <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img">
-                        <!-- <img class="" src="assets/imges/home_icon/m1.PNG" alt="Card image cap" id="doctor_img"> -->
-                    
+                        <!-- <img class="" src="assets/imges/home_icon/defult.jpg" alt="Card image cap" id="doctor_img"> -->
+                        <img  src="data:image/*;base64,{{doctorObj.image}}" alt="doctor_image" id="doctor_img"> 
                     </div>
                     <div class="col-12" style="margin-left: 20px;margin-top: 30px;">
                         <div class="row">
@@ -38,26 +37,26 @@
                 <form>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Visitor name</label>
-                      <input value="Ahmed Mohamed" type="text" class="form-control" id="exampleInputEmail1"  placeholder="Visitor name">
+                      <input value="{{VisitorObj.fullName}}" type="text" class="form-control" id="exampleInputEmail1"  placeholder="Visitor name">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Phone number</label>
-                      <input value="01218992019" type="text" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+                      <input value="{{VisitorObj.phoneNo}}" type="text" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Select time of appointment</label>
-                        <select class="form-control">
+                        <select (change)="getTimeValue($event)" class="form-control">
                             <option value="">Select time</option>
-                            <option value="">5:00:00</option>
-                            <option value="">5:20:00</option>
-                            <option value="">5:40:00</option>
-                            <option value="">6:00:00</option>
+                            <option value="13:00:00">5:00:00</option>
+                            <option value="5:20:00">5:20:00</option>
+                            <option value="5:40:00">5:40:00</option>
+                            <option value="6:00:00">6:00:00</option>
                             <option value="">6:20:00</option>
                             <option value="">6:40:00</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-danger" style="margin-bottom: 10px;margin-top: 15px;border-radius: 20px;margin-left: 25%;width: 200px;">Book Now</button>
+                    <button (click)="book()" class="btn btn-danger" style="margin-bottom: 10px;margin-top: 15px;border-radius: 20px;margin-left: 25%;width: 200px;">Book Now</button>
               
                 </form>
                </div>
