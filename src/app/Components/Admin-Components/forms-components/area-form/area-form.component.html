@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 mat-dialog-title>{{actionName}} Area</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="areaForm">  
+                <div class="mb-3">
+                  <label for="areaName" class="form-label">Area Name</label>
+                  <input class="form-control" name="areaName" placeholder="Area Name" required formControlName="areaName">
+                  <small class="text-danger" *ngIf="!areaForm.controls['areaName'].valid && 
+                  areaForm.controls['areaName']?.touched">Area Name is required</small>
+                </div>  
+                <div class="mb-3">
+                    <label for="" class="form-label">City</label>
+                    <select class="form-select" (change)="validateCity(areaForm.controls['city'].value)"  name="dep" id="departId"  class="form-control" formControlName="city">
+                        <option value="" >Select City...</option>
+                        <option *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</option>
+                      </select>
+                      <small *ngIf="cityErro && areaForm.controls['city'].touched" class="text-danger">City is required.</small>
+                  </div>
+        </form>
+    </div>
+    <div mat-dialog-action [align]="'end'">
+      <button mat-raised-button mat-button color="warn" mat-dialog-close>Close</button>
+      <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="addArea()" [disabled]="!areaForm.valid">{{actionName}}</button>
+    
+    </div>
+    </div>

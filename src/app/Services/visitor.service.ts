@@ -19,7 +19,7 @@ export class VisitorService {
   }
 
   getVisitorById(Id:any) : Observable<Patient>{
-    return this._httpClient.get<Patient>(`${this.visitorAPI}/GetPatientById?patientId=${Id}`);
+    return this._httpClient.get<Patient>(`${this.visitorAPI}/GetPatientByIdWithData?patientId=${Id}`);
   }
 
 }

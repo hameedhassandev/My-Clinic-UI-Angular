@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Doctor } from 'src/app/Models/Doctor';
 import { DoctorService } from 'src/app/Services/doctor.service';
 import { ConfirmDoctorFormComponent } from '../../forms-components/confirm-doctor-form/confirm-doctor-form.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirmed-doctors',
@@ -20,15 +21,25 @@ export class ConfirmedDoctorsComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   doctorList : Doctor[] = [];
-  constructor(public _dialog: MatDialog ,private _doctorService:DoctorService) {
+  constructor(public _dialog: MatDialog ,private _doctorService:DoctorService
+    , private _router:ActivatedRoute,private rourer :Router) {
     
   }
   ngOnInit(): void {
-    this.getAllConfirmedDoctors();
+    this._router.paramMap.subscribe((params) => {
+      const status = params.get('status');
+      if(status === 'confirmed'){
+        this.getAllConfirmedDoctors();
+      }else if(status === 'notConfirmed')
+      {
+        this.changedToNotConfirmed();
+      }
+
+    });  
   }
 
   getAllConfirmedDoctors(){
-
+    this.rourer.navigate(['/admin/confirmed-doctors/confirmed',]);
     this._doctorService.GetAllConfirmedDoctors().subscribe(doctors =>{
       console.log(doctors)
       this.title = 'Confirmed Doctors'
@@ -40,6 +51,7 @@ export class ConfirmedDoctorsComponent implements OnInit {
 
 
   changedToNotConfirmed(){
+    this.rourer.navigate(['/admin/confirmed-doctors/notConfirmed',]);
     this._doctorService.GetAllNotConfirmedDoctors().subscribe(doctors =>{
       console.log(doctors)
       this.title = 'Not Confirmed Doctors'
@@ -55,11 +67,17 @@ export class ConfirmedDoctorsComponent implements OnInit {
       height:'90%',
       data:id
     }).afterClosed().subscribe(val => {
-     
-        //this.getAllConfirmedDoctors();
-      
+           
     })
   }
 
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }

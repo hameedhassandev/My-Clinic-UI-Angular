@@ -49,7 +49,6 @@ import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-de
 import { VisitorCommentsComponent } from './Components/Shared-Components/visitor-comments/visitor-comments.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/confirmed-doctors/confirmed-doctors.component';
-import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/not-confirmed-doctors/not-confirmed-doctors.component';
 import { SideBarComponent } from './Components/Doctor-Components/side-bar/side-bar.component';
 import { DoctorHeaderComponent } from './Components/Doctor-Components/doctor-header/doctor-header.component';
 import { DoctorHomeComponent } from './Components/Doctor-Components/doctor-home/doctor-home.component';
@@ -59,6 +58,14 @@ import { ConfirmDoctorFormComponent } from './Components/Admin-Components/forms-
 import { AppointmentsComponent } from './Components/Doctor-Components/appointments/appointments.component';
 import { BookDoctorComponent } from './Components/Visitor-Component/book-doctor/book-doctor.component';
 import { UpdateProfileComponent } from './Components/Doctor-Components/update-profile/update-profile.component';
+import { AreaComponent } from './Components/Admin-Components/area/area.component';
+import { InsuranceComponent } from './Components/Admin-Components/insurance/insurance.component';
+import { InsuranceFormComponent } from './Components/Admin-Components/forms-components/insurance-form/insurance-form.component';
+import { AreaFormComponent } from './Components/Admin-Components/forms-components/area-form/area-form.component';
+import { MyProfileComponent } from './Components/Visitor-Component/my-profile/my-profile.component';
+import { MyAppointmentComponent } from './Components/Visitor-Component/my-appointment/my-appointment.component';
+import { CheckMailComponent } from './Components/Auth-Components/check-mail/check-mail.component';
+import { EmailTokenComponent } from './Components/Auth-Components/email-token/email-token.component';
 
 
   
@@ -90,7 +97,6 @@ import { UpdateProfileComponent } from './Components/Doctor-Components/update-pr
     DoctorDetailsComponent,
     VisitorCommentsComponent,
     ConfirmedDoctorsComponent,
-    NotConfirmedDoctorsComponent,
     SideBarComponent,
     DoctorHeaderComponent,
     DoctorHomeComponent,
@@ -100,6 +106,14 @@ import { UpdateProfileComponent } from './Components/Doctor-Components/update-pr
     AppointmentsComponent,
     BookDoctorComponent,
     UpdateProfileComponent,
+    AreaComponent,
+    InsuranceComponent,
+    InsuranceFormComponent,
+    AreaFormComponent,
+    MyProfileComponent,
+    MyAppointmentComponent,
+    CheckMailComponent,
+    EmailTokenComponent,
     
   ],
   imports: [

@@ -56,23 +56,23 @@ export class RegisterAsDoctorComponent implements OnInit{
   
   this.finalRegisterForm = this._fb.group({
     p1 :this._fb.group({
-      userName: ['osama88', Validators.required],
-      email: ['osamaali88@gmail.com  ', Validators.required],
-      fullName: ['osama ali ahmed',Validators.required],
-      doctorTitle: ['title text',Validators.required],
-      password: ['Osama33@',Validators.required],
-      phoneNo: ['01128199201',Validators.required],
+      userName: ['', Validators.required],
+      email: ['', Validators.required],
+      fullName: ['',Validators.required],
+      doctorTitle: ['',Validators.required],
+      password: ['',Validators.required],
+      phoneNo: ['',Validators.required],
     
 
   }),
 
     p2 : this._fb.group({
-        gender: ['0',Validators.required],
-        cities: ['0', Validators.required],
-        areaId: ['1', Validators.required],
-        address: ['osama address',Validators.required],
-        cost: ['500',Validators.required],
-        waitingTime: ['20',Validators.required],    
+        gender: ['',Validators.required],
+        cities: ['', Validators.required],
+        areaId: ['', Validators.required],
+        address: ['',Validators.required],
+        cost: ['',Validators.required],
+        waitingTime: ['',Validators.required],    
   }),
 
     p3: this._fb.group({
@@ -247,8 +247,8 @@ register(){
     this._authSrevice.RegisterAsDoctor(data).subscribe(
       {
         next:(data) =>{
-          alert('register successfully')
-          
+
+          this._router.navigate(['/check-email']);          
         },error:(err)=>{
 
           console.log(err.error);

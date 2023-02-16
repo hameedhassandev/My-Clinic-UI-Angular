@@ -12,20 +12,20 @@ export class TimeofworkService {
   private timeOfWorkAPI : string = environment.APIURL + "/TimesOfWork";
   httpOptions:any
   constructor(private _httpClient:HttpClient, private _authService : AuthSerciceService) {
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-       // Authorization: accountService.GetToken()
-      })
-    };
+    if(_authService.isLogged()){
+      this.httpOptions = {
+        headers: new HttpHeaders({Authorization: _authService.GetToken()})
+      };
+    }
+   
    }
 
   getAllAppointmentByDocId(doctorId:string): Observable<TimeOfWork>{
     return this._httpClient.get<TimeOfWork>(`${this.timeOfWorkAPI}/GetDatesOfDoctor?doctorId=${doctorId}`)
   }
 
-  getAllTimesByDocId(): Observable<TimeOfWork>{
-    return this._httpClient.get<TimeOfWork>(`${this.timeOfWorkAPI}/GetAvailableTimesOfDoctorNext3Days?doctorId=2520068d-2c88-41a1-8582-ff44b19c0a55`)
+  getAllTimesByDocId(doctorId:any): Observable<TimeOfWork>{
+    return this._httpClient.get<TimeOfWork>(`${this.timeOfWorkAPI}/GetAvailableTimesOfDoctorNext3Days?doctorId=${doctorId}`)
   }
   
 
@@ -35,7 +35,7 @@ export class TimeofworkService {
   }
 
   removeAppointement(id:any){
-    return this._httpClient.delete<any>(`${this.timeOfWorkAPI}/DeleteTimeOfDoctor?TimeId=${id}`)
+    return this._httpClient.delete<any>(`${this.timeOfWorkAPI}/DeleteTimeOfDoctor?TimeId=${id}`,this.httpOptions)
  
   }
 }

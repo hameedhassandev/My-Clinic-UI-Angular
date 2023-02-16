@@ -1,4 +1,6 @@
 import { Data } from "@angular/router"
+import { Patient } from "./Patient"
+import { Doctor } from "./Doctor"
 
 export interface Book{
     id:number,
@@ -7,5 +9,6 @@ export interface Book{
     expiryDate:Data,
     isConfirmed:Boolean,
     doctorId:string,
-    patientId:string
+    patient:Patient | null
+    doctor :Doctor | null
 }

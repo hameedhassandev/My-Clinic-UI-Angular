@@ -16,8 +16,7 @@ export class HospitalServiceService {
   constructor(private _httpClient: HttpClient,private authService : AuthSerciceService) { 
     this.httpOptions = {
       headers: new HttpHeaders({
-       'Content-Type': 'application/json',
-       // Authorization: authService.GetToken()
+       Authorization: authService.GetToken()
       })
     };
   }
@@ -31,15 +30,16 @@ export class HospitalServiceService {
   }
 
   addHospital(hosp:any){
-    return this._httpClient.post<any>(`${this.hospitalServiceAPI}/AddHospital`,hosp)
+    return this._httpClient.post<any>(`${this.hospitalServiceAPI}/AddHospital`,hosp,this.httpOptions)
   }
 
   updateHospital(UpdatedHosp:any){
-    return this._httpClient.put<any>(`${this.hospitalServiceAPI}/UpdateHospital`,UpdatedHosp)
+    console.log(UpdatedHosp)
+    return this._httpClient.put<any>(`${this.hospitalServiceAPI}/UpadteHospital`,UpdatedHosp)
   }
 
   deleteDepartment(hospId: number):Observable<Hospital> {
-    return this._httpClient.delete<Hospital>(`${this.hospitalServiceAPI}/DeleteHospital/${hospId}`)
+    return this._httpClient.delete<Hospital>(`${this.hospitalServiceAPI}/DeleteHospital?id=${hospId}`)
 
   }
 

@@ -15,8 +15,7 @@ export class SpecialistServiceService{
   constructor(private _httpClient:HttpClient, private _authService : AuthSerciceService) { 
     this.httpOptions = {
       headers: new HttpHeaders({
-       'Content-Type': 'application/json',
-       // Authorization: authService.GetToken()
+       Authorization: _authService.GetToken()
       })      
     };
   }
@@ -34,11 +33,11 @@ export class SpecialistServiceService{
   }
 
   addSpecialist(spec:any){
-    return this._httpClient.post<any>(`${this.spcialistAPI}/AddSpecialist`,spec)
+    return this._httpClient.post<any>(`${this.spcialistAPI}/AddSpecialist`,spec,this.httpOptions)
   }
 
-  updateSpecialist(specId : number, UpdatedSpec:any){
-    return this._httpClient.put<any>(`${this.spcialistAPI}/UpdateSpecialist/${specId}`,UpdatedSpec)
+  updateSpecialist(UpdatedSpec:any){
+    return this._httpClient.put<any>(`${this.spcialistAPI}/UpdateSpecialist`,UpdatedSpec,this.httpOptions)
   }
 
   deleteSpecialist(specId: number):Observable<Specialist> {

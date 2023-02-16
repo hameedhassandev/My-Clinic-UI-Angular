@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-layout-component.component.css']
 })
 export class AdminLayoutComponentComponent implements OnInit{
+  title = 'My Clinic';
   sideBarOpen =true;
   ngOnInit(): void {
   }

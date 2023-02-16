@@ -14,8 +14,7 @@ export class RateAndReviewService {
   constructor(private _httpClient:HttpClient, private _authService : AuthSerciceService) { 
     this.httpOptions = {
       headers: new HttpHeaders({
-       'Content-Type': 'application/json',
-       // Authorization: authService.GetToken()
+       Authorization: _authService.GetToken()
       })      
     };
   }
@@ -24,4 +23,8 @@ export class RateAndReviewService {
     return this._httpClient.get<RateAndReviews[]>(`${this.rateAndReviewAPI}/GetReviewsOfDoctor?doctorId=${docId}`);
   }
 
+  addRateAndReview(data:any){
+    return this._httpClient.post<any>(`${this.rateAndReviewAPI}/AddRateAndReview`,data,this.httpOptions);
+
+  }
 }

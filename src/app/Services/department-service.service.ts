@@ -15,8 +15,7 @@ export class DepartmentServiceService {
   constructor(private _httpClient: HttpClient, authService : AuthSerciceService) { 
     this.httpOptions = {
       headers: new HttpHeaders({
-       'Content-Type': 'application/json',
-       // Authorization: authService.GetToken()
+        Authorization: authService.GetToken()
       })
     };
   }
@@ -31,11 +30,11 @@ export class DepartmentServiceService {
 
   addDepartment(dep:any){
     console.log(dep);
-    return this._httpClient.post<Department>(`${this.depServiceApi}/AddDepartment`,dep)
+    return this._httpClient.post<Department>(`${this.depServiceApi}/AddDepartment`,dep,this.httpOptions)
   }
 
-  updateDepartment(depId : number, UpdatedDep:any){
-    return this._httpClient.put<any>(`${this.depServiceApi}/UpadteDepartment?id=${depId}`,UpdatedDep)
+  updateDepartment(UpdatedDep:any){
+    return this._httpClient.put<any>(`${this.depServiceApi}/UpadteDepartment`,UpdatedDep)
   }
 
   deleteDepartment(depId: number):Observable<Department> {

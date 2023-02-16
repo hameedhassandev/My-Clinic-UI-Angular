@@ -1,0 +1,81 @@
+<div class="my_appoi">
+    <div class="row" *ngFor="let b of visitorBook">
+        <div class="col-xs-12 col-md-11  block">
+        <div class="wrapper-progressBar">
+            <ul class="progressBar">
+            <li class="active">Book a doctor</li>
+            <li [ngClass]="b.isConfirmed ==true? 'active' : ''">Waiting for doctor accepting</li>
+            <li >Rate And Review Doctor</li>
+            </ul>
+            
+        </div>
+        </div>
+    <div class="container">
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-4">
+            <div class="card" id="book_doctor">
+            <img class="" src="data:image/*;base64,{{b.doctor['image']}}" alt="doc_image" id="doctor_img">
+            <h4 id="doctor_name" class="card-title"><span style="font-size: 12px;">Doctor </span>{{b.doctor['fullName']}}</h4>
+            <p><span style="font-weight: bold;">Address: </span>{{ b.doctor['address']}}, {{b.doctor['cities']}}</p>
+            <p><span style="font-weight: bold;">Date and time: </span>{{b.time}}</p>
+            <p><span style="font-weight: bold;">Cost: </span>{{b.doctor['cost']}}L.E</p>
+            <p style="font-size: 14px;font-weight: 500;">"First-come, first-served"</p>
+            </div>
+        </div>
+        <div class="col-4">
+            
+        </div>
+        <div class="col-4">
+            <div class="card" id="rate_form">
+            <form [formGroup]="rateAndReviewForm">
+                <!-- {{rateAndReviewForm.value |json}} -->
+           <input type="hidden" id="doctorId" value="{{b.doctor['id']}}" name="doctorId" #doctorId>  
+  
+                <div style="text-align: center;">
+                <div class="form-group rating">
+                    <label>
+                        <input type="radio" name="rate" value="1" formControlName="rate"/>
+                        <span class="fa fa-star icon"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="rate" value="2" formControlName="rate"/>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="rate" value="3" formControlName="rate"/>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>   
+                    </label>
+                    <label>
+                        <input type="radio" name="rate" value="4" formControlName="rate"/>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                    </label>
+                    <label>
+                        <input type="radio" name="rate" value="5" formControlName="rate"/>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                        <span class="fa fa-star icon"></span>
+                    </label>
+                </div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Enter your review..." maxlength="100" required formControlName="review"></textarea>
+                <small>Review with a max of 100 characters.</small>
+                </div>
+                <div style="text-align: center;">
+                    <button [disabled]="!b.isConfirmed" class="btn btn-warning" id="sub_btn" (click)="clickme(doctorId.value)" (click)="addRateReview()" >submit</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

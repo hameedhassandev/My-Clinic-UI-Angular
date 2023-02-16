@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthSerciceService } from 'src/app/Services/auth-service';
+import { RoleNames } from 'src/app/ViewModels/RoleNames';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,19 +9,28 @@ import { AuthSerciceService } from 'src/app/Services/auth-service';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent implements OnInit,DoCheck {
+  isUser = false
   isLogged:Boolean;
   userName:any;
   userId:any;
   constructor(private _authService:AuthSerciceService,private _router:Router){
     this.isLogged = false;
   }
-  /*DoCheck, Implements the ngDoCheck() 
-  method with custom change detection.
-  Watch the hook post changes to a log
-  to see how often Angular calls this hook.*/
+checkRole():Boolean{
+  var currentRole = this._authService.GetUserRoles();
+  var userRole = RoleNames.PatientRole
+  for(let r of currentRole){
+     if(r === userRole){    
+      this.isUser = true
+      return true;
+     }
+  }
+  return false
+}
 
   ngDoCheck(): void {
-    if(this._authService.isLogged()){
+    if(this._authService.isLogged() && this.checkRole())
+    {
       this.isLogged = true;
       this.userName = this._authService.GetUser().userName;
       this.userId = this._authService.GetUser().Id;
@@ -29,7 +39,8 @@ export class NavigationBarComponent implements OnInit,DoCheck {
     }
   }
   ngOnInit(): void {
-    if(this._authService.isLogged()){
+    //this.checkRole()
+    if(this._authService.isLogged() && this.checkRole()){
       this.isLogged = true;
       this.userName = this._authService.GetUser().userName;
       this.userId = this._authService.GetUser().Id;
@@ -46,9 +57,9 @@ export class NavigationBarComponent implements OnInit,DoCheck {
   }
 
   myProfile(){
-
+    this._router.navigate(['/home/my-profile']);
   }
   myAppointments(){
-
+    this._router.navigate(['/home/my-appointments']);
   }
 }

@@ -15,8 +15,7 @@ export class BookService {
   constructor(private _httpClient: HttpClient, authService : AuthSerciceService) { 
     this.httpOptions = {
       headers: new HttpHeaders({
-      // 'Content-Type': 'application/json',
-       // Authorization: authService.GetToken()
+       Authorization: authService.GetToken()
       })
     };
   }
@@ -24,8 +23,18 @@ export class BookService {
   gettAllBookOfDoctor(doctorId:any): Observable<Book[]>{
     return this._httpClient.get<Book[]>(`${this.bookApi}/GetBookingsOfDoctor?doctorId=${doctorId}`)
   }
+
   addBook(data:any){
-    return this._httpClient.post<any>(`${this.bookApi}/AddBook`,data)
+    return this._httpClient.post<any>(`${this.bookApi}/AddBook`,data,this.httpOptions)
+  }
+
+  getBookingByVisitorId(visitorId:any):Observable<Book[]>{
+    return this._httpClient.get<Book[]>(`${this.bookApi}/GetBookingsOfPatient?patientId=${visitorId}`)
+  }
+
+  confirmBook(bookId:any){
+    return this._httpClient.put<any>(`${this.bookApi}/ConfirmBook`,bookId);
+
   }
 
 }

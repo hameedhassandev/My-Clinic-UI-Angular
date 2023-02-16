@@ -22,6 +22,7 @@ export interface Doctor{
     address: string,
     gender:Gender,
     department: Department,
+    emailConfirmed:Boolean,
     specialists: Specialist[]|null,
     hospitals: Hospital[]|null,
     insurance:Insurance[]|null

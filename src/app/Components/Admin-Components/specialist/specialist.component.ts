@@ -60,7 +60,8 @@ openDialog() {
 editSpecialist(row:any){
   this._dialog.open(FormSpecialistComponent,{
     width:'40%',
-    height:'55%'
+    height:'55%',
+    data:row
   }).afterClosed().subscribe(val=>{
     if(val == 'Update'){
       this.getAllSpecialists();

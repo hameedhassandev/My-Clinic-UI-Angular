@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthSerciceService } from 'src/app/Services/auth-service';
 import { BookService } from 'src/app/Services/book.service';
 import { DoctorService } from 'src/app/Services/doctor.service';
@@ -24,7 +24,7 @@ export class BookDoctorComponent implements OnInit{
  VisitorObj:any
   constructor(private _timeOfWorkServ:TimeofworkService,private _doctorServ:DoctorService,
     private _authService:AuthSerciceService,private _visitorServ: VisitorService,
-    private _router: ActivatedRoute, private _bookSrvice:BookService) {
+    private _router: ActivatedRoute,private router:Router,private _bookSrvice:BookService) {
     
   }
   ngOnInit(): void {
@@ -69,7 +69,7 @@ book(){
   fData.append("PatientId",this.visitorId);
   this._bookSrvice.addBook(fData).subscribe({
     next:(data)=>{
-      alert("Book successfully");
+      this.router.navigate(['/home/my-appointments']);
     },
     error:(err)=> {
       alert("somthing error, err: "+ err.error)

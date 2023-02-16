@@ -17,8 +17,8 @@ export class DoctorFiltersComponent implements OnInit{
   isEmpty = true;
   citiesList :any;
   departmentList : any;
-  departId :any;
-  cityId: any;
+  departId :any |null;
+  cityId: any |null;
 constructor(private _doctorService:DoctorService, private _router: Router,
   private _ddlService: DropDownSelectService,private _departmentService : DepartmentServiceService, private router: ActivatedRoute) {
 
@@ -33,8 +33,8 @@ ngOnInit(): void {
   console.log(this.router.snapshot.queryParamMap.get('city'))
   this.cityId  = this.router.snapshot.queryParamMap.get('city');
   this.filter()
-  if(this.departId == null  && this,this.cityId == null)
-    this.getAllDoctors()
+  // if(this.departId == null  && this,this.cityId == null)
+  //   this.getAllDoctors()
  
 }
 
@@ -87,18 +87,27 @@ getDepartmentValue(departmentValue:any){
 }
 
 filter(){
+
+  console.log("department="+this.departId)
+
+  console.log("city="+this.cityId)
+
  var filterDoctor: DoctorFilterVM={
    departmentId:this.departId,
    cityId:this.cityId
  };
+ console.log('dataquery'+filterDoctor)
  this._doctorService.GetAllDoctorsWithFilter(filterDoctor).subscribe({
   next:(res)=>{
     this.doctorList = res
-    console.log('befor filter : '+this.isEmpty)    
+    console.log(''+this.isEmpty)    
     console.log(this.doctorList)
+    this.cityId = null
+    this.departId = null 
     if(this.doctorList.length === 0 ){
       this.isEmpty = false;
-      console.log('after filter : '+this.isEmpty)    
+      console.log('after filter : '+this.isEmpty)   
+   
 }
     
   },

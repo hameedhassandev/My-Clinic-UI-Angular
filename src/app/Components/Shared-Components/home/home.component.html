@@ -29,13 +29,14 @@
     <mat-form-field>
       <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> 
         Choose City</mat-label>
-      <mat-select (selectionChange)="getCityValue($event)" >
+      <mat-select (selectionChange)="getCityValue($event)">
         <mat-option  *ngFor="let c of citiesList" [value]="c.id">{{c.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-label><img src="assets/imges/home_icon/placeholder.png" alt="search_icon" id="search_icon"> Choose Area </mat-label>
       <mat-select>
+        <mat-option value="">All Areas</mat-option>
         <mat-option  *ngFor="let a of areaList" [value]="a.id">{{a.areaName}}</mat-option>
       </mat-select>
     </mat-form-field>

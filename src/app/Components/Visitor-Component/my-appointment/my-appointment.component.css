@@ -1,0 +1,157 @@
+.my_appoi{
+height: 100%;
+}
+.row{
+    width: 100%;
+}
+
+.wrapper-progressBar {
+    width: 100%
+}
+
+
+.progressBar li {
+    list-style-type: none;
+    float: left;
+    width: 33%;
+    position: relative;
+    text-align: center;
+}
+
+.progressBar li:before {
+    content: " ";
+    line-height: 30px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px;
+    background-color: white
+}
+
+.progressBar li:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #ddd;
+    top: 15px;
+    left: -50%;
+    z-index: -1;
+}
+
+.progressBar li:first-child:after {
+    content: none;
+}
+
+.progressBar li.active {
+    color: rgb(0, 112, 205);
+}
+
+.progressBar li.active:before {
+    border-color: rgb(0, 112, 205);
+    background-color: rgb(0, 112, 205);
+}
+
+.progressBar .active:after {
+    background-color: rgb(0, 112, 205);
+}
+
+#doctor_img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    
+}
+#doctor_name{
+   color: rgb(0, 112, 205);
+   font-family:  "Poppins", sans-serif;
+   font-weight: bold; 
+}
+#book_doctor{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+#rate_form{
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+  
+}
+#sub_btn{
+    color: white;
+    text-align: center;
+    border-radius:10px ;
+    background-color: #ffa904;;
+}
+.rating {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+  }
+  
+  .rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .rating label:last-child {
+    position: static;
+  }
+  
+  .rating label:nth-child(1) {
+    z-index: 5;
+  }
+  
+  .rating label:nth-child(2) {
+    z-index: 4;
+  }
+  
+  .rating label:nth-child(3) {
+    z-index: 3;
+  }
+  
+  .rating label:nth-child(4) {
+    z-index: 2;
+  }
+  
+  .rating label:nth-child(5) {
+    z-index: 1;
+  }
+  
+  .rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  
+  .rating label .icon {
+    float: left;
+    color: transparent;
+  }
+  
+  .rating label:last-child .icon {
+    color: #000;
+  }
+  
+  .rating:not(:hover) label input:checked ~ .icon,
+  .rating:hover label:hover input ~ .icon {
+    color: #ffa904;
+  }
+  
+  .rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #000;
+    text-shadow: 0 0 5px #ffa904;
+  }

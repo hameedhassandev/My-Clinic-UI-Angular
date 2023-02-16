@@ -1,0 +1,33 @@
+.card{
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
+
+}
+#status_accept{
+    border:1px solid #0dca2f ;
+    color: white;
+    background-color: #1ed33f;
+    border-radius: 16px;
+    padding: 5px;
+}
+#status_not_accept{
+    border:1px solid #ca0d0d ;
+    color: white;
+    background-color: #d61229;
+    border-radius: 16px;
+    padding: 5px;
+}
+
+.table{
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#accept_btn{
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+}

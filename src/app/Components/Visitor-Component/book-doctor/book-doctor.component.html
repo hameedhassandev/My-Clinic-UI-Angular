@@ -48,12 +48,15 @@
                         <label for="exampleInputPassword1">Select time of appointment</label>
                         <select (change)="getTimeValue($event)" class="form-control">
                             <option value="">Select time</option>
-                            <option value="13:00:00">5:00:00</option>
-                            <option value="5:20:00">5:20:00</option>
-                            <option value="5:40:00">5:40:00</option>
-                            <option value="6:00:00">6:00:00</option>
-                            <option value="">6:20:00</option>
-                            <option value="">6:40:00</option>
+                            <option value="18:00:00">18:00:00</option>
+                            <option value="18:30:00">18:30:00</option>
+                            <option value="5:40:00">19:00:00</option>
+                            <option value="6:00:00">19:30:00</option>
+                            <option value="">20:00:00</option>
+                            <option value="">21:00:00</option>
+                            <option value="">21:30:00</option>
+                            <option value="">22:00:00</option>
+                            <option value="">22:30:00</option>
                         </select>
                     </div>
                     <button (click)="book()" class="btn btn-danger" style="margin-bottom: 10px;margin-top: 15px;border-radius: 20px;margin-left: 25%;width: 200px;">Book Now</button>

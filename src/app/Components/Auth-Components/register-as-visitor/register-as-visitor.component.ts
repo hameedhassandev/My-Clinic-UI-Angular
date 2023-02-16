@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthSerciceService } from 'src/app/Services/auth-service';
 import { DropDownSelectService } from 'src/app/Services/drop-down-select.service';
 import { RegisterAsVisitorVM } from 'src/app/ViewModels/RegisterAsVisitorVM';
+import { RoleNames } from 'src/app/ViewModels/RoleNames';
 
 @Component({
   selector: 'app-register-as-visitor',
@@ -104,6 +105,8 @@ if(this.visitorRegisterForm.valid)
     next:(res)=>{
        // alert("User Register Successfully");
         this._router.navigate(['/confirm-email']);
+        //this._router.navigate(['/home/doctor-details',doctorId]);
+
         console.log(res);
 
       },error: err=>{

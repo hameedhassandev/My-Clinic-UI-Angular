@@ -1,1 +1,15 @@
+
+
+.custom{
+    border-radius: 50%;
+    width:50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+img.custom:hover,
+img.custom:focus {
+  height:190px;
+  width: 190px;
+  /* transition: .7s; */
+}
 @import'../../department/department.component.css'

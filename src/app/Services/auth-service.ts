@@ -5,8 +5,7 @@ import { Route, Router } from '@angular/router';
 import { LoginVM } from '../ViewModels/LoginVM';
 import { Observable } from 'rxjs';
 import { AuthUserVM } from '../ViewModels/AuthUserVM';
-import { RegisterAsDoctorVM } from '../ViewModels/RegisterAsDoctorVM';
-import { RegisterAsVisitorVM } from '../ViewModels/RegisterAsVisitorVM';
+
 
 
 @Injectable({
@@ -43,6 +42,14 @@ export class AuthSerciceService {
   
   UpdateImagePicture(userData:any){
     return this._httpClient.put<any>( `${this.serviceApi}/updateProfilePic`,userData);
+
+  }
+  confirmUserEmail(data:any){
+    return this._httpClient.post<any>( `${this.serviceApi}/ConfirmUserMail`,data);
+
+  }
+  confirmAdminToDoctorMail(doctorId:any){
+    return this._httpClient.post<any>( `${this.serviceApi}/ConfirmDoctorWithEmail`,doctorId,this.httpOptions);
 
   }
   isLogged() : Boolean

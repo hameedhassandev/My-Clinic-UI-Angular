@@ -17,3 +17,10 @@
     border-radius: 4px;
     background-color: rgb(229, 232, 236);
 }
+
+.table{
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+}

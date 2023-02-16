@@ -1,1 +1,32 @@
-<p>visitor-booking works!</p>
+<div class="container-fluid">
+    <div class="card">
+       <h1 style="text-align: center;">Visitors Booking</h1>
+       <div>
+        <table class="table table-bordered">
+            <thead class="table-success">
+              <tr>
+                <th>Visitor name</th>
+                <th>Visitor phone</th>
+                <th>Time of booking</th>
+                <th>Created at</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let b of allBook">
+                <td>{{b.patient['fullName']}}</td>
+                <td>{{b.patient['phoneNo']}}</td>
+                <td>{{b.time}}</td>
+                <td>{{b.createdAt}}</td>
+                <td *ngIf="b.isConfirmed"><span id="status_accept">Accepted</span></td>
+                <td *ngIf="!b.isConfirmed"><span id="status_not_accept">Waiting for accept</span></td>
+                <td *ngIf="b.isConfirmed">no action</td>
+                <td *ngIf="!b.isConfirmed"><a id="accept_btn" (click)="acceptBook(b.id)" class="btn btn-success">Accept Booking</a></td>
+              </tr>
+            </tbody>
+          </table>
+          
+       </div>
+    </div>
+</div>

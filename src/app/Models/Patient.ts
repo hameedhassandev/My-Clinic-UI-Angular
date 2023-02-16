@@ -1,3 +1,4 @@
+import { Book } from "./Book";
 import { Cities } from "./Cities";
 
 export interface Patient{
@@ -7,6 +8,7 @@ export interface Patient{
     address:string,
     cities:Cities,
     phoneNo:string,
+    bookings:Book[]|null
     
     
 }

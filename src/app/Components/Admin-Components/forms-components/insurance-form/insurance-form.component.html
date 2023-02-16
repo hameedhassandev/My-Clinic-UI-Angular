@@ -1,0 +1,24 @@
+<div class="container">
+    <h1 mat-dialog-title>{{actionName}} Hospital</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="insuranceForm">  
+                <div class="mb-3">
+                  <label for="companyName" class="form-label">Company Name</label>
+                  <input class="form-control" name="companyName" placeholder="Company Name" required formControlName="companyName">
+                  <small class="text-danger" *ngIf="!insuranceForm.controls['companyName'].valid && 
+                  insuranceForm.controls['companyName']?.touched">Company Name is required</small>
+                </div>  
+                <div class="mb-3">
+                    <label for="companyName" class="form-label">Discount</label>
+                    <input class="form-control" name="discount" placeholder="Discount (%)" type="number" required formControlName="discount">
+                    <small class="text-danger" *ngIf="!insuranceForm.controls['discount'].valid && 
+                    insuranceForm.controls['discount']?.touched">Discountis required</small>
+                  </div>   
+        </form>
+    </div>
+    <div mat-dialog-action [align]="'end'">
+      <button mat-raised-button mat-button color="warn" mat-dialog-close>Close</button>
+      <button style="margin-left: 10px;" mat-raised-button color="primary" (click)="addInsurance()" [disabled]="!insuranceForm.valid">{{actionName}}</button>
+    
+    </div>
+    </div>

@@ -19,8 +19,7 @@ export class DoctorService {
  constructor(private _httpClient: HttpClient, authService : AuthSerciceService) { 
    this.httpOptions = {
      headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      // Authorization: authService.GetToken()
+      Authorization: authService.GetToken()
      })
    };
   }

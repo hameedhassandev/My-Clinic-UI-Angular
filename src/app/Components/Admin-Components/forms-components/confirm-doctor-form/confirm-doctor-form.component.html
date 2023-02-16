@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-  <img src="assets/imges/admin/defult.jpg" alt="doctor_image" class="doctor_image"> 
+  <img src="data:image/*;base64,{{doctorObj.image}}" alt="doctor_image" class="doctor_image"> 
   <hr>
         <div class="row">
             
@@ -81,11 +81,44 @@
                     <label for="cost">Waiting time (min.)</label>
                     <input type="number" [(ngModel)]="doctorObj.waitingTime" class="form-control" id="pass" name="pass" readonly>
                   </div>
-                  <button type="submit" class="btn btn-secondary btn-block"  mat-dialog-close>Close</button>
-
-                  <button type="submit" class="btn btn-primary  btn-block">Confirm doctor and send email</button>
+             
+                
+                  <button *ngIf="!doctorObj.emailConfirmed" (click)="confirmDoctorAndSendEmail(doctorObj.id)" type="submit" class="btn btn-primary  btn-block">Confirm doctor and send email</button>
     
             </div>
+            <hr>
+            <!-- rate -->
+            <div class="col-6" *ngIf="doctorObj.emailConfirmed">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <th>Rate</th>
+                  <th>Review</th>
+                  <th>CreatedAt</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let r of doctorObj.ratesAndReviews">
+                    <td>{{r.rate}}/5</td>
+                    <td>"{{r.review}}"</td>
+                    <td>{{r.createdAt}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- book -->
+            <div class="col-6" *ngIf="doctorObj.emailConfirmed">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <th>Booking Date</th>
+                  <th>Created At</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let b of doctorObj.bookings">
+                    <td>{{b.time}}</td>
+                    <td>{{b.createdAt}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>                 
         </div>
 </div>
 

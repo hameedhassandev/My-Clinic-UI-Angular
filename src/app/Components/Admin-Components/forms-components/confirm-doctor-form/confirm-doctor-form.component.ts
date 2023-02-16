@@ -1,5 +1,7 @@
 import { Component, Inject,OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { AuthSerciceService } from 'src/app/Services/auth-service';
 import { DoctorService } from 'src/app/Services/doctor.service';
 
 @Component({
@@ -9,8 +11,8 @@ import { DoctorService } from 'src/app/Services/doctor.service';
 })
 export class ConfirmDoctorFormComponent implements OnInit{
   doctorObj : any
-  constructor(private _docServeic : DoctorService,  
-    @Inject(MAT_DIALOG_DATA) public id:any) {
+  constructor(private _docServeic : DoctorService,private router:Router,private _dialog : MatDialogRef<ConfirmDoctorFormComponent>,  
+    @Inject(MAT_DIALOG_DATA) public id:any,private _authServ:AuthSerciceService) {
     
   }
   ngOnInit(): void {
@@ -23,6 +25,22 @@ export class ConfirmDoctorFormComponent implements OnInit{
       next:(res)=>{
         this.doctorObj = res
         console.log(this.doctorObj)
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
+  }
+
+  confirmDoctorAndSendEmail(doctorId:any){
+    let formData = new FormData();
+    formData.append("doctorId",doctorId)
+    this._authServ.confirmAdminToDoctorMail(formData).subscribe({
+      next:(res)=>{
+        this.router.navigate(['/admin/confirmed-doctors/confirmed',]);
+       alert("confirmed and sent email")
+       this._dialog.close();
+       
       },
       error:(err)=>{
         console.log(err)

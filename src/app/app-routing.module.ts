@@ -17,7 +17,6 @@ import { ConfirmationMailComponent } from './Components/Auth-Components/confirma
 import { DoctorDetailsComponent } from './Components/Shared-Components/doctor-details/doctor-details.component';
 import { RegisterAsVisitorComponent } from './Components/Auth-Components/register-as-visitor/register-as-visitor.component';
 import { ConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/confirmed-doctors/confirmed-doctors.component';
-import { NotConfirmedDoctorsComponent } from './Components/Admin-Components/Dashboard/not-confirmed-doctors/not-confirmed-doctors.component';
 import { DoctorHomeComponent } from './Components/Doctor-Components/doctor-home/doctor-home.component';
 import { RateAndReviewComponent } from './Components/Doctor-Components/rate-and-review/rate-and-review.component';
 import { VisitorBookingComponent } from './Components/Doctor-Components/visitor-booking/visitor-booking.component';
@@ -27,6 +26,12 @@ import { AuthGuard } from './Guards/auth.guard';
 import { NotAuthGuard } from './Guards/not-auth.guard';
 import { UserRoleGuard } from './Guards/user-role.guard';
 import { RoleNames } from './ViewModels/RoleNames';
+import { AreaComponent } from './Components/Admin-Components/area/area.component';
+import { InsuranceComponent } from './Components/Admin-Components/insurance/insurance.component';
+import { MyProfileComponent } from './Components/Visitor-Component/my-profile/my-profile.component';
+import { MyAppointmentComponent } from './Components/Visitor-Component/my-appointment/my-appointment.component';
+import { CheckMailComponent } from './Components/Auth-Components/check-mail/check-mail.component';
+import { EmailTokenComponent } from './Components/Auth-Components/email-token/email-token.component';
 
 const routes: Routes = [
 
@@ -39,7 +44,9 @@ const routes: Routes = [
     {path:'department', component:DepartmentComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
     {path:'hospital', component:HospitalComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
     {path:'specialist', component:SpecialistComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
-    {path:'confirmed-doctors', component:ConfirmedDoctorsComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'confirmed-doctors/:status', component:ConfirmedDoctorsComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'area', component:AreaComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
+    {path:'insurance', component:InsuranceComponent, canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.AdminRole]}},
     
 
   ]},
@@ -51,9 +58,13 @@ const routes: Routes = [
     {path:'docotrs', component:DoctorComponent},
     {path:'docotr-register', component:RegisterAsDoctorComponent},
     {path:'confirm-email', component:ConfirmationMailComponent},
+    {path:'check-email', component:CheckMailComponent},
+    {path:'valid-email/:token/:email', component:EmailTokenComponent},
     {path:'home/all-doctors', component:DoctorFiltersComponent},
     {path:'home/doctor-details/:doctorId', component:DoctorDetailsComponent},
     {path:'home/book-doctor/:day/:doctorId', component:BookDoctorComponent,canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.PatientRole]}},
+    {path:'home/my-profile', component:MyProfileComponent,canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.PatientRole]}},
+    {path:'home/my-appointments', component:MyAppointmentComponent,canActivate:[AuthGuard,UserRoleGuard],data:{roles:[RoleNames.PatientRole]}},
     
 
   ]},

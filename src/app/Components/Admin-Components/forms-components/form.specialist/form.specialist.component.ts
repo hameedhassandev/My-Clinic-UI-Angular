@@ -29,7 +29,7 @@ export class FormSpecialistComponent implements OnInit {
     if(this.editeData){
       console.log(this.editeData);
       this.actionName="Update";
-      this.specialistForm.get('SpecialistName')?.setValue(this.editeData.SpecialistName);
+      this.specialistForm.get('SpecialistName')?.setValue(this.editeData.specialistName);
       this.specialistForm.get('departmentId')?.setValue(this.editeData.departmentId);
   }
   }
@@ -63,6 +63,10 @@ export class FormSpecialistComponent implements OnInit {
           }
         })
       }
+    }else{
+      fData.append("id",this.editeData.id)
+      this.updateSpecialist(fData);
+
     }
   }
   validateDepartment(depValue:any){
@@ -72,5 +76,19 @@ export class FormSpecialistComponent implements OnInit {
      }else{
       this.departmentError = false;
      }
+  }
+
+  updateSpecialist(fData:FormData){
+    this._specialistService.updateSpecialist(fData).subscribe({
+      next:(res)=>{
+        alert("Specialist updated successfully");
+        this.specialistForm.reset();
+        this._dialog.close('Update');
+      },
+      error:(err)=>{
+        alert('Somthing error while updating, try again!');
+        console.log(err);
+      }
+    })
   }
 }

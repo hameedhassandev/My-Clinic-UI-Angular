@@ -54,12 +54,13 @@ export class FormDepartmentComponent implements OnInit{
       }
     }
     else{
-      this.updateDepartment(this.editeData.id, fData);
+      fData.append("id",this.editeData.id)
+      this.updateDepartment(fData);
     }
 
   }
-  updateDepartment(id:number, fData:FormData){
-     this._departmenService.updateDepartment(id,fData).subscribe({
+  updateDepartment(fData:FormData){
+     this._departmenService.updateDepartment(fData).subscribe({
      next:(res)=>{
       alert("Department updated successfully");
       this.departmentForm.reset();
