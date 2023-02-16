@@ -2,6 +2,9 @@
 
 - My clinic is the easiest way of booking the best clinics. using Angular linked with ,NET core API project
 - API Server Repo: https://github.com/hameedhassandev/My-Clinic-API
+
+# Video 
+https://www.linkedin.com/posts/hameed-hassan-53a15b18b_dotnetcore-angular-activity-7032031459326504961-T2uX?utm_source=share&utm_medium=member_desktop
 # Screenshot
 - Home
 ![h1](https://user-images.githubusercontent.com/57669085/219423169-abc0cab0-5b2a-48c1-910a-d54a8ee30ab9.PNG)
